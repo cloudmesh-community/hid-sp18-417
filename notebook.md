@@ -11,5 +11,5 @@
 
 #Practice#
 ==
-* 1/15/2018 Insta;;ed Python 3
+* 1/15/2018 Installed Python 3
 * 1/30/2018 github cloning  of book repo and reviewed the pull req process.
