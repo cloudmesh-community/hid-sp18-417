@@ -5,9 +5,10 @@
 * 1/28/2018 Accounts creation and filling out the accounts form
 
 
-#Reading and Research#
+#Reading and Learning#
 ==
 * 1/30/2018: Handbook Reading
+* 1/30/2018: LaTex Tutorial
 
 #Practice#
 ==
