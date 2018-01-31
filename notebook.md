@@ -1,0 +1,9 @@
+#Assignments#
+1/28/2018 Accounts creation and filling out the accounts form
+
+
+#Reading and Research#
+1/30/2018: Handbook Reading
+
+#Practice#
+1/30/2018 github cloning  of book repo and reviewed the pull req process.
