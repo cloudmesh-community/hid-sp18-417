@@ -5,7 +5,7 @@
 * execute 
       python run.py
 
-* Here are the res url to check respective system params:
+* Here are the rest route to check respective system params:
 
       * http://127.0.0.1:5000/mysys/processor-name
       * http://127.0.0.1:5000/mysys/os-name
