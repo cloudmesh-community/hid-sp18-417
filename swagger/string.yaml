@@ -1,0 +1,70 @@
+swagger: "2.0"
+info:
+  description: "This is a simple service that will recieve a string in the query param and process the string to deliver the desired result.
+  \n Note: character limitation is 50"
+  version: "1.0.0"
+  title: "String Prcessing Center"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "rashray@iu.edu"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "localhost:8080"
+basePath: "/v2"
+tags:
+- name: "Strings"
+  description: "String queries are processed here"
+paths:
+  /uniqueCharList:
+    get:
+      tags:
+      - "Strings"
+      summary: "List all the unique characters"
+      description: "Get all the unique characters in the string listed in an array"
+      operationId: "uniQchar"
+      consumes:
+      - "string"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "query"
+        name: "inputString"
+        type: "string"
+        description: "The string to be processed"
+        required: true
+  
+      responses:
+        200:
+          description: "Successfully processed the string"
+        405:
+          description: "Please enter a valid string"
+        401:
+          description: "String length geater than limit"
+  /numCount:
+    get:
+      tags:
+      - "Strings"
+      summary: "Get a num Count"
+      description: "Count the total numeric digits in the string"
+      operationId: "numCount"
+      consumes:
+      - "string"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "query"
+        name: "inputString"
+        type: "string"
+        description: "The string to be processed"
+        required: true
+  
+      responses:
+        200:
+          description: "Successfully processed the string"
+        405:
+          description: "Please enter a valid string"
+        401:
+          description: "String length geater than limit"
+      
+    
