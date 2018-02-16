@@ -106,7 +106,7 @@ paths:
         200:
           description: "Successfully processed the string"
         405:
-          description: "Atleast one substr is bigget than the parent"
+          description: "Atleast one substr is bigger than the parent"
         401:
           description: "String length geater than limit"
       
