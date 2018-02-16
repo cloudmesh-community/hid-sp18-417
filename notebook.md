@@ -8,6 +8,7 @@
       git hub origanization
       eve setup in ubuntu bash
       rest assignment using eve
+ * 2/15/2018 Swagger specification document
 
 
 #Reading and Learning#
@@ -18,6 +19,7 @@
       Handbook study
       Mongo db installation and tutorial
  * 2/11/2018: Handbook: swagger chapters and lecture video
+ * 2/14/2018: Swagger and rest study
 
 #Practice#
 ==
