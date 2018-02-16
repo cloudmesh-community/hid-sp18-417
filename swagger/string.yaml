@@ -16,20 +16,20 @@ tags:
 - name: "Strings"
   description: "String queries are processed here"
 paths:
-  /uniqueCharList:
+  /parseString:
     get:
       tags:
       - "Strings"
-      summary: "List all the unique characters"
-      description: "Get all the unique characters in the string listed in an array"
-      operationId: "uniQchar"
+      summary: "List 1. all the unique characters; 2. numeric digits count"
+      description: "Get all the unique characters in the string listed in an array and the total number of numeric digits in the string"
+      operationId: "parseStr"
       consumes:
       - "string"
       produces:
       - "application/json"
       parameters:
       - in: "query"
-        name: "inputString"
+        name: "str"
         type: "string"
         description: "The string to be processed"
         required: true
@@ -41,20 +41,25 @@ paths:
           description: "Please enter a valid string"
         401:
           description: "String length geater than limit"
-  /numCount:
+  /getMatchData:
     get:
       tags:
       - "Strings"
-      summary: "Get a num Count"
-      description: "Count the total numeric digits in the string"
-      operationId: "numCount"
+      summary: "String Match"
+      description: "Find the matching data of two strings"
+      operationId: "matchStr"
       consumes:
       - "string"
       produces:
       - "application/json"
       parameters:
       - in: "query"
-        name: "inputString"
+        name: "subStr"
+        type: "string"
+        description: "The string to be matched"
+        required: true
+      - in: "query"
+        name: "str"
         type: "string"
         description: "The string to be processed"
         required: true
@@ -64,6 +69,44 @@ paths:
           description: "Successfully processed the string"
         405:
           description: "Please enter a valid string"
+        401:
+          description: "String length geater than limit"
+  
+  /replaceString:
+    get:
+      tags:
+      - "Strings"
+      summary: "Replace one old str with the new one"
+      description: "Replace the old str with the new one with in a new string."
+      operationId: "replaceStr"
+      consumes:
+      - "string"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "query"
+        name: "oldStr"
+        type: "string"
+        description: "Sub string to be replaced"
+        required: true
+      
+      - in: "query"
+        name: "newStr"
+        type: "string"
+        description: "Sub string replacing the old value"
+        required: true
+      
+      - in: "query"
+        name: "str"
+        type: "string"
+        description: "The string to be processed"
+        required: true
+  
+      responses:
+        200:
+          description: "Successfully processed the string"
+        405:
+          description: "Atleast one substr is bigget than the parent"
         401:
           description: "String length geater than limit"
       
