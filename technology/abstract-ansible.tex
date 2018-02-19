@@ -5,7 +5,7 @@ application deployment. Ansible is popular because it’s simple to understand, 
 An user doesn’t have to learn a cryptic language to use it.
 Ansible may use two kinds of server for operation. One is the controlling server that has Ansible installed.
 The controlling server deploys modules in the nodes through SSH channel. Ansible relies on agentless architecture.
-No agents are required to be installed in the nodes, this eases the network overhead.
-Modules are considered the units of work that can be written in scripting language such as Python
-~\cite {hid-sp18-417-wiki-Ansible}.
+No agents are required to be installed in the nodes, this eases the network overhead. \\
+‘‘Modules are considered to be the units of work in Ansible. Each module is mostly standalone and can be written in a standard scripting language (such as Python, Perl, Ruby, Bash, etc.). One of the guiding properties of modules is idempotency, which means that even if an operation is repeated multiple times (e.g., upon recovery from an outage), it will always place the system into the same state’’
+~\cite {hid-sp18-417-wiki-Ansible}. \\
 Originally, Ansible Inc. was setup to manage the product. Later in 2015, RedHat acquired Ansible.
