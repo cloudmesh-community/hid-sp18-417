@@ -34,4 +34,5 @@
 * 2/5/2018: online meeting with Proff Laszewski
 * 2/11/2018: online meeting with TA Tyler
 * 2/12/2018: online meeting with Proff Laszewski
+* 2/20/2018: online meeting with Proff Laszewski
 
