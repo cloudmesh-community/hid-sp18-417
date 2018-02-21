@@ -11,6 +11,7 @@
  * 2/15/2018 Swagger specification document
  * 2/18/2018 the abstract uploading to github
 * 2/19/2018 the abstract correction in github
+* 2/20/2018 the abstract content finalization
 
 #Reading and Learning#
 ==
