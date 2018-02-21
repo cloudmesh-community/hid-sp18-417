@@ -1,16 +1,23 @@
 \section{Ansible}
 \url{ https://www.ansible.com/ } \\
 Ansible is a widely popular open-source tool used for automation of configuration management,
-application deployment. Ansible is popular because it’s simple to understand, use and install.
-An user doesn’t have to learn a cryptic language to use it.
+application deployment. Ansible is popular because of its simplicity. Originally, Ansible Inc.
+was setup to manage the product. Later in 2015, RedHat acquired Ansible.\\
+‘‘It uses no agents and no additional custom security infrastructure, so it’s easy to deploy - 
+and most importantly, it uses a very simple language (YAML, in the form of Ansible Playbooks) 
+that allow you to describe your automation jobs in a way that approaches plain English.’’
+~\cite {hid-sp18-417-doc-Ansible}. \\
+An user doesn’t have to learn a cryptic language to use it. 
+As no agents are required to be installed in the nodes, the tool eases the network overhead. \\
 Ansible may use two kinds of server for operation. One is the controlling server that has Ansible installed.
-The controlling server deploys modules in the nodes through SSH channel. Ansible relies on agentless architecture.
-No agents are required to be installed in the nodes, this eases the network overhead. \\
-‘‘Modules are considered to be the units of work in Ansible. Each module is mostly standalone 
-and can be written in a standard scripting
-language (such as Python, Perl, Ruby, Bash, etc.). One of the guiding properties of 
-modules is idempotency, which means that even if an
-operation is repeated multiple times (e.g., upon recovery from an outage), 
-it will always place the system into the same state’’
-~\cite {hid-sp18-417-wiki-Ansible}. \\
-Originally, Ansible Inc. was setup to manage the product. Later in 2015, RedHat acquired Ansible.
+The controlling server deploys modules in the nodes through SSH channel. \\
+The basic component of Ansible archtecture are : \\
+\begin{itemize}
+\item        Modules: This is the unit of work \ task in Ansible. It can be written in any standard programming language
+\item        Plugins :
+\item        Inventory : Inventory is basically the nodes used
+\item        Playbooks : A play book in Ansible describes in simple languagethe 
+infrastucture used for the deployment of the tool. This is written in YAML.
+\end{itemize}
+
+
