@@ -1,5 +1,6 @@
 import connexion
 import six
+import csv
 
 from swagger_server import util
 
@@ -14,7 +15,12 @@ def add_str(str):  # noqa: E501
 
     :rtype: None
     """
-    return 'do some magic!'
+    str = ''
+    with open('data.csv', 'rb') as csvfile:
+        spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
+        for row in spamreader:
+            str += ', '.join(row)
+    return str
 
 
 def fetch_str(id):  # noqa: E501
