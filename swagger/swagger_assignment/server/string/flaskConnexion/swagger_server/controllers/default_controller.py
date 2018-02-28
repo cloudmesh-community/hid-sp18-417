@@ -1,5 +1,6 @@
 import connexion
 import six
+import csv
 
 from swagger_server.models.output import OUTPUT  # noqa: E501
 from swagger_server import util
@@ -15,7 +16,20 @@ def add_string_str_get(str):  # noqa: E501
 
     :rtype: OUTPUT
     """
-    return str
+    with open('data.csv', newline='') as f:
+        reader = csv.reader(f)
+        rowCount = len(list(reader))
+
+    with open('data.csv', 'a', newline='') as csvfile:
+       writer = csv.writer(csvfile)
+       writer.writerow([str(rowCount), str])
+    filereadStr = ''
+    with open('data.csv', newline='') as f:
+        reader = csv.reader(f)
+        for row in reader:
+            filereadStr += row 
+    outputStr = "You Entered:" + str + "\nfilereadStr"
+    return outputStr
 
 
 def fetch_string_id_get(id):  # noqa: E501
@@ -28,4 +42,7 @@ def fetch_string_id_get(id):  # noqa: E501
 
     :rtype: OUTPUT
     """
-    return id
+    with open('data.csv', 'r') as the_file:
+    reader = csv.reader(the_file)
+    line = next((x for i, x in enumerate(reader) if i == int(id)), None)
+    return line
