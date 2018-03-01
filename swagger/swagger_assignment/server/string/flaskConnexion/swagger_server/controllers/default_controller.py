@@ -42,7 +42,7 @@ def fetch_string_id_get(id):  # noqa: E501
 
     :rtype: OUTPUT
     """
-    with open('data.csv', 'r') as the_file:
+    with open('data/data.csv', 'r') as the_file:
         reader = csv.reader(the_file)
         line = next((x for i, x in enumerate(reader) if i == int(id)), None)
     return line
