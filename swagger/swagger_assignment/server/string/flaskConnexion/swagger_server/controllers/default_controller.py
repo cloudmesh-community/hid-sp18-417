@@ -23,13 +23,13 @@ def add_string_str_get(str):  # noqa: E501
     with open('data/data.csv', 'a') as csvfile:
        writer = csv.writer(csvfile)
        writer.writerow([rowCount, str])
-    filereadStr = ''
+    rowList = []
     with open('data/data.csv') as f:
         reader = csv.reader(f)
         for row in reader:
-            filereadStr += row 
+            rowList.append(row) 
     
-    return filereadStr
+    return rowList
 
 
 def fetch_string_id_get(id):  # noqa: E501
