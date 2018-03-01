@@ -16,15 +16,15 @@ def add_string_str_get(str):  # noqa: E501
 
     :rtype: OUTPUT
     """
-    with open('data/data.csv', newline='') as f:
+    with open('data/data.csv') as f:
         reader = csv.reader(f)
         rowCount = len(list(reader))
 
-    with open('data/data.csv', 'a', newline='') as csvfile:
+    with open('data/data.csv', 'a') as csvfile:
        writer = csv.writer(csvfile)
        writer.writerow([str(rowCount), str])
     filereadStr = ''
-    with open('data/data.csv', newline='') as f:
+    with open('data/data.csv') as f:
         reader = csv.reader(f)
         for row in reader:
             filereadStr += row 
