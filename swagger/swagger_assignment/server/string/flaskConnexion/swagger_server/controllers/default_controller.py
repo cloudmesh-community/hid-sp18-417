@@ -28,8 +28,8 @@ def add_string_str_get(str):  # noqa: E501
         reader = csv.reader(f)
         for row in reader:
             filereadStr += row 
-    outputStr = "You Entered:" + str + filereadStr
-    return outputStr
+    
+    return filereadStr
 
 
 def fetch_string_id_get(id):  # noqa: E501
