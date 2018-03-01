@@ -2,8 +2,8 @@
 This swagger API exploits CSV[/data/data.csv] to store and retrieve string data.
  
  ### Specification:
- String_init.yaml
- string.yaml[to be integrated]
+ * String_init.yaml
+ * string.yaml[to be integrated]
  
  ### Setup:
  * gitclone the codebase
