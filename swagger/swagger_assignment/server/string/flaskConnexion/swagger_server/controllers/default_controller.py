@@ -6,7 +6,7 @@ from swagger_server.models.output import OUTPUT  # noqa: E501
 from swagger_server import util
 
 
-def add_string_str_get(str):  # noqa: E501
+def add_string_str_get(entry):  # noqa: E501
     """add_string_str_get
 
      # noqa: E501
@@ -22,13 +22,13 @@ def add_string_str_get(str):  # noqa: E501
 
     with open('data/data.csv', 'a') as csvfile:
        writer = csv.writer(csvfile)
-       writer.writerow([str(rowCount), str])
+       writer.writerow([rowCount, entry])
     filereadStr = ''
     with open('data/data.csv') as f:
         reader = csv.reader(f)
         for row in reader:
             filereadStr += row 
-    outputStr = "You Entered:" + str + filereadStr
+    outputStr = "You Entered:" + entry + filereadStr
     return outputStr
 
 
