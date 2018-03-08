@@ -28,6 +28,7 @@
 * 1/15/2018 Installed Python 3
 * 1/30/2018 github cloning  of book repo and reviewed the pull req process.
 * 2/11/2018: Swagger rest API sampke from the handbook
+* 3/5/2018: Assignment and todo orgnaization in github issues
 
 #Online Meetings #
 ==
@@ -36,4 +37,5 @@
 * 2/11/2018: online meeting with TA Tyler
 * 2/12/2018: online meeting with Proff Laszewski
 * 2/19/2018: online meeting with Proff Laszewski
+* 3/05/2018: online meeting with Proff Laszewski
 
