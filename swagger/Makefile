@@ -6,16 +6,15 @@ CONFIGDIR=~/.cloudmesh/
 FLASKDIR=flaskConnexion/
 
 dest:
-	mkdir $(DESTDIR)
-	mkdir $(CONFIGDIR)
+	mkdir swagger_sp18_417
 
-service: dest
-	$(SWAGGERCODEGEN) generate -i $(YAMLFILE) -l python-flask -o $(DESTDIR) -D supportPython2=true
-	cp -r *.py $(DESTDIR)/swagger_server/controllers
-	cp -r $(DATA) $(FLASKDIR)
+service: 
+	java -jar swagger-codegen-cli-2.3.1.jar generate  -i string_init.yaml  -l python-flask  -o swagger_sp18_417/server/string/flaskConnexion  -D supportPython2=true
+	cp -r *.py swagger_sp18_417/server/string/flaskConnexion/swagger_server
+	cp -r data swagger_sp18_417/server/string/flaskConnexion
 
 run: 
-	cd $(DESTDIR) && pip install -r requirements.txt && \
+	cd swagger_sp18_417/server/string/flaskConnexion && pip install -r requirements.txt && \
 	python setup.py install && python -m swagger_server
 
 test:
