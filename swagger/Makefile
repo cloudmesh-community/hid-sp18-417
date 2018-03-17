@@ -18,7 +18,7 @@ run:
 	sudo python setup.py install && python -m swagger_server
 
 test:
-	curl http://localhost:8080/v2/addString/test me here
+	curl "http://localhost:8080/v2/addString/adding a new string"
 	            
 stop:
 	ps -ef | grep swagger | grep -v "grep"| awk '{print $$2}' | xargs kill -9
