@@ -14,8 +14,8 @@ service:
 	cp -r data swagger_sp18_417/server/string/flaskConnexion
 
 run: 
-	cd swagger_sp18_417/server/string/flaskConnexion && pip install -r requirements.txt && \
-	python setup.py install && python -m swagger_server
+	cd swagger_sp18_417/server/string/flaskConnexion && pip install -r requirements.txt && 
+	sudo python setup.py install && python -m swagger_server
 
 test:
 	            
