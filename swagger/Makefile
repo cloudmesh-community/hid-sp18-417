@@ -23,4 +23,4 @@ stop:
 	ps -ef | grep swagger | grep -v "grep"| awk '{print $$2}' | xargs kill -9
 
 clean:
-	rm -r $(DESTDIR)
+	sudo rm -r $(DESTDIR)
