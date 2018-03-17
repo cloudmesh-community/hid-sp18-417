@@ -10,7 +10,6 @@ dest:
 
 service: 
 	java -jar swagger-codegen-cli-2.3.1.jar generate  -i string_init.yaml  -l python-flask  -o swagger_sp18_417/server/string/flaskConnexion  -D supportPython2=true
-	cp -r *.py swagger_sp18_417/server/string/flaskConnexion/swagger_server
 	cp -r data swagger_sp18_417/server/string/flaskConnexion
 	cp -r default_controller.py swagger_sp18_417/server/string/flaskConnexion/swagger_server/controllers
 
