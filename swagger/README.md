@@ -1,5 +1,5 @@
 ## Swagger Rest API Assignment
-This swagger API exploits CSV[/data/data.csv] to store and retrieve string data.
+This swagger API exploits CSV storage [/data/data.csv] to store and retrieve string data.
  
  ### Specification:
  * String_init.yaml
@@ -7,11 +7,21 @@ This swagger API exploits CSV[/data/data.csv] to store and retrieve string data.
  
  ### Setup:
  * gitclone the codebase
- * change directory to swagger_assignment/server/string/flaskConnexion [ cd .../swagger_assignment/server/string/flaskConnexion]
- * Now install the requirements [pip install -r requirements.txt]
- * run setup.py [ python setup.py install]
- * finally run the server [python -m swagger_server]
- * now the needed end points can be used to consume the service
+ * MakeFile provided will generate the required code using the following command:
+    * `make service`
+    This is install the necessary folder origanization needed for swagger rest API
+    * `make run`
+    This will run the Flask server at localhost:8080. To make sure the setup is up and running you should see the following massage in       the console:
+    ``` 
+     Running on http://0.0.0.0:8080/ (Press CTRL+C to quit)
+    ```
+    * Now you can test the API either by system bowser or using the following command in a separate console window:
+        `make test`
+    * Once done testing the server can be stopped using cntrl+c on the console showing the server logs or by running the following the         separate broswer console: 
+       `make stop`
+    * finally the following command will clean the created folder structure for the API testing:
+       `make clean`
+    
  
  ### End-points:
  #### basepath is /v2
