@@ -9,7 +9,7 @@ dest:
 	mkdir $(DESTDIR)
 
 service: 
-	java -jar swagger-codegen-cli-2.3.1.jar generate  -i string_init.yaml  -l python-flask  -o $(FLASKDIR)  -D supportPython2=true
+	$(SWAGGERCODEGEN) generate  -i string_init.yaml  -l python-flask  -o $(FLASKDIR)  -D supportPython2=true
 	cp -r data $(FLASKDIR)
 	cp -r default_controller.py $(FLASKDIR)/swagger_server/controllers
 
