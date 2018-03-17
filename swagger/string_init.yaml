@@ -27,8 +27,7 @@ paths:
         responses:
           '200':
             description: Final OutPut
-            schema:
-              $ref: '#/definitions/OUTPUT'
+
   '/fetchString/{id}':
     get:
         parameters:
@@ -40,15 +39,6 @@ paths:
         responses:
           '200':
             description: Final OutPut
-            schema:
-              $ref: '#/definitions/OUTPUT'
+           
     
-definitions:
-  OUTPUT:
-    type: object
-    required:
-      - finalstring
-    properties:
-      finalstring:
-        type: string
       
