@@ -46,5 +46,7 @@ This swagger API exploits CSV storage [/data/data.csv] to store and retrieve str
   2, row 2
   }
    ``` 
+### Note:
+Some test data is already added to the CV to simulate the testing
 ### Error Handling:
 to do
