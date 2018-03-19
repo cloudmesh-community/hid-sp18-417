@@ -58,33 +58,32 @@ In Jul 2011 Citrix purchased the software and released it again. In 2012 Citrix
 renewed CloudStack licensed under the Apache and later donated the project to Apache.
 Since then The tool has graduated from Apache incubator and released in Mar 2013. 
 
-\section{Organization}
-
-\section{Deployment Architecture}
-
-\section{Terminology}
 
 \section{Key Features}
 {\bf Hypervisor Support: } A hypervisor or Virtual Machine Monitor is a software or firmware that creates 
 and runs virtual machines. CloudStack currently supports most of the major hypervisors.  CloudStack enables 
 a single cloud to constitute of multiple types of hypervisor implementations. This is considered a key 
 advantage when implementing CloudStack on an existing infrastructure to enable maximum use of the existing 
-resources. {\bf Massively Scalable:} ‘‘CloudStack can manage tens of thousands of physical servers installed
+resources. {\bf Massively Scalable:} CloudStack can manage tens of thousands of physical servers installed
 in geographically distributed datacenters. The management server scales near-linearly eliminating the need for
 cluster-level management servers. Maintenance or other outages of the management server can occur without
-affecting the virtual machines running in the cloud’’ ~\cite{hid-sp18-417-www-cloudstack-scalability}. 
+affecting the virtual machines running in the cloud ~\cite{hid-sp18-417-www-cloudstack-scalability}. 
 {\bf High Availability:} CloudStack provides features to increase availability. It enables the management server 
 deployed across multiple nodes, this increasing availability through load balancing. MYSQL can be configured
 simulate a replication that can serve as a fallback in case of data loss. The tool also provides a {\bf robust rest API} 
 for operation and management of the cloud. The API can be used with a CloudStack system as the underlying server. 
-The software also provides Amazon Web Services compatible API. ‘’CloudStack provides an EC2 API translation layer
-to permit the common EC2 tools to be used in the use of a CloudStack cloud.’’ ~\cite{hid-sp18-417-www-cloudstack-aws}
+The software also provides Amazon Web Services compatible API. CloudStack provides an EC2 API translation layer
+to permit the common EC2 tools to be used in the use of a CloudStack cloud. ~\cite{hid-sp18-417-www-cloudstack-aws}
 The tool also eases configuration management, Hypervisor agnostic, user management, snapshot management and 
 networking resource optimization. 
 {\bf GUI: } It might not be a prominent advantage for the cloud computing community as it mostly prefers to carryout 
 instruction in the console, but for occasional users it’s an added benefit that CloudStack provides an efficient 
 customizable Graphical User Interface. In all CloudStack provides a comprehensive package of features that can enable 
 an organization to deploy a full featured cloud Infrastructure.
+
+\section{Terminology}
+
+\section{Deployment Architecture}
 
 
 \section{Growth}
