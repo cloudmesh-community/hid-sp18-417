@@ -1,15 +1,14 @@
 SWAGGERCODEGEN=java -jar swagger-codegen-cli-2.3.1.jar
-YAMLFILE=string_init.yaml
+YAML=string_init.yaml
 DATA=data
 DESTDIR=server/
-CONFIGDIR=~/.cloudmesh/
 FLASKDIR=server/string/flaskConnexion
 
 dest:
 	mkdir $(DESTDIR)
 
 service: 
-	$(SWAGGERCODEGEN) generate  -i string_init.yaml  -l python-flask  -o $(FLASKDIR)  -D supportPython2=true
+	$(SWAGGERCODEGEN) generate  -i $(YAML)  -l python-flask  -o $(FLASKDIR)  -D supportPython2=true
 	cp -r data $(FLASKDIR)
 	cp -r default_controller.py $(FLASKDIR)/swagger_server/controllers
 
