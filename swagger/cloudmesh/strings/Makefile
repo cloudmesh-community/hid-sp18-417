@@ -1,9 +1,9 @@
 SWAGGERCODEGEN=java -jar swagger-codegen-cli-2.3.1.jar
 YAMLFILE=string_init.yaml
 DATA=data
-DESTDIR=swagger_sp18_417
+DESTDIR=server/
 CONFIGDIR=~/.cloudmesh/
-FLASKDIR=swagger_sp18_417/server/string/flaskConnexion
+FLASKDIR=server/string/flaskConnexion
 
 dest:
 	mkdir $(DESTDIR)
