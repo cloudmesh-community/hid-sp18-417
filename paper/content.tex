@@ -117,24 +117,24 @@ It is important to be aware of certain terminology to get an idea on
 how resources are organized in CloudStack. Grouping resources 
 appropriately enhances availability and fault tolerance. Here is the 
 list in descending order in terms of size:
-1)	The largest available unit in CloudStack infrastructure is a 
+\paragraph{Region:}	The largest available unit in CloudStack infrastructure is a 
 region. In case of a large Cloud network its ideal to group it into 
 several geographic regions. A region may consist of multiple datacenters
 located in proximity. It can be managed by one or a cluster of management
 servers. Data can be spanned across multiple regions so that in case of
 failure of one region the services will still be available from other regions(s).
-2)	A zone typically consists of a datacenter. A zone can have its own LAN
+\paragraph{Zone:}	A zone typically consists of a datacenter. A zone can have its own LAN
 network and supply line. 
-3)	A pod is typically a rack or cluster(s) of hosts. Hosts in a Pod are 
+\paragraph{Pod:}	A pod is typically a rack or cluster(s) of hosts. Hosts in a Pod are 
 expected to be in same subnet. 
-4)	A cluster is a group of hosts that can be a pool of VMwares or KVM 
+\paragraph{Cluster:} 	A cluster is a group of hosts that can be a pool of VMwares or KVM 
 servers. ``The hosts in a cluster all have identical hardware, run the same 
 hypervisor, are on the same subnet, and access the same shared primary storage.
 Virtual machine instances (VMs) can be live-migrated from one host to another
 within the same cluster, without interrupting service to the user''
 ~/cite{hid-sp18-417-www-cloudstack-cluster}
-5)	A host is a single node/host that has hypervisor installed.
-6)	At least one Primary Storage is associated with a cluster or zone. The 
+\paragraph{Host:}	A host is a single node/machine that has hypervisor installed.
+\paragraph{Storage:}	At least one Primary Storage is associated with a cluster or zone. The 
 storage is available to each cluster in the zone and store a virtual copy of 
 each VMs to be used in case of failure. CloudStack also offers a secondary storage
 option for ISO images and snapshots.
@@ -155,7 +155,7 @@ of the deployment can range from a single machine to thousands of
 nodes spread across the globe in several data centers several
 networking technologies.
 
-A CloudStack deployment primarily consists of a management server and
+\paragraph {} A CloudStack deployment primarily consists of a management server and
 set of resources [IP addresses, VLANs, storage systems] to constitute
 the cloud.  For simplest form of deployment, only one single machine
 can be used to serve both as the management server and hypervisor
