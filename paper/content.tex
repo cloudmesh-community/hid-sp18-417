@@ -175,19 +175,26 @@ API, Web Interface etc.
 
 \section{Installation}
 
-Before the CloudStack installation its important to decide on the resources,
+Before the CloudStack installation it is important to decide on the resources,
 deployment architecture-based on resources, hypervisors, network and storage 
 configurations. The management server needs Cent OS or ubuntu operating system
-with 64 bit x86 processor. The server needs a minimum of 4 GB RAM and 250 GB
-hard disk space. Each of the host must have hypervisor installed that is Hardware
-Virtual Machine[HVM] supported. A host optimally needs 64 bit x86 processor, 4 GB
+with 64bit x86 processor. The server needs a minimum of 4 GB RAM and 250 GB
+hard disk space. 
+
+\paragrap () Each of the host must have hypervisor installed that is Hardware
+Virtual Machine[HVM] supported. A host optimally needs 64bit x86 processor, 4 GB
 RAM, 36 GB hard disk. Each of the machines needs at least 1 Network Interface Card 
-to connect to the cloud network.  
+to connect to the cloud network.  After the OS installation vh-util need to be installed 
+in case Xen server. Now is time to install and configure the very first management 
+server following by setting up the mysql DB. Once the DB is setup it is important to 
+setup Primary and Secondary storage for high availability. Finally, the system virtual 
+machine template needs to be prepared for the secondary storage. Please note
+ that additional management servers can be added if required.
 
 \paragraph {Package Repository}: ``CloudStack is only distributed from source from the official
 mirrors. However, members of the CloudStack community may build convenience binaries 
 so that users can install Apache CloudStack without needing to build from source.''
- ~\cite{hid-sp18-417-www-cloudstack-package-repo} 
+ ~\cite{hid-sp18-417-www-cloudstack-package-repo}
 
 \section{Conclusion}
 
