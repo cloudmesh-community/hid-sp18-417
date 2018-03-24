@@ -185,20 +185,29 @@ hard disk space.
 
 \paragraph {Hypervisor Setup:} Each of the host must have hypervisor installed that is Hardware
 Virtual Machine[HVM] supported. A host optimally needs 64bit x86 processor, 4 GB
-RAM, 36 GB hard disk. Each of the machines needs at least 1 Network Interface Card 
+RAM, 36 GB hard disk. Its worth noting that while deploying CloudStack the Virtual 
+Machine shoild not be running. Each of the machines needs at least 1 Network Interface Card 
 to connect to the cloud network.  After the OS installation vh-util need to be installed 
 in case Xen server. Now is time to install and configure the very first management 
 server following by setting up the mysql DB. Once the DB is setup it is important to 
 setup Primary and Secondary storage for high availability. Finally, the system virtual 
 machine template needs to be prepared for the secondary storage. Please note
- that additional management servers can be added if required.
+ that additional management servers can be added if required. Iys an optional configuration.
 
 \paragraph {Package Repository}: ``CloudStack is only distributed from source from the official
 mirrors. However, members of the CloudStack community may build convenience binaries 
 so that users can install Apache CloudStack without needing to build from source.''~\cite{hid-sp18-417-www-cloudstack-package-repo}
 
 
-\section{OpenStack}
+\section{Best Practices}
+
+The official website of ClouStack recommends a set of best priactices for ease of 
+mainainance and installation. Its advised that a full scale producion deployment 
+can take 4-8 weeks, so the deployment to be planned accordingly for possible 
+fallabacks and troubleshooting.  For security evenry machine should be allowed contact 
+with limited resources and in a secure SSL channel. RAM and disk storage uasge monitoring 
+is the key to promote high availability. Regular apllication of hotfixes are also necsaary for 
+seamless operation.
 
 
 \section{Conclusion}
