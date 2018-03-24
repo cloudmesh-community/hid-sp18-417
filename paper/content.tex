@@ -96,7 +96,7 @@ API can be used with a CloudStack system as the underlying server.
 The software also provides Amazon Web Services compatible
 API. ``CloudStack provides an EC2 API translation layer to permit the
 common EC2 tools to be used in the use of a CloudStack
-cloud.'' ~\cite{hid-sp18-417-www-cloudstack-aws} The tool also eases
+cloud.''~\cite{hid-sp18-417-www-cloudstack-aws} The tool also eases
 configuration management, Hypervisor agnostic, user management,
 snapshot management and networking resource optimization.
 
@@ -129,18 +129,16 @@ expected to be in same subnet.
 servers. ``The hosts in a cluster all have identical hardware, run the same 
 hypervisor, are on the same subnet, and access the same shared primary storage.
 Virtual machine instances (VMs) can be live-migrated from one host to another
-within the same cluster, without interrupting service to the user''
-~/cite{hid-sp18-417-www-cloudstack-cluster}
+within the same cluster, without interrupting service to the user''~/cite{hid-sp18-417-www-cloudstack-cluster}
 \paragraph{Host:}	A host is a single node/machine that has hypervisor installed.
 \paragraph{Storage:}	At least one Primary Storage is associated with a cluster or zone. The 
 storage is available to each cluster in the zone and store a virtual copy of 
 each VMs to be used in case of failure. CloudStack also offers a secondary storage
 option for ISO images and snapshots.
 Figure~\ref{F:cloudstack-resource-group} depicts how resource can 
-be grouped in a CloudStack
-deployment.
+be grouped in a CloudStack deployment.
 \begin{figure}[htb]
-\includegraphics[width=\textwidth]{images/hid-sp18-417-cloudstack.png}
+\includegraphics[width=\textwidth]{../images/hid-sp18-417-cloudstack.png}
 \caption{CloudStack Resource Organization~\cite{hid-sp18-417-cloudstack-resource-grouping}}
 \label{F:cloudstack-resource-group}
 \end{figure}
@@ -164,7 +162,7 @@ on a dedicated machine or as a virtual machine. It controls allocation
 of virtual machines to hosts and assigns storage and IP addresses to
 the virtual machine instances. The Management Server runs in an Apache
 Tomcat container and requires a MySQL database for
-persistence.'' ~\cite{hid-sp18-417-www-cloudstack-management-server} 
+persistence.''~\cite{hid-sp18-417-www-cloudstack-management-server} 
 The management server as the name suggests provides the single point 
 Management controlling the configurations, snapshots, resources monitoring, 
 API, Web Interface etc. 
@@ -191,7 +189,7 @@ machine template needs to be prepared for the secondary storage. Please note
 
 \paragraph {Package Repository}: ``CloudStack is only distributed from source from the official
 mirrors. However, members of the CloudStack community may build convenience binaries 
-so that users can install Apache CloudStack without needing to build from source.'' ~\cite{hid-sp18-417-www-cloudstack-package-repo}
+so that users can install Apache CloudStack without needing to build from source.''~\cite{hid-sp18-417-www-cloudstack-package-repo}
 
 
 \section{Security}
