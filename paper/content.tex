@@ -23,11 +23,11 @@
 
   In this ever-evolving age of cloud computing, it is important for
   organizations to adopt the right cloud orchestration tool to promote
-  the rapid growth of their infrastructure. Ease of maintainance, 
+  the rapid growth of their infrastructure. Ease of maintenance, 
   robust research-base for future growth
   also facilitates the process. CloudStack can be the solution to 
-  the problem. Apache CloudStack is a top level project from Apache, so it
-  indeed has a support of a solid team of researchers.
+  the problem. Apache CloudStack is a top-level project from Apache Foundation.
+.
 
 \end{abstract}
 
@@ -45,18 +45,18 @@ platform. CloudStack is used by a number of service providers to offer
 public cloud services, and by many companies to provide an on-premises
 (private) cloud offering, or as part of a hybrid cloud
 solution.''~\cite{hid-sp18--417-www-cloudstack-intro}. 
-It is a Java based project.
+It is a primarily a Java based project.
 
 
 \section{History}
 
-The CloudStack was originally developed by cloud.com formerly know as
-VMOs.  The project started in 2008 and was released under GNU general
-public license.  In 2010, Microsoft partnered with cloud.com to 
-facilitate support of microsoft server intergration. 
-In Jul 2011 Citrix purchased the software and
-released it again. In 2012 Citrix renewed CloudStack licensed under
-the Apache and later donated the project to Apache.  Since then The
+CloudStack project was initiated by cloud.com, formerly known as
+VMOps.  The project started in 2008 and was released under GNU general
+public license in 2010.  In the same year Microsoft partnered with cloud.com to 
+facilitate support of Microsoft server integration. 
+In Jul 2011, Citrix purchased the software and
+released it again. In 2012 Citrix renewed CloudStack license under
+the Apache and later donated the project to Apache.  Since then the
 tool has graduated from Apache incubator and released in Mar 2013.
 
 
@@ -99,6 +99,7 @@ Interface. In all CloudStack provides a comprehensive package of
 features that can enable an organization to deploy a full featured
 cloud Infrastructure. ClaoudStack also offers CloudMonkey CLI 
 tool to easy orchestration from console.
+
 
 \section{Terminology}
 
@@ -158,6 +159,16 @@ The management server as the name suggests provides the single point
 Management controlling the configurations, snapshots, resources monitoring, 
 API, Web Interface etc. 
 
+\paragraph CloudStack supports a {pluggable model}. This model enables 
+different features to fit in as different components. ``Customers may 
+choose SDN support from Nicira, Midokura or Big Switch Networks and 
+choose load balancing using NetScaler or F5. For object storage, CloudStack
+offers a choice of products from Basho, Caringo, Cloudian or EMC's Atmos.
+Users also may choose OpenStack's Swift component.’’ ~\cite{hid-sp18-417-www-cloudstack-model }
+This model provides flexibility for the organizations to scale their 
+infrastructure using latest technology as well as reusing the existing 
+resources.
+
 
 
 \section{Installation}
@@ -184,24 +195,23 @@ so that users can install Apache CloudStack without needing to build from source
 
 
 \section{Security}
-CloidStack has a dedicated security team to identify possible vulnerabilities and address to breach reports. 
+CloudStack has a dedicated security team to identify possible vulnerabilities and address to breach reports. 
 
 \section{Conclusion}
 
 CloudStack provides a comprehensive package or unique features and flexibility for the 
-organization to develop a robust cloud architecture. The platform being an open source projec
+organization to develop a robust cloud architecture. The platform being an open source project
 from Apache foundation, it provides a regular stable updates and releases that enables it to 
 stay in put with the latest in the industry. There is a strong developer community support
-being CloudStack. CouldStack community normally releases a long term release every two years.
+being CloudStack. CloudStack community normally releases a long term release every two years.
 
-\paragraph {CustomerBase:} There can be short term releases for bug fixes or security patches.
+\paragraph {Customer Base:} There can be short term releases for bug fixes or security patches.
 The most recent source release of CloudStack is 4.11.0.0. Even if it provides a comparatively smoother deployment,
 it still involves a time-consuming process with several steps. For this purpose, some community 
 members provide package repositories for easier installation and deployment. 
 Regular events are being conducted all over the world to promote team collaborations and 
 contributions. Datapipe is one of the major user of CloudStack. The major users of CloudStack
-includes: Apple , Citrix Systems,  Dell,  Disney, Hitachi , Juniper Networks, PPTV, SAP, 
-WebMD etc. 
+includes: Apple, Citrix Systems, Dell, Disney, Hitachi , Juniper Networks, PPTV, SAP, WebMD etc. 
 
 
 \begin{acks}
@@ -213,3 +223,4 @@ WebMD etc.
 
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{report} 
+
