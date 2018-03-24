@@ -36,8 +36,7 @@
   the rapid growth of their infrastructure. Ease of maintainance, 
   robust research-base for future growth
   also facilitates the process. CloudStack can be the solution to 
-  the problem. Apache CloudStack is a top level project from Apache, so it
-  indeed has a support of a solid team of researchers.
+  the problem. Apache CloudStack is a top-level project from Apache Foundation.
 
 \end{abstract}
 
@@ -59,13 +58,13 @@ solution.''~\cite{hid-sp18-417-www-cloudstack-intro}. It is a Java based project
 
 \section{History}
 
-The CloudStack was originally developed by cloud.com formerly know as
-VMOs.  The project started in 2008 and was released under GNU general
-public license.  In 2010, Microsoft partnered with cloud.com to 
-facilitate support of microsoft server intergration. 
+CloudStack project was initiated by cloud.com, formerly known as
+VMOps.  The project started in 2008 and was released under GNU general
+public license in 2010.  In the same year Microsoft partnered with cloud.com to 
+facilitate support of Microsoft server integration. 
 In Jul 2011 Citrix purchased the software and
-released it again. In 2012 Citrix renewed CloudStack licensed under
-the Apache and later donated the project to Apache.  Since then The
+released it again. In 2012 Citrix renewed CloudStack license under
+the Apache and later donated the project to Apache.  Since then the
 tool has graduated from Apache incubator and released in Mar 2013.
 
 
@@ -83,7 +82,7 @@ maximum use of the existing resources.
 ``CloudStack can manage tens of thousands of physical servers installed
 in geographically distributed datacenters. The management server
 scales near-linearly eliminating the need for cluster-level management
-servers. Maintenance or other outages of the management server can
+servers. maintainance or other outages of the management server can
 occur without affecting the virtual machines running in the cloud''~\cite{hid-sp18-417-www-cloudstack-scalability}.
 
 \paragraph{High Availability:} CloudStack provides features to
@@ -129,7 +128,7 @@ expected to be in same subnet.
 servers. ``The hosts in a cluster all have identical hardware, run the same 
 hypervisor, are on the same subnet, and access the same shared primary storage.
 Virtual machine instances (VMs) can be live-migrated from one host to another
-within the same cluster, without interrupting service to the user''~/cite{hid-sp18-417-www-cloudstack-cluster}
+within the same cluster, without interrupting service to the user''~/cite{hid-sp18-417-www-cloudstack-management-cluster}
 \paragraph{Host:}	A host is a single node/machine that has hypervisor installed.
 \paragraph{Storage:}	At least one Primary Storage is associated with a cluster or zone. The 
 storage is available to each cluster in the zone and store a virtual copy of 
@@ -175,7 +174,7 @@ configurations. The management server needs Cent OS or ubuntu operating system
 with 64bit x86 processor. The server needs a minimum of 4 GB RAM and 250 GB
 hard disk space. 
 
-\paragraph (Hypervisor Setup) Each of the host must have hypervisor installed that is Hardware
+\paragraph {Hypervisor Setup:} Each of the host must have hypervisor installed that is Hardware
 Virtual Machine[HVM] supported. A host optimally needs 64bit x86 processor, 4 GB
 RAM, 36 GB hard disk. Each of the machines needs at least 1 Network Interface Card 
 to connect to the cloud network.  After the OS installation vh-util need to be installed 
@@ -191,7 +190,7 @@ so that users can install Apache CloudStack without needing to build from source
 
 
 \section{Security}
-CloidStack has a dedicated security team to identify possible vulnerabilities and address to breach reports. 
+CloudStack has a dedicated security team to identify possible vulnerabilities and address to breach reports. 
 
 \section{Conclusion}
 
@@ -199,9 +198,9 @@ CloudStack provides a comprehensive package or unique features and flexibility f
 organization to develop a robust cloud architecture. The platform being an open source projec
 from Apache foundation, it provides a regular stable updates and releases that enables it to 
 stay in put with the latest in the industry. There is a strong developer community support
-being CloudStack. CouldStack community normally releases a long term release every two years.
+being CloudStack. CloudStack community normally releases a long term release every two years.
 
-\paragraph {CustomerBase:} There can be short term releases for bug fixes or security patches.
+\paragraph {Customer Base:} There can be short term releases for bug fixes or security patches.
 The most recent source release of CloudStack is 4.11.0.0. Even if it provides a comparatively smoother deployment,
 it still involves a time-consuming process with several steps. For this purpose, some community 
 members provide package repositories for easier installation and deployment. 
