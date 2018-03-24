@@ -167,15 +167,6 @@ The management server as the name suggests provides the single point
 Management controlling the configurations, snapshots, resources monitoring, 
 API, Web Interface etc. 
 
-\paragraph {pluggable model} CloudStack supports a pluggable model. This model enables 
-different features to fit in as different components. ``Customers may 
-choose SDN support from Nicira, Midokura or Big Switch Networks and choose 
-load balancing using NetScaler or F5. For object storage, CloudStack offers a
-choice of products from Basho, Caringo, Cloudian or EMC's Atmos. Users also 
-may choose OpenStack's Swift component.’’ ~\cite{hid-sp18-417-www-cloudstack-model }
-This model provides flexibility for the organizations to scale their infrastructure
-using latest technology as well as reusing the existing resources.
-
 \section{Installation}
 
 Before the CloudStack installation it is important to decide on the resources,
@@ -184,7 +175,7 @@ configurations. The management server needs Cent OS or ubuntu operating system
 with 64bit x86 processor. The server needs a minimum of 4 GB RAM and 250 GB
 hard disk space. 
 
-\paragraph () Each of the host must have hypervisor installed that is Hardware
+\paragraph (Hypervisor Setup) Each of the host must have hypervisor installed that is Hardware
 Virtual Machine[HVM] supported. A host optimally needs 64bit x86 processor, 4 GB
 RAM, 36 GB hard disk. Each of the machines needs at least 1 Network Interface Card 
 to connect to the cloud network.  After the OS installation vh-util need to be installed 
