@@ -14,16 +14,6 @@
 }
 \email{rashray@iu.edu}
 
-\author{Gregor von Laszewski}
-\affiliation{%
-  \institution{Indiana University}
-  \streetaddress{Smith Research Center}
-  \city{Bloomington} 
-  \state{IN} 
-  \postcode{47408}
-  \country{USA}}
-\email{laszewski@gmail.com}
-
 
 % The default list of authors is too long for headers}
 \renewcommand{\shortauthors}{G. v. Laszewski}
@@ -201,13 +191,17 @@ so that users can install Apache CloudStack without needing to build from source
 
 \section{Best Practices}
 
-The official website of ClouStack recommends a set of best priactices for ease of 
-mainainance and installation. Its advised that a full scale producion deployment 
+The official website of CloudStack recommends a set of best practices for ease of 
+maintenance and installation. Its advised that a full-scale production deployment 
 can take 4-8 weeks, so the deployment to be planned accordingly for possible 
-fallabacks and troubleshooting.  For security evenry machine should be allowed contact 
-with limited resources and in a secure SSL channel. RAM and disk storage uasge monitoring 
-is the key to promote high availability. Regular apllication of hotfixes are also necsaary for 
-seamless operation.
+fallbacks and troubleshooting. It always eases the deployments issues if a the sophisticated 
+advanced system deployment is done after a staging. A system that is emulates the production 
+but in a smaller scale will help the deployment team foresee the issues well in advance. 
+For security, each machine should be allowed contact 
+with limited resources and over a secure SSL channel. RAM and disk storage usage monitoring 
+is the key to promote high availability. Regular application of hotfixes is also necessary for 
+seamless operation. Itis better to use smaller multiple storages per cluster than a big single one.
+This promotes high availability.
 
 
 \section{Conclusion}
