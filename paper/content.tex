@@ -106,8 +106,17 @@ Protocol, Network Address Translation and others.
 \section{Terminology}
 
 It is important to be aware of certain terminology to get an idea on
-how resources are organized in CloudStack. Grouping resources 
-appropriately enhances availability and fault tolerance. Here is the 
+how resources are organized in CloudStack.
+\paragraph{Management Server}:
+A management server is the control system of any CloudStack deployment. 
+Depending of the size or the cloud there can be multiple management 
+servers deployed to ease the traffic and facilitate high availability.
+A management server needs Apache Tomcat and MySQL server. The server
+controls the allocation of resources, manages snapshots and disk images,
+provides API interface.
+
+
+Grouping resources appropriately enhances availability and fault tolerance. Here is the 
 list in descending order in terms of size:
 \paragraph{Region:}	The largest available unit in CloudStack infrastructure is a 
 region. In case of a large Cloud network its ideal to group it into 
