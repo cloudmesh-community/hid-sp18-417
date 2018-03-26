@@ -12,7 +12,9 @@
  * 2/18/2018 the abstract uploading to github
 * 2/19/2018 the abstract correction in github
 * 2/20/2018 the abstract content finalization
-* 3/26/2018 MakeFile setup for Swagger API
+* 2/26/2018 MakeFile setup for Swagger API
+* 3/11/2018 - 3/25/2018 Technology papaer
+
 #Reading and Learning#
 ==
 * 1/30/2018: Handbook Reading
@@ -38,4 +40,8 @@
 * 2/12/2018: online meeting with Proff Laszewski
 * 2/19/2018: online meeting with Proff Laszewski
 * 3/05/2018: online meeting with Proff Laszewski
+* 3/12/2018: online meeting with Proff Laszewski
+* 3/19/2018: online meeting with Proff Laszewski
+* 3/25/2018: online meeting with Proff Laszewski
+* 3/26/2018: online meeting with Proff Laszewski
 
