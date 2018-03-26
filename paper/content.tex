@@ -31,7 +31,7 @@
 \end{abstract}
 
 \keywords{hid-sp18-417, CloudStack, apache, cloud architecture, cloud
-  technology, i516}
+  technology, IaaS, i516}
 
 \maketitle
 
@@ -60,13 +60,14 @@ tool has graduated from Apache incubator and released in Mar 2013.
 
 \section{Key Features}
 
-\paragraph{Hypervisor Support:} A hypervisor or Virtual Machine
-Monitor is a software or firmware that creates and runs virtual
-machines. CloudStack currently supports most of the major hypervisors.
-CloudStack enables a single cloud to constitute of multiple types of
-hypervisor implementations. This is considered a key advantage when
+\paragraph{Hypervisor Support:} CloudStack currently supports most of 
+the major hypervisors. It currently supports: XenServer with XAPI, KVM,
+and VMware with vSphere.
+CloudStack supports a single cloud to constitute of multiple types of
+hypervisor implementations. Hosts of a single cluster must run same
+software/hypervisor. This is considered a key advantage when
 implementing CloudStack on an existing infrastructure to enable
-maximum use of the existing resources. 
+maximum use of the existing resources. ~\cite{hid-sp18-417-www-cloudstack-hypervisor}.
 
 \paragraph{Massively Scalable:}
 ``CloudStack can manage tens of thousands of physical servers installed
