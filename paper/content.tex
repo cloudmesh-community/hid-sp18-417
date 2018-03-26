@@ -121,12 +121,12 @@ provides API interface.
 Grouping resources appropriately enhances availability and fault tolerance. Here is the 
 list in descending order in terms of size:
 \paragraph{Region:}	The largest available unit in CloudStack infrastructure is a 
-region. In case of a large Cloud network its ideal to group it into 
+region. In case of a large Cloud network it is ideal to group it into 
 several geographic regions. A region may consist of multiple datacenters
 located in proximity. It can be managed by one or a cluster of management
 servers. Data can be spanned across multiple regions so that in case of
 failure of one region the services will still be available from other regions(s).
-\paragraph{Zone:}	A zone typically consists of a datacenter. A zone can have its own LAN
+\paragraph{Zone:}	A zone typically consists of a datacenter. A zone can have it is own LAN
 network and supply line. 
 \paragraph{Pod:}	A pod is typically a rack or cluster(s) of hosts. Hosts in a Pod are 
 expected to be in same subnet. 
@@ -203,7 +203,7 @@ hard disk space.
 
 \paragraph {Hypervisor Setup:} Each of the host must have hypervisor installed that is Hardware
 Virtual Machine[HVM] supported. A host optimally needs 64bit x86 processor, 4 GB
-RAM, 36 GB hard disk. Its worth noting that while deploying CloudStack the Virtual 
+RAM, 36 GB hard disk. It is worth noting that while deploying CloudStack the Virtual 
 Machine shouid not be running. Each of the machines needs at least 1 Network Interface Card 
 to connect to the cloud network.  After the OS installation vh-util need to be installed 
 in case Xen server. Now is time to install and configure the very first management 
@@ -222,7 +222,7 @@ process. The packaged repositories are typically helpful for trial user. ~\cite{
 \section{Best Practices}
 
 The official website of CloudStack recommends a set of best practices for ease of 
-maintenance and installation. Its advised that a full-scale production deployment 
+maintenance and installation. It is advised that a full-scale production deployment 
 can take 4-8 weeks, so the deployment to be planned accordingly for possible 
 fallbacks and troubleshooting. It always eases the deployments issues if a sophisticated 
 advanced system deployment is done after a staging. A smaller system that emulates the production 
