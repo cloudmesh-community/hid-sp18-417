@@ -23,7 +23,7 @@
 
   In this ever-evolving age of cloud computing, it is important for
   organizations to adopt the right cloud orchestration tool to promote
-  the rapid growth of their infrastructure. Ease of maintainance, 
+  the rapid growth of their infrastructure. Ease of maintenance, 
   robust research-base for future growth
   also facilitates the process. CloudStack can be the solution to 
   the problem. Apache CloudStack is a top-level project from Apache Foundation.
@@ -72,7 +72,7 @@ maximum use of the existing resources.
 ``CloudStack can manage tens of thousands of physical servers installed
 in geographically distributed datacenters. The management server
 scales near-linearly eliminating the need for cluster-level management
-servers. maintainance or other outages of the management server can
+servers. maintenance or other outages of the management server can
 occur without affecting the virtual machines running in the cloud''~\cite{hid-sp18-417-www-cloudstack-scalability}.
 
 \paragraph{High Availability:} CloudStack provides features to
@@ -95,8 +95,13 @@ the console, but for occasional users it is an added benefit that
 CloudStack provides an efficient customizable Graphical User
 Interface. In all CloudStack provides a comprehensive package of
 features that can enable an organization to deploy a full featured
-cloud Infrastructure. ClaoudStack also offers CloudMonkey CLI 
+cloud Infrastructure. CloudStack also offers CloudMonkey CLI 
 tool to easy orchestration from console.
+
+CloudStack offers orchestration of networking from datalink layer
+to application layer through several secure channels:
+firewall, Virtual Private Network, Dynamic Host Configuration 
+Protocol, Network Address Translation and others.
 
 \section{Terminology}
 
@@ -176,13 +181,13 @@ hard disk space.
 \paragraph {Hypervisor Setup:} Each of the host must have hypervisor installed that is Hardware
 Virtual Machine[HVM] supported. A host optimally needs 64bit x86 processor, 4 GB
 RAM, 36 GB hard disk. Its worth noting that while deploying CloudStack the Virtual 
-Machine shoild not be running. Each of the machines needs at least 1 Network Interface Card 
+Machine shouid not be running. Each of the machines needs at least 1 Network Interface Card 
 to connect to the cloud network.  After the OS installation vh-util need to be installed 
 in case Xen server. Now is time to install and configure the very first management 
 server following by setting up the mysql DB. Once the DB is setup it is important to 
 setup Primary and Secondary storage for high availability. Finally, the system virtual 
 machine template needs to be prepared for the secondary storage. Please note
- that additional management servers can be added if required. Iys an optional configuration.
+ that additional management servers can be added if required. It is an optional configuration.
 
 \paragraph {Package Repository}: ``CloudStack is only distributed from source from the official
 mirrors. However, members of the CloudStack community may build convenience binaries 
@@ -207,7 +212,7 @@ This promotes high availability.
 \section{Conclusion}
 
 CloudStack provides a comprehensive package or unique features and flexibility for the 
-organization to develop a robust cloud architecture. The platform being an open source projec
+organization to develop a robust cloud architecture. The platform being an open source project
 from Apache foundation, it provides a regular stable updates and releases that enables it to 
 stay in put with the latest in the industry. There is a strong developer community support
 being CloudStack. CloudStack community normally releases a long term release every two years.
