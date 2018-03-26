@@ -1,4 +1,4 @@
-% status: 90
+% status: 100
 % chapter: IaaS
 
 \title{Apache CloudStack}
@@ -101,7 +101,7 @@ tool to easy orchestration from console.
 
 CloudStack offers orchestration of networking from datalink layer
 to application layer through several secure channels:
-firewall, Virtual Private Network, Dynamic Host Configuration 
+firewall, Virtual Private Network [VPN], Dynamic Host Configuration 
 Protocol, Network Address Translation and others.
 
 \section{Terminology}
@@ -202,9 +202,9 @@ with 64bit x86 processor. The server needs a minimum of 4 GB RAM and 250 GB
 hard disk space. 
 
 \paragraph {Hypervisor Setup:} Each of the host must have hypervisor installed that is Hardware
-Virtual Machine[HVM] supported. A host optimally needs 64bit x86 processor, 4 GB
-RAM, 36 GB hard disk. It is worth noting that while deploying CloudStack the Virtual 
-Machine shouid not be running. Each of the machines needs at least 1 Network Interface Card 
+virtual machine[HVM] supported. A host optimally needs 64bit x86 processor, 4 GB
+RAM, 36 GB hard disk. It is worth noting that while deploying CloudStack the virtual 
+machine shouid not be running. Each of the machines needs at least 1 Network Interface Card 
 to connect to the cloud network.  After the OS installation vh-util need to be installed 
 in case Xen server. Now is time to install and configure the very first management 
 server following by setting up the mysql DB. Once the DB is setup it is important to 
@@ -232,9 +232,9 @@ with limited resources and over a secure SSL channel. RAM and disk storage usage
 is the key to promote high availability. It is ideal to disable allocation of a hypervisor
 to a cluster when the max limit is approaching. Regular application of hotfixes is also necessary for 
 seamless operation. It is better to use smaller multiple storages per cluster than a big single one.
-This promotes high availability. Number of virtual machines to be allocated per hypervisor to be limited per the
-specifications of the type of the hypervisor used. It is better to allow a safety margin to handle the unforeseen.
- ~\cite{hid-sp18-417-www-cloudstack-best-practices}
+This promotes high availability. Maximum number of virtual machines allocated per hypervisor to be limited as per the
+specifications of the type of the hypervisor used. It is better to allow a safety margin to handle ocassional 
+spike in network traffic. ~\cite{hid-sp18-417-www-cloudstack-best-practices}
 
 
 \section{Conclusion}
