@@ -31,10 +31,17 @@ Some Pi kids come with pre installed SD card if not then:
 ## Setting up static IP and HostName
 
 HostName:
-Hostname can be given by clicking the top left Pi icon> preferences>
+Hostname can be given by clicking the top right wifi icon> network setting>
+
 or by :
 
 ``
 sudo nano /etc/hostname
 ``
+
+static IP similarly can be given by
+Hostname can be given by clicking the top right wifi icon> network setting>
+make sure you give both etho and wlan0 setting for both LAN and Wifi communication
+
+or by modifying the following in ``/etc/dhcpcd.conf``
 
