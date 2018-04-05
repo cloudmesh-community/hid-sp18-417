@@ -28,7 +28,7 @@ Some Pi kids come with pre installed SD card if not then:
  
   
 
-## Setting up static IP and HostName
+## Setting up Static IP and HostName
 
 HostName:
 Hostname can be given by clicking the top right wifi icon> network setting>
@@ -52,6 +52,9 @@ static routers={router IP}
 static domain_name_servers={DNS server IP}
 ```
 Ensure that the desired IP falls with in the assigned IP range of your router.
-As we will be automating the process later, its advised to follow a naming sequence for the hostname and IP number
+As we will be automating the process later, its advised to follow a naming sequence for the hostname and IP address
+
+Its essential to reboot the system for the changes to take effect.
+
 
 
