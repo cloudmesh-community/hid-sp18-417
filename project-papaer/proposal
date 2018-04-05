@@ -1,6 +1,0 @@
-Objective
-
- - create a python API to analyse realtime stock data from an existing financial webservice e.g Yahoo, NASDAQ
- - the swagger service will provide stock trends using matplotlib visualization
- - using Docker and Kubernetes for container orchestration and deployment
- - benhcmark the performance with a cluster in chameleon/jetstream
