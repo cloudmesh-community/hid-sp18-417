@@ -53,6 +53,7 @@ static domain_name_servers={DNS server IP}
 ```
 Ensure that the desired IP falls with in the assigned IP range of your router.
 As we will be automating the process later, its advised to follow a naming sequence for the hostname and IP address
+Example: kub00/192.168.56.100, kub01/192.168.56.101, kub02/192.168.56.102...
 
 Its essential to ``reboot`` the system for the changes to take effect.
 
