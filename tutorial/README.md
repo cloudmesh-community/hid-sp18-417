@@ -16,13 +16,13 @@ Pis can be connected directly to the home's Internet router.
 Please note that a router is needed when portability is a criteria. 
 ## Initial Setup
 Some Pi kids come with pre installed SD card if not then:
- - download the package from :
+ - Download the package from :
     https://www.raspberrypi.org/downloads/noobs/
- - download and unzip the package and copy it to the SD card
+ - Download and unzip the package and copy it to the SD card
  ensure that the SD card is formatted before you copy
  [Copy only the files inside NOOBS_{version}]
- - connect the power cable, keybboard and mouse to the Pi
- - insert the SD card and the installed will walk you through the installation process
+ - Connect the power cable, keybboard and mouse to the Pi
+ - Insert the SD card and the installed will walk you through the installation process
  - Once the installation is through make sure the time and keyboard setting are updated according to your local settings
   Normally they come in UK settings
  
@@ -54,7 +54,7 @@ static domain_name_servers={DNS server IP}
 Ensure that the desired IP falls with in the assigned IP range of your router.
 As we will be automating the process later, its advised to follow a naming sequence for the hostname and IP address
 
-Its essential to reboot the system for the changes to take effect.
+Its essential to ``reboot`` the system for the changes to take effect.
 
 
 
