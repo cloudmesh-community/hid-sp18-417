@@ -33,6 +33,7 @@ Some Pi kids come with pre installed SD card if not then:
 HostName:
 Hostname can be given by clicking the top left Pi icon> preferences>
 or by :
+
 ``
 sudo nano /etc/hostname
 ``
