@@ -43,9 +43,14 @@ static IP similarly can be given by
 Hostname can be given by clicking the top right wifi icon> network setting>
 make sure you give both etho and wlan0 setting for both LAN and Wifi communication
 
-or by ensuring the following in ``/etc/dhcpcd.conf``
+or by ensuring the following in for LAN and Wifi config``/etc/dhcpcd.conf``
 
 ```
+interface eth0
+static ip_address={desired IP}/24
+static routers={router IP}
+static domain_name_servers={DNS server IP}
+
 interface eth0
 static ip_address={desired IP}/24
 static routers={router IP}
@@ -56,6 +61,8 @@ As we will be automating the process later, its advised to follow a naming seque
 Example: kub00/192.168.56.100, kub01/192.168.56.101, kub02/192.168.56.102...
 
 Its essential to ``reboot`` the system for the changes to take effect.
+
+
 
 
 
