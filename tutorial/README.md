@@ -2,9 +2,10 @@
 
 This tutorial will guide the steps towards setting up a Kubernetes Pi cluster.
 The steps are:
-a. setting up static IP
-b. secure ssh key setup for communication
+a. Setting up static IP
+b. Secure ssh key setup for communication
 c. Kubenetes cluster setup
+d. Aumating the process
 
 Cluster needs:
 1. One head/master Pi
@@ -13,6 +14,8 @@ Cluster needs:
 
 Pis can be connected directly to the home's Internet router.
 Please note that a router is needed when portability is a criteria. 
+
+# Setting up static IP
 
 
 
