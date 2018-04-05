@@ -43,5 +43,15 @@ static IP similarly can be given by
 Hostname can be given by clicking the top right wifi icon> network setting>
 make sure you give both etho and wlan0 setting for both LAN and Wifi communication
 
-or by modifying the following in ``/etc/dhcpcd.conf``
+or by ensuring the following in ``/etc/dhcpcd.conf``
+
+```
+interface eth0
+static ip_address={desired IP}/24
+static routers={router IP}
+static domain_name_servers={DNS server IP}
+```
+Ensure that the desired IP falls with in the assigned IP range of your router.
+As we will be automating the process later, its advised to follow a naming sequence for the hostname and IP number
+
 
