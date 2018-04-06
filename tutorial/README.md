@@ -62,7 +62,8 @@ Example: kub00[192.168.56.100], kub01 [192.168.56.101], kub02 [192.168.56.102]..
 
 Its essential to ``reboot`` the system for the changes to take effect.
 
-## SSH setip
-
+## SSH setup
+* Ensure that ssh is enabled in the Pi:
+      - 
 
 
