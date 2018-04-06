@@ -104,3 +104,10 @@ With the static ip setup and ssh enabled you should be able to ssh in to the Pi.
 ``
 cgroup_enable=cpuset cgroup_memory=1
 ``
+* setup kubeadm
+``
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add - && \
+  echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list && \
+  sudo apt-get update -q && \
+  sudo apt-get install -qy kubeadm
+  ``
