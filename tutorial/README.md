@@ -32,7 +32,7 @@ Some Pi kids come with pre installed SD card if not then:
 
 HostName:
 Hostname can be given by clicking the top right wifi icon> network setting>
-
+The windown can be launched by ``raspi-config`` command i the terminal
 or by :
 
 ``
