@@ -81,4 +81,21 @@ With the static ip setup and ssh enabled you should be able to ssh in to the Pi.
   Copy the generated public key ``~/.ssh/id_rsa.pub` to the other computers for passwordless acess
   ``ssh-copy-id`` or ``ssh-import-id`` can be used for the purpose as well
   
+  ## Cluster setup
+  * Inastall Docker
   
+  ``
+  curl -sSL get.docker.com | sh && \
+  sudo usermod pi -aG docker
+  ``
+  [optional] Command to run Docker as a non root user:
+  ``
+  sudo usermod -aG docker pi
+  ``
+  
+  * Turn off swap:
+  ```
+  sudo dphys-swapfile swapoff && \
+  sudo dphys-swapfile uninstall && \
+  sudo update-rc.d dphys-swapfile remove
+  ```
