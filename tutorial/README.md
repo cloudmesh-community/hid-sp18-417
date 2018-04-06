@@ -76,7 +76,7 @@ Its essential to ``reboot`` the system for the changes to take effect.
 With the static ip setup and ssh enabled you should be able to ssh in to the Pi. For passwordless acess setup the SSH key as per the following step
 * Generate the ssh key; make sure you give a passcode:
         ``
-          ssh-keygen -t rsa -C 
+          ssh-keygen -t rsa 
         ``
   Copy the generated public key ``~/.ssh/id_rsa.pub` to the other computers for passwordless acess
   ``ssh-copy-id`` or ``ssh-import-id`` can be used for the purpose as well
