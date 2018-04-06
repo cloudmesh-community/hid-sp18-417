@@ -88,6 +88,7 @@ With the static ip setup and ssh enabled you should be able to ssh in to the Pi.
   curl -sSL get.docker.com | sh && \
   sudo usermod pi -aG docker
   ``
+  
   [optional] Command to run Docker as a non root user:
   ``
   sudo usermod -aG docker pi
