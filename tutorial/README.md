@@ -65,13 +65,13 @@ Its essential to ``reboot`` the system for the changes to take effect.
 ## SSH setup
 * Ensure that ssh is enabled in the Pi:
 
-      * Click on the ``Raspberry Pi Configuration`` from the ``Preferences`` on run the command ``sudo raspi-confi`` in the terminal
+      - Click on the ``Raspberry Pi Configuration`` from the ``Preferences`` on run the command ``sudo raspi-confi`` in the terminal
         Go to Interface tab and enable SSH
-      * In the terminal run:
-      ``
-      sudo systemctl enable ssh
-      sudo systemctl start ssh
-     ``
+      - In the terminal run:
+        ``
+        sudo systemctl enable ssh
+        sudo systemctl start ssh
+       ``
 
 With the static ip setup and ssh enabled you should be able to ssh in to the Pi. For passwordless acess setup the SSH key as per the following step
 * Generate the ssh key; make sure you give a passcode:
