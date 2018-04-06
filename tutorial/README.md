@@ -65,9 +65,9 @@ Its essential to ``reboot`` the system for the changes to take effect.
 ## SSH setup
 * Ensure that ssh is enabled in the Pi:
 
-      - Click on the ``Raspberry Pi Configuration`` from the ``Preferences`` on run the command ``sudo raspi-confi`` in the terminal
+      * Click on the ``Raspberry Pi Configuration`` from the ``Preferences`` on run the command ``sudo raspi-confi`` in the terminal
         Go to Interface tab and enable SSH
-      - In the terminal run:
+      * In the terminal run:
       ``
       sudo systemctl enable ssh
       sudo systemctl start ssh
