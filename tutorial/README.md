@@ -78,4 +78,7 @@ With the static ip setup and ssh enabled you should be able to ssh in to the Pi.
         ``
           ssh-keygen -t rsa -C 
         ``
+  Copy the generated public key ``~/.ssh/id_rsa.pub` to the other computers for passwordless acess
+  ``ssh-copy-id`` or `` ssh-import-id`` can be used for the purpose ass well
+  
   
