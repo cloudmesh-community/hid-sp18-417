@@ -8,9 +8,9 @@ c. Kubenetes cluster setup
 d. Aumating the process
 
 Cluster needs:
-1. One head/master Pi
-2. number of follower nodes Pi
-3. router [optional]
+-  One head/master Pi
+-  number of follower nodes Pi
+-  router [optional]
 
 Pis can be connected directly to the home's Internet router.
 Please note that a router is needed when portability is a criteria. 
@@ -73,4 +73,9 @@ Its essential to ``reboot`` the system for the changes to take effect.
       sudo systemctl start ssh
      ``
 
-
+With the static ip setup and ssh enabled you should be able to ssh in to the Pi. For passwordless acess setup the SSH key as per the following step
+* Generate the ssh key; make sure you give a passcode:
+        ``
+          ssh-keygen -t rsa -C 
+        ``
+  
