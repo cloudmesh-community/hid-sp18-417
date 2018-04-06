@@ -100,3 +100,7 @@ With the static ip setup and ssh enabled you should be able to ssh in to the Pi.
   sudo dphys-swapfile uninstall && \
   sudo update-rc.d dphys-swapfile remove
   ```
+* Edit /boot/cmdline.txt and add the following with a space [no new line]
+``
+cgroup_enable=cpuset cgroup_memory=1
+``
