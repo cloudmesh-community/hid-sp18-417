@@ -1,0 +1,7 @@
+
+10.0.1.100
+10.0.1.1[internal ip server]
+208.67.222.222/20
+
+sudo kubeadm init --token-ttl=0
+kubeadm join 10.0.1.100:6443 --token ch2j5s.ckq21fenswrjfgkj --discovery-token-ca-cert-hash sha256:17023084624197c9d605dde09c6646dc13160c7e69377a923e06508b200b17ba
