@@ -1,6 +1,4 @@
 
-10.0.1.100
-10.0.1.1[internal ip server]
 208.67.222.222/20
 
 sudo kubeadm init --token-ttl=0
