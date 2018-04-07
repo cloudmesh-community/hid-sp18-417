@@ -15,15 +15,16 @@ Cluster needs:
 Pis can be connected directly to the home's Internet router.
 Please note that a router is needed when portability is a criteria. 
 ## Initial Setup
-Some Pi kids come with pre installed SD card if not then:
- - Download the package from :
+Some Pi kits come with pre installed SD card if not then:
+ 1. format the SD card:
+    https://www.sdcard.org/downloads/formatter_4/eula_windows/
+ 2. Download the package from :
     https://www.raspberrypi.org/downloads/noobs/
- - Download and unzip the package and copy it to the SD card
- ensure that the SD card is formatted before you copy
+ 3. Download and unzip the package and copy it to the SD card
  [Copy only the files inside NOOBS_{version}]
- - Connect the power cable, keybboard and mouse to the Pi
- - Insert the SD card and the installed will walk you through the installation process
- - Once the installation is through make sure the time and keyboard setting are updated according to your local settings
+ 4. Connect the power cable, keybboard and mouse to the Pi
+ 5. Insert the SD card and the installed will walk you through the installation process
+ 6. Once the installation is through make sure the time and keyboard setting are updated according to your local settings
   Normally they come in UK settings
  
   
