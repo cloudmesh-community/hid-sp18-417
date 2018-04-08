@@ -2,6 +2,7 @@
 
 ip=$1 # should be of format: 192.168.1.100
 dns=$2 # should be of format: 192.168.1.1
+hostname=$3
 echo "Installing Dependencies ..."
 apt-get update
 apt-get install -qy dnsmasq clusterssh iptables-persistent
