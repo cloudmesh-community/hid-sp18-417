@@ -2,4 +2,4 @@ https://gist.github.com/alexellis/fdbc90de7691a1b9edb545c17da2d975
 https://cloud.google.com/solutions/real-time/kubernetes-redis-bigquery
 https://kubecloud.io/setup-a-kubernetes-1-9-0-raspberry-pi-cluster-on-raspbian-using-kubeadm-f8b3b85bc2d1
 https://www.hanselman.com/blog/HowToBuildAKubernetesClusterWithARMRaspberryPiThenRunNETCoreOnOpenFaas.aspx
-kubeadm join 10.0.1.100:6443 --token d6tg5q.lpwuk58z202tvrmi --discovery-token-ca-cert-hash sha256:0dad2fa5b9070dcafe6a4a01ac8a74112a245f77b9a74788651cd0c326cded20
+kubeadm join 10.0.1.100:6443 --token d6tg5q.lpwuk58z202tvrmi --discovery-token-ca-cert-hash sha256:0dad2fa5b9070dcafe6a4a01ac8a74112a245https://marcussmallman.io/2018/02/18/diy-rasberry-pi-kubernetes-cluster/f77b9a74788651cd0c326cded20
