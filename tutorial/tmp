@@ -2,4 +2,4 @@
 208.67.222.222/20
 
 sudo kubeadm init --token-ttl=0
-kubeadm join 10.0.1.100:6443 --token 180rwd.gzvr7qvpfv3v4y65 --discovery-token-ca-cert-hash sha256:39a1ede18c5f718cff96c3cad15a0b14b066c047ef5c3cca0d130eea864e34b3
+kubeadm join 10.0.1.100:6443 --token lpkcf9.928t9b0lql2fpny5 --discovery-token-ca-cert-hash sha256:87300974dffffa9a3c43e6d71b714f335a53c0eb93923fb0e01fcef6dcf79ac9
