@@ -23,8 +23,9 @@ head -n -1 /etc/hosts > temp ; mv temp /etc/hosts
 sudo cat <<end11>> /etc/hosts
 127.0.0.1     $1
 end11
-echo setting static ip and rebooting...
+
 # Set the static ip
+echo setting static ip and rebooting...
 sudo cat <<EOT >> /etc/dhcpcd.conf
 interface eth0
 static ip_address=$ip/24
