@@ -8,13 +8,13 @@ dns=$4 # should be of format: 192.168.1.1
 # Change the hostname
 touch hostname
 sudo cat <<end>> hostname
-hostname
+$hostname
 end
 sudo cp hostname /etc/hostname
 
 head -n -1 /etc/hosts > temp ; mv temp /etc/hosts
 sudo cat <<end11>> /etc/hosts
-127.0.0.1     $1
+127.0.0.1     $hostname
 end11
 
 # Set the static ip
