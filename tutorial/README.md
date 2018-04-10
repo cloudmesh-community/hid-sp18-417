@@ -33,8 +33,11 @@ Some Pi kits come with pre installed SD card if not then:
 
 HostName:
 Hostname can be given by clicking the top right wifi icon> network setting>
-The windown can be launched by ``raspi-config`` command i the terminal
-or by :
+The windown can be launched by 
+
+```raspi-config``` 
+
+command i the terminal or by :
 
     sudo nano /etc/hostname
 
@@ -65,8 +68,11 @@ Its essential to ``reboot`` the system for the changes to take effect.
 ## SSH setup
 * Ensure that ssh is enabled in the Pi:
 
-      - Click on the ``Raspberry Pi Configuration`` from the ``Preferences`` on run the command ``sudo raspi-confi`` in the terminal
-        Go to Interface tab and enable SSH
+      - Click on the ```Raspberry Pi Configuration``` from the ```Preferences``` on run the command 
+      
+        ```sudo raspi-confi``` 
+        
+        in the terminal. Go to Interface tab and enable SSH
       - In the terminal run:
         ```
         sudo systemctl enable ssh
