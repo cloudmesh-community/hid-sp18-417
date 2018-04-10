@@ -52,7 +52,7 @@ static ip_address={desired IP}/24
 static routers={router IP}
 static domain_name_servers={DNS server IP}
 
-interface eth0
+interface wlan0
 static ip_address={desired IP}/24
 static routers={router IP}
 static domain_name_servers={DNS server IP}
