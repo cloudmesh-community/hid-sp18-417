@@ -5,7 +5,7 @@ The steps are:
 a. Setting up static IP
 b. Secure ssh key setup for communication
 c. Kubenetes cluster setup
-d. Aumating the process
+d. Automating the process
 
 Cluster needs:
 -  One head/master Pi
