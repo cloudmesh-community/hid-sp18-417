@@ -12,7 +12,7 @@ $hostname
 end
 sudo cp hostname /etc/hostname
 
-head -n -1 /etc/hosts > temp ; mv temp /etc/hosts
+head -n -1 /etc/hosts > temp ; sudo mv temp /etc/hosts
 sudo cat <<end11>> /etc/hosts
 127.0.0.1     $hostname
 end11
