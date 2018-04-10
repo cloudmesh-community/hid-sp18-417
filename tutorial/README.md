@@ -36,9 +36,7 @@ Hostname can be given by clicking the top right wifi icon> network setting>
 The windown can be launched by ``raspi-config`` command i the terminal
 or by :
 
-``
-sudo nano /etc/hostname
-``
+    sudo nano /etc/hostname
 
 static IP similarly can be given by
 Hostname can be given by clicking the top right wifi icon> network setting>
@@ -57,6 +55,7 @@ static ip_address={desired IP}/24
 static routers={router IP}
 static domain_name_servers={DNS server IP}
 ```
+
 Ensure that the desired IP falls with in the assigned IP range of your router.
 As we will be automating the process later, its advised to follow a naming sequence for the hostname [IP address]
 Example: kub00[192.168.56.100], kub01 [192.168.56.101], kub02 [192.168.56.102]...
@@ -69,16 +68,16 @@ Its essential to ``reboot`` the system for the changes to take effect.
       - Click on the ``Raspberry Pi Configuration`` from the ``Preferences`` on run the command ``sudo raspi-confi`` in the terminal
         Go to Interface tab and enable SSH
       - In the terminal run:
-        ``
+        ```
         sudo systemctl enable ssh
         sudo systemctl start ssh
-       ``
+       ```
 
 With the static ip setup and ssh enabled you should be able to ssh in to the Pi. For passwordless acess setup the SSH key as per the following step
 * Generate the ssh key; make sure you give a passcode:
-        ``
+        ```
           ssh-keygen -t rsa 
-        ``
+        ```
   Copy the generated public key ``~/.ssh/id_rsa.pub` to the other computers for passwordless acess
   ``ssh-copy-id`` or ``ssh-import-id`` can be used for the purpose as well
   
@@ -106,32 +105,39 @@ With the static ip setup and ssh enabled you should be able to ssh in to the Pi.
 cgroup_enable=cpuset cgroup_memory=1
 ``
 * setup kubeadm
-``
-curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add - && \
+  
+  ```
+  curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add - && \
   echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list && \
   sudo apt-get update -q && \
   sudo apt-get install -qy kubeadm
-  ``
+  ```
+  
   The process till now stays the same for both workes and master
   
   # Master setup
   
   In the master node initiate the master:
-  ``
+  
+  ```
   sudo kubeadm init --token-ttl=0 --apiserver-advertise-address=<internal master ip>
-  ``
-This will initiate the kubectl head. At the end of the this process, there should be an echo with the following text. Save this join token as you will joining the workers later:
-``
-kubeadm join --token <token> --discovery-token-ca-cert-hash <ca hash>
-``
+  ```
+  
+  This will initiate the kubectl head. At the end of the this process, there should be an echo with the following text. Save   
+  this join token as you will joining the workers later:
 
-Once the master is initiated, now set up the kubectl admin config
+  ```
+  kubeadm join --token <token> --discovery-token-ca-cert-hash <ca hash>
+  ```
+
+  Once the master is initiated, now set up the kubectl admin config
 
   ```
   mkdir -p $HOME/.kube
   sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
   sudo chown $(id -u):$(id -g) $HOME/.kube/config
   ```
+  
   # Worker setup
   
   After Kubernetes installation, join the workers using the saved join token.
