@@ -1,5 +1,0 @@
-
-208.67.222.222/20
-route add 10.96.0.1 gw 10.0.1.100 
-sudo kubeadm init --token-ttl=0
-kubeadm join 10.0.1.100:6443 --token lpkcf9.928t9b0lql2fpny5 --discovery-token-ca-cert-hash sha256:87300974dffffa9a3c43e6d71b714f335a53c0eb93923fb0e01fcef6dcf79ac9
