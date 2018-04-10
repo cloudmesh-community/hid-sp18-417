@@ -15,10 +15,10 @@ This Script will help setting up the dhcp static ip.
 Please note that the shell script will excute the recommneded reboot after the static IP assignment.
 
 It needs four params:
-    hostname
-    desired static ip
-    router ip
-    dns server ip
+   - hostname
+   - desired static ip
+   - router ip
+   - dns server ip
 
 ``
 sh dhcp_setup.sh <hostname> <nodeIP> <routerIP> <dnsIP> 
