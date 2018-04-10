@@ -2,8 +2,8 @@
 
 hostname=$1
 ip=$2 # should be of format: 192.168.1.100
-router=$2 # should be of format: 192.168.1.1
-dns=$3 # should be of format: 192.168.1.1
+router=$3 # should be of format: 192.168.1.1
+dns=$4 # should be of format: 192.168.1.1
 
 # Change the hostname
 sudo hostnamectl --transient set-hostname $hostname
@@ -18,5 +18,11 @@ interface eth0
 static ip_address=$ip/24
 static routers=$router
 static domain_name_servers=$dns
-reboot
+
+interface wlan0
+static ip_address=$ip/24
+static routers=$router
+static domain_name_servers=$dns
 EOT
+reboot
+
