@@ -18,4 +18,5 @@ interface eth0
 static ip_address=$ip/24
 static routers=$router
 static domain_name_servers=$dns
+reboot
 EOT
