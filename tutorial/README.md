@@ -112,3 +112,30 @@ curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
   sudo apt-get update -q && \
   sudo apt-get install -qy kubeadm
   ``
+  The process till now stays the same for both workes and master
+  
+  # Master setup
+  
+  In the master node initiate the master:
+  ``
+  sudo kubeadm init --token-ttl=0 --apiserver-advertise-address=<internal master ip>
+  ``
+This will initiate the kubectl head. At the end of the this process, there should be an echo with the following text. Save this join token as you will joining the workers later:
+``
+kubeadm join --token <token> --discovery-token-ca-cert-hash <ca hash>
+``
+
+Once the master is initiated, now set up the kubectl admin config
+
+  ```
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+  ```
+  # Worker setup
+  
+  After Kubernetes installation, join the workers using the saved join token.
+  
+  Use `get nodes` in the master to check the status
+  
+  `kubectl get pods --namespace=kube-system` can be used to check the pod status of the cluster
