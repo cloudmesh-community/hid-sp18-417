@@ -8,9 +8,9 @@ c. Kubenetes cluster setup
 d. Automating the process
 
 Cluster needs:
--  One head/master Pi
--  number of follower nodes Pi
--  router [optional]
+*  One head/master Pi
+*  number of follower nodes Pi
+*  router [optional]
 
 Pis can be connected directly to the home's Internet router.
 Please note that a router is needed when portability is a criteria. 
@@ -66,20 +66,21 @@ Example: kub00[192.168.56.100], kub01 [192.168.56.101], kub02 [192.168.56.102]..
 Its essential to ``reboot`` the system for the changes to take effect.
 
 ## SSH setup
+
 * Ensure that ssh is enabled in the Pi:
 
-      - Click on the ```Raspberry Pi Configuration``` from the ```Preferences``` on run the command 
+  - Click on the ```Raspberry Pi Configuration``` from the ```Preferences``` on run the command 
       
-        ```sudo raspi-confi``` 
+    ```sudo raspi-confi``` 
         
-        in the terminal. Go to Interface tab and enable SSH
-      - In the terminal run:
-        ```
-        sudo systemctl enable ssh
-        sudo systemctl start ssh
-       ```
+    in the terminal. Go to Interface tab and enable SSH
+  - In the terminal run:
+    ```
+    sudo systemctl enable ssh
+    sudo systemctl start ssh
+    ```
 
-With the static ip setup and ssh enabled you should be able to ssh in to the Pi. For passwordless acess setup the SSH key as per the following step
+  With the static ip setup and ssh enabled you should be able to ssh in to the Pi. For passwordless acess setup the SSH key as   per the following step
 * Generate the ssh key; make sure you give a passcode:
         ```
           ssh-keygen -t rsa 
@@ -87,7 +88,8 @@ With the static ip setup and ssh enabled you should be able to ssh in to the Pi.
   Copy the generated public key ``~/.ssh/id_rsa.pub` to the other computers for passwordless acess
   ``ssh-copy-id`` or ``ssh-import-id`` can be used for the purpose as well
   
-  ## Cluster setup
+## Cluster setup
+
   * Inastall Docker
   
   ``
@@ -121,7 +123,7 @@ cgroup_enable=cpuset cgroup_memory=1
   
   The process till now stays the same for both workes and master
   
-  # Master setup
+# Master setup
   
   In the master node initiate the master:
   
@@ -144,7 +146,7 @@ cgroup_enable=cpuset cgroup_memory=1
   sudo chown $(id -u):$(id -g) $HOME/.kube/config
   ```
   
-  # Worker setup
+# Worker setup
   
   After Kubernetes installation, join the workers using the saved join token.
   
