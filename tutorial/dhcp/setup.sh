@@ -5,9 +5,7 @@ echo installing git
 git clone https://github.com/cloudmesh-community/hid-sp18-417.git
 cd *417/tutotial/dhcp
 echo running initial dhcp setup
-sh dhcp_setup.sh raspi01 10.0.1.100 10.0.1.1 208.67.222.222
 #!/bin/sh
-
 hostname=$1
 ip=$2 # should be of format: 192.168.1.100
 router=$3 # should be of format: 192.168.1.1
