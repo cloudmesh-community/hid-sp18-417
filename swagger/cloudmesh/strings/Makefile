@@ -25,3 +25,11 @@ stop:
 
 clean:
 	sudo rm -r $(DESTDIR)
+
+container:
+	sudo docker build -t cloudmesh-strings .
+	sudo docker run -p 8080:8080 cloudmesh-strings 
+
+osx:
+	docker build -t cloudmesh-strings .
+	docker run -p 8080:8080 cloudmesh-strings 
