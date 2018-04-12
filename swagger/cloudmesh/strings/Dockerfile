@@ -18,8 +18,8 @@ RUN apt-get update -q && apt-get install -qy \
     default-jre \
 software-properties-common -y
 
-# install net tools
-RUN apt-get install -q -y net-tools
+RUN sudo apt-get update
+RUN sudo apt-get install -y git
 
 RUN git clone git://github.com/yyuu/pyenv.git .pyenv
 RUN git clone https://github.com/yyuu/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
