@@ -18,8 +18,8 @@ RUN apt-get update -q && apt-get install -qy \
     default-jre \
 software-properties-common -y
 
-RUN sudo apt-get update
-RUN sudo apt-get install -y git
+RUN apt-get update
+RUN apt-get install -y git
 
 RUN git clone git://github.com/yyuu/pyenv.git .pyenv
 RUN git clone https://github.com/yyuu/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
