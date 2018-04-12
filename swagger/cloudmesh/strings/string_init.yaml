@@ -42,6 +42,10 @@ paths:
             description: Final OutPut
             schema:
               $ref: '#/definitions/OUTPUT'
+          400:
+            description: "Bad request."
+          404:
+            description: "Not Found."
     
 definitions:
   OUTPUT:
