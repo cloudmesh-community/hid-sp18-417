@@ -4,39 +4,6 @@ DATA=data
 DESTDIR=server/
 FLASKDIR=server/string/flaskConnexion
 
-all: service start 
-	@echo "DONE"
-
-docker-all: docker-build docker-start
-	@echo "DONE"
-
-docker-build:
-	@echo "building the image from docker file..."
-	docker build -t rashray/cloudmesh-strings .
-	@echo "image DONE"
-
-docker-pull:
-	@echo "pulling the image from dockerhub..."
-	docker pull rashray/cloudmesh-strings
-	@echo "image DONE"
-
-docker-start:
-	@echo "starting the service in container..."
-	docker run -p 8080:8080 rashray/cloudmesh-strings
-
-docker-stop:
-	@echo "stoping the service..."
-	docker stop $$(docker ps -alq)
-	@echo "service stopped"
-
-docker-remove:
-	@echo "removing the image..."
-	docker rmi -f rashray/cloudmesh-strings
-	@echo "image removed"
-
-docker-clean: docker-stop docker-remove
-	@echo "DONE"
-
 dest:
 	mkdir $(DESTDIR)
 
@@ -53,10 +20,7 @@ run:
 	sudo python setup.py install && python -m swagger_server
 
 test:
-	curl http://localhost:8080/cloudmesh/addString/adding-string 1
-	curl http://localhost:8080/cloudmesh/addString/adding-string 2
-	curl http://localhost:8080/cloudmesh/addString/adding-string 3
-	curl http://localhost:8080/cloudmesh/addString/adding-string 4
+	curl http://localhost:8080/cloudmesh/addString/adding-a-new-string
 	curl http://localhost:8080/cloudmesh/fetchString/3
 	            
 stop:
