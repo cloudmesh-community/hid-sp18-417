@@ -4,6 +4,13 @@ DATA=data
 DESTDIR=server/
 FLASKDIR=server/string/flaskConnexion
 
+container:
+	docker build -t rray/swagger .
+	docker run -p 8080:8080 rray/swagger
+
+container-stop:
+	docker stop $$(docker ps -a -q -f status=running)
+
 dest:
 	mkdir $(DESTDIR)
 
