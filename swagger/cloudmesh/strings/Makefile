@@ -3,6 +3,38 @@ YAML=string_init.yaml
 DATA=data
 DESTDIR=server/
 FLASKDIR=server/string/flaskConnexion
+all: service start 
+	@echo "DONE"
+
+docker-all: docker-build docker-start
+	@echo "DONE"
+
+docker-build:
+	@echo "building the image from docker file..."
+	docker build -t rashray/cloudmesh-string .
+	@echo "image DONE"
+
+docker-pull:
+	@echo "pulling the image from dockerhub..."
+	docker pull rashray/cloudmesh-strings
+	@echo "image DONE"
+
+docker-start:
+	@echo "starting the service in container..."
+	docker run -p 8080:8080 rashray/cloudmesh-strings
+
+docker-stop:
+	@echo "stoping the service..."
+	docker stop $$(docker ps -alq)
+	@echo "service stopped"
+
+docker-remove:
+	@echo "removing the image..."
+	docker rmi -f rashray/cloudmesh-strings
+	@echo "image removed"
+
+docker-clean: docker-stop docker-remove
+	@echo "DONE"
 
 dest:
 	mkdir $(DESTDIR)
