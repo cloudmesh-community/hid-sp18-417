@@ -20,7 +20,10 @@ run:
 	sudo python setup.py install && python -m swagger_server
 
 test:
-	curl http://localhost:8080/cloudmesh/addString/adding-a-new-string
+	curl http://localhost:8080/cloudmesh/addString/adding-string 1
+	curl http://localhost:8080/cloudmesh/addString/adding-string 2
+	curl http://localhost:8080/cloudmesh/addString/adding-string 3
+	curl http://localhost:8080/cloudmesh/addString/adding-string 4
 	curl http://localhost:8080/cloudmesh/fetchString/3
 	            
 stop:
