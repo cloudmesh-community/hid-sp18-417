@@ -7,3 +7,6 @@ sudo kubeadm init --token-ttl=0 --apiserver-advertise-address=<internal master i
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
+echo setting up network...installing weave
+kubectl apply -f \
+ "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
