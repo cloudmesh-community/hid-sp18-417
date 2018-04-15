@@ -37,8 +37,6 @@ WORKDIR /hid-sp18-516/swagger/cloudmesh/strings
 
 RUN wget http://central.maven.org/maven2/io/swagger/swagger-codegen-cli/2.3.1/swagger-codegen-cli-2.3.1.jar
 EXPOSE 8080
-RUN pip install -r requirements.txt
 RUN make service
-RUN make test
 
 CMD ["make", "start"]
