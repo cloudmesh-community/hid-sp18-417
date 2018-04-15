@@ -1,6 +1,6 @@
 FROM python:3-onbuild
 
-MAINTAINER Kadupitiya kadupitige <kadupitiya@kadupitiya.lk>
+MAINTAINER Rashmi Ray <rashray@iu.edu>
 
 # Setup java 
 RUN apt-get update
