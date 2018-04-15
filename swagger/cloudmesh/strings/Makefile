@@ -4,12 +4,38 @@ DATA=data
 DESTDIR=server/
 FLASKDIR=server/string/flaskConnexion
 
-container:
-	docker build -t rray/swagger .
-	docker run -p 8080:8080 rray/swagger
+all: service start 
+	@echo "DONE"
 
-container-stop:
-	docker stop $$(docker ps -a -q -f status=running)
+docker-all: docker-build docker-start
+	@echo "DONE"
+
+docker-build:
+	@echo "building the image from docker file..."
+	docker build -t rashray/cloudmesh-strings .
+	@echo "image DONE"
+
+docker-pull:
+	@echo "pulling the image from dockerhub..."
+	docker pull rashray/cloudmesh-strings
+	@echo "image DONE"
+
+docker-start:
+	@echo "starting the service in container..."
+	docker run -p 8080:8080 rashray/cloudmesh-strings
+
+docker-stop:
+	@echo "stoping the service..."
+	docker stop $$(docker ps -alq)
+	@echo "service stopped"
+
+docker-remove:
+	@echo "removing the image..."
+	docker rmi -f rashray/cloudmesh-strings
+	@echo "image removed"
+
+docker-clean: docker-stop docker-remove
+	@echo "DONE"
 
 dest:
 	mkdir $(DESTDIR)
