@@ -141,6 +141,11 @@ cgroup_enable=cpuset cgroup_memory=1
   sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
   sudo chown $(id -u):$(id -g) $HOME/.kube/config
   ```
+  * The final step is setting up the networking. I have used weave.
+  ```
+  kubectl apply -f \
+ "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
+ ```
   
 # Worker setup
   
@@ -149,3 +154,7 @@ cgroup_enable=cpuset cgroup_memory=1
   Use `get nodes` in the master to check the status
   
   `kubectl get pods --namespace=kube-system` can be used to check the pod status of the cluster
+  
+  # Troubleshooting 
+  During the development of this tytorial its been experienced that Kubernetes cluster needs atleast one master and three worker nodes.
+  Using less resources will lead to slow processor
