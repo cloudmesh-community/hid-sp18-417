@@ -32,6 +32,7 @@ stop:
 
 clean:
 	sudo rm -r $(DESTDIR)
+	sudo rm -r $(DATA)
 
 container:
 	sudo docker build -t cloudmesh-strings .
