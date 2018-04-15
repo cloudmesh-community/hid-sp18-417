@@ -47,12 +47,8 @@ make sure you give both etho and wlan0 setting for both LAN and Wifi communicati
 
 or by ensuring the following in for LAN and Wifi config``/etc/dhcpcd.conf``
 
+I have added the following aletrnatively eth0 block can be added if wired setup is preferred
 ```
-interface eth0
-static ip_address={desired IP}/24
-static routers={router IP}
-static domain_name_servers={DNS server IP}
-
 interface wlan0
 static ip_address={desired IP}/24
 static routers={router IP}
