@@ -39,17 +39,16 @@ docker-clean: docker-stop docker-remove
 dest:
 	mkdir $(DESTDIR)
 
-service: 
+service:dest 
 	wget https://oss.sonatype.org/content/repositories/releases/io/swagger/swagger-codegen-cli/2.3.1/swagger-codegen-cli-2.3.1.jar
 	$(SWAGGERCODEGEN) generate  -i $(YAML)  -l python-flask  -o $(FLASKDIR)  -D supportPython2=true
+	rm *.jar
 	mkdir $(DATA)
 	touch $(DATA)/data.csv
 	cp -r data $(FLASKDIR)
 	cp -r default_controller.py $(FLASKDIR)/swagger_server/controllers
-
-run: 
 	cd $(FLASKDIR) && pip install -r requirements.txt && \
-	sudo python setup.py install && python -m swagger_server
+	sudo python setup.py install && python -m swagger_server	
 
 test:
 	curl http://127.0.0.1:8080/cloudmesh/strings/addString/adding-a-new-string0
