@@ -16,12 +16,12 @@ docker-build:
 
 docker-pull:
 	@echo "pulling the image from dockerhub..."
-	docker pull rashray/cloudmesh-strings
+	docker pull cloudmesh-strings
 	@echo "image DONE"
 
 docker-start:
 	@echo "starting the service in container..."
-	docker run -p 8080:8080 rashray/cloudmesh-strings
+	docker run -p 8080:8080 cloudmesh-strings
 
 docker-stop:
 	@echo "stoping the service..."
@@ -30,7 +30,7 @@ docker-stop:
 
 docker-remove:
 	@echo "removing the image..."
-	docker rmi -f rashray/cloudmesh-strings
+	docker rmi -f cloudmesh-strings
 	@echo "image removed"
 
 docker-clean: docker-stop docker-remove
