@@ -11,7 +11,7 @@ docker-all: docker-build docker-start
 
 docker-build:
 	@echo "building the image from docker file..."
-	docker build -t rashray/cloudmesh-string .
+	sudo docker build -t rashray/cloudmesh-string .
 	@echo "image DONE"
 
 docker-pull:
