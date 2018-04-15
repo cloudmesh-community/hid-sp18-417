@@ -48,7 +48,7 @@ service:dest
 	cp -r data $(FLASKDIR)
 	cp -r default_controller.py $(FLASKDIR)/swagger_server/controllers
 	cd $(FLASKDIR) && pip install -r requirements.txt && \
-	sudo python setup.py install && python -m swagger_server	
+	python setup.py install && python -m swagger_server	
 
 test:
 	curl http://127.0.0.1:8080/cloudmesh/strings/addString/adding-a-new-string0
