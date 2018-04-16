@@ -6,7 +6,7 @@ FLASKDIR=server/string/flaskConnexion
 all: service start 
 	@echo "DONE"
 
-docker-all: docker-build docker-start
+container: docker-build docker-start
 	@echo "DONE"
 
 docker-build:
