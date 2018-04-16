@@ -64,6 +64,7 @@ stop:
 clean:
 	sudo rm -r $(DESTDIR)
 	sudo rm -r $(DATA)
+	rm *.jar
 
 container:
 	sudo docker build -t cloudmesh-strings .
