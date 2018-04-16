@@ -29,7 +29,7 @@ paths:
             description: Final OutPut
             schema:
               $ref: '#/definitions/OUTPUT'
-  '/fetchString/{id}':
+  '/fetchStocks/{id}':
     get:
         parameters:
           - name: id
