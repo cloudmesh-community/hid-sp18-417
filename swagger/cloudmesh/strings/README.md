@@ -5,7 +5,9 @@ This swagger API exploits CSV storage [/data/data.csv] to store and retrieve str
  * String_init.yaml
  
  ### Setup:
- * gitclone the codebase
+ *   for the docker image:
+      `make container`
+      The dockerfile is clone the repo and run the swagger service
  * MakeFile provided will generate the required code using the following command:
     * `make service`
     This is install the necessary folder origanization needed for swagger rest API
@@ -20,11 +22,7 @@ This swagger API exploits CSV storage [/data/data.csv] to store and retrieve str
        `make stop`
     * finally the following command will clean the created folder structure for the API testing:
        `make clean`
-    * for the docker image:
-      `make container`
-    * To run the service:
-    'sudo docker exec -it <containerID> bash'
- 
+
  ### End-points:
  #### basepath is /v2
  * /addString/{str} : This method will add the string from the query param to the data collection. and display the current collection of rows in the CSV.
