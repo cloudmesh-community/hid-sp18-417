@@ -45,4 +45,7 @@ def fetch_string_id_get(id):  # noqa: E501
     with open('data/data.csv', 'r') as the_file:
         reader = csv.reader(the_file)
         line = next((x for i, x in enumerate(reader) if i == int(id)), None)
-    return line
+    if line :
+        return line
+    else :
+        return 405
