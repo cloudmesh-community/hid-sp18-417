@@ -49,7 +49,7 @@ service: clean
 
 run: 
 	cd $(FLASKDIR) && pip install -r requirements.txt && \
-	sudo python setup.py install && python -m swagger_server
+	sudo python3 setup.py install && python3 -m swagger_server
 
 test:
 	curl http://localhost:8080/cloudmesh/addString/adding-a-new-string
