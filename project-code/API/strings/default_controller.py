@@ -4,7 +4,6 @@ import csv
 import matplotlib.pyplot as plt
 from matplotlib import style
 import pandas as pd
-from pandas.io.date import DataReader
 
 from swagger_server.models.output import OUTPUT  # noqa: E501
 from swagger_server import util
