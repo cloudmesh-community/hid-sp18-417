@@ -5,7 +5,7 @@ import datetime as dt
 import matplotlib.pyplot as plt
 from matplotlib import style
 import pandas as pd
-import pandas_datareader.data as web
+from pandas.io.date import DataReader
 
 from swagger_server.models.output import OUTPUT  # noqa: E501
 from swagger_server import util
