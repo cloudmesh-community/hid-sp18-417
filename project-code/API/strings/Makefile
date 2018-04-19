@@ -45,6 +45,7 @@ service:dest
 	rm *.jar
 	mkdir $(DATA)
 	touch $(DATA)/data.csv
+	sudo cp TSLA.csv data/
 	cp -r data $(FLASKDIR)
 	cp -r default_controller.py $(FLASKDIR)/swagger_server/controllers
 	cd $(FLASKDIR) && pip install -r requirements.txt && \
