@@ -45,6 +45,9 @@ def fetch_string_id_get(id):  # noqa: E501
 
     :rtype: OUTPUT
     """
+    df = pd.read_csv('TSLA.csv', parse_dates = True, index_col=0)
+    df.plot()
+    plt.show()
     with open('data/data.csv', 'r') as the_file:
         reader = csv.reader(the_file)
         line = next((x for i, x in enumerate(reader) if i == int(id)), None)
