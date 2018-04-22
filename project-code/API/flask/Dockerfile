@@ -1,21 +1,12 @@
-FROM python:3-onbuild
+FROM ubuntu:16.04
 
-MAINTAINER Kadupitiya kadupitige <rashray@iu.edu>
+MAINTAINER Rashmi Ray <rashray@iu.edu>
 
-# Setup java 
 RUN apt-get update
-RUN apt-get install -q -y default-jre
-
-# install net tools
-RUN apt-get install -q -y net-tools
-  
+RUN apt-get update -y
+RUN apt-get install -y python-pip python-dev build-essential
+COPY . /app
+WORKDIR /app
 RUN pip install -r requirements.txt
-
-# tell the port number the container should expose
-EXPOSE 8080
-
-# Install the flask service using make commands
-RUN make service
-
-# start the service
-CMD ["make", "start"]
+ENTRYPOINT ["python"]
+CMD ["app.py"]
