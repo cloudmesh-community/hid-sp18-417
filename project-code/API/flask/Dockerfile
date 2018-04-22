@@ -9,5 +9,6 @@ RUN pip install pandas
 RUN easy_install quandl
 RUN git clone https://github.com/cloudmesh-community/hid-sp18-417.git
 WORKDIR /hid-sp18-417/project-code/API/flask
+EXPOSE 5000
 ENTRYPOINT ["python"]
 CMD ["app.py"]
