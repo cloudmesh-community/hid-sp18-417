@@ -1,7 +1,5 @@
 from flask import Flask, render_template
 import csv
-import matplotlib.pyplot as plt
-from matplotlib import style
 import quandl as qd
 import pygal as pg
 import pandas as pd
