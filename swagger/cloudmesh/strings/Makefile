@@ -3,27 +3,25 @@ YAML=string_init.yaml
 DATA=data
 DESTDIR=server/
 FLASKDIR=server/string/flaskConnexion
-
 all: service start 
 	@echo "DONE"
 
-docker-all: docker-build docker-start
+container: docker-build docker-start
 	@echo "DONE"
 
 docker-build:
 	@echo "building the image from docker file..."
-	docker build -t rashray417/cloudmesh-strings .
+	sudo docker build -t cloudmesh-strings .
 	@echo "image DONE"
 
 docker-pull:
 	@echo "pulling the image from dockerhub..."
-	docker pull rashray417/cloudmesh-strings
+	docker pull cloudmesh-strings
 	@echo "image DONE"
 
 docker-start:
 	@echo "starting the service in container..."
-	docker run -p 8080:8080 rashray417/cloudmesh-strings
-
+	docker run -p 8080:8080 cloudmesh-strings
 
 docker-stop:
 	@echo "stoping the service..."
@@ -53,17 +51,12 @@ service:dest
 	python setup.py install && python -m swagger_server	
 
 test:
-	curl http://localhost:8080/cloudmesh/strings/addString/adding-a-new-string0
-	
-	curl http://localhost:8080/cloudmesh/strings/addString/adding-a-new-string1
-	
-	curl http://localhost:8080/cloudmesh/strings/addString/adding-a-new-string2
-	
-	curl http://localhost:8080/cloudmesh/strings/addString/adding-a-new-string3
-	
-	curl http://localhost:8080/cloudmesh/strings/addString/adding-a-new-string4
-	
-	curl http://localhost:8080/cloudmesh/strings/fetchString/3
+	curl http://0.0.0.0:8080/cloudmesh/strings/addString/adding-a-new-string0
+	curl http://0.0.0.0:8080/cloudmesh/strings/addString/adding-a-new-string1
+	curl http://0.0.0.0:8080/cloudmesh/strings/addString/adding-a-new-string2
+	curl http://0.0.0.0:8080/cloudmesh/strings/addString/adding-a-new-string3
+	curl http://0.0.0.0:8080/cloudmesh/strings/addString/adding-a-new-string4
+	curl http://0.0.0.0:8080/cloudmesh/strings/fetchString/3
 	            
 stop:
 	ps -ef | grep swagger | grep -v "grep"| awk '{print $$2}' | xargs kill -9
