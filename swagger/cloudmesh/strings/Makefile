@@ -40,7 +40,7 @@ docker-clean: docker-stop docker-remove
 	@echo "DONE"
 
 dest:
-	mkdir $(DESTDIR)
+	mkdir -p $(DESTDIR)
 
 service:dest 
 	@echo "creating the service..."
