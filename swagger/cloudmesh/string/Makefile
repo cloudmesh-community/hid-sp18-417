@@ -11,12 +11,12 @@ container: docker-build docker-start
 
 docker-build:
 	@echo "building the image from docker file..."
-	sudo docker build -t cloudmesh-strings .
+	sudo docker build -t cloudmesh/strings .
 	@echo "image DONE"
 
 docker-pull:
 	@echo "pulling the image from dockerhub..."
-	docker pull cloudmesh-strings
+	docker pull cloudmesh/strings
 	@echo "image DONE"
 
 docker-start:
@@ -37,7 +37,7 @@ docker-clean: docker-stop docker-remove
 	@echo "DONE"
 
 dest:
-	mkdir $(DESTDIR)
+	mkdir -p $(DESTDIR)
 
 service:dest 
 	wget https://oss.sonatype.org/content/repositories/releases/io/swagger/swagger-codegen-cli/2.3.1/swagger-codegen-cli-2.3.1.jar
