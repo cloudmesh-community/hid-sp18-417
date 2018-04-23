@@ -1,8 +1,9 @@
 SWAGGERCODEGEN=java -jar swagger-codegen-cli-2.3.1.jar
 YAML=string_init.yaml
 DATA=data
-DESTDIR=server/
-FLASKDIR=server/string/flaskConnexion
+DESTDIR=server/nlp/flaskConnexion
+CREATED=server
+STRPDIR=string
 
 all: service start 
 	@echo "DONE"
@@ -42,15 +43,24 @@ dest:
 	mkdir $(DESTDIR)
 
 service:dest 
-	wget https://oss.sonatype.org/content/repositories/releases/io/swagger/swagger-codegen-cli/2.3.1/swagger-codegen-cli-2.3.1.jar
-	$(SWAGGERCODEGEN) generate  -i $(YAML)  -l python-flask  -o $(FLASKDIR)  -D supportPython2=true
+	@echo "creating the service..."
+	wget http://central.maven.org/maven2/io/swagger/swagger-codegen-cli/2.3.1/swagger-codegen-cli-2.3.1.jar
+	$(SWAGGERCODEGEN) generate \
+	-i $(YAMLFILE) \
+	-l python-flask \
+	-o $(DESTDIR) \
+	-D supportPython3=true
+	
 	rm *.jar
+	
 	mkdir $(DATA)
 	touch $(DATA)/data.csv
-	cp -r data $(FLASKDIR)
-	cp -r default_controller.py $(FLASKDIR)/swagger_server/controllers
-	cd $(FLASKDIR) && pip install -r requirements.txt && \
-	python setup.py install && python -m swagger_server	
+	cp -r data $(DESTDIR)
+	cp -r *.py $(DESTDIR)/swagger_server/controllers
+	cd $(STRDIR) && pip install -r requirements.txt && python setup.py install
+	
+	cd $(DESTDIR) && pip install -r requirements.txt && \
+	python setup.py install 
 
 test:
 	curl http://localhost:8080/cloudmesh/strings/addString/adding-a-new-string0
@@ -69,7 +79,5 @@ stop:
 	ps -ef | grep swagger | grep -v "grep"| awk '{print $$2}' | xargs kill -9
 
 clean:
-	sudo rm -r $(DESTDIR)
-	sudo rm -r $(DATA)
-	rm *.jar
+	rm -rf $(CREATED)
 
