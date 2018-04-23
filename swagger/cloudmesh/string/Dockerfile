@@ -9,7 +9,7 @@ RUN apt-get install -q -y default-jre
 # install net tools
 RUN apt-get install -q -y net-tools
 
-COPY ["Makefile", "sysinfo.yaml", \
+COPY ["Makefile", "string_init.yaml", \
       "default_controller.py",\
       "requirements.txt", "swagger-codegen-cli.jar", "/files/"]
 
