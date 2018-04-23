@@ -11,7 +11,7 @@ container: docker-build docker-start
 
 docker-build:
 	@echo "building the image from docker file..."
-	sudo docker build -t cloudmesh-strings .
+	docker build -t cloudmesh-strings .
 	@echo "image DONE"
 
 docker-pull:
