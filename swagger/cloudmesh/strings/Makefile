@@ -49,7 +49,7 @@ service:dest
 	-i $(YAMLFILE) \
 	-l python-flask \
 	-o $(DESTDIR) \
-	-D supportPython3=true
+	-D supportPython=true
 	
 	rm *.jar
 	
