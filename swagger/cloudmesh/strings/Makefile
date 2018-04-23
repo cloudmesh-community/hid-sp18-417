@@ -1,7 +1,7 @@
 SWAGGERCODEGEN=java -jar swagger-codegen-cli-2.3.1.jar
 YAML=string_init.yaml
 DATA=data
-DESTDIR=server/nlp/flaskConnexion
+DESTDIR=server/string/flaskConnexion
 CREATED=server
 STRPDIR=string
 
