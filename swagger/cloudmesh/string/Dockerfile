@@ -11,7 +11,7 @@ RUN apt-get install -q -y net-tools
 
 COPY ["Makefile", "string_init.yaml", \
       "default_controller.py",\
-      "requirements.txt", "swagger-codegen-cli.jar", "/files/"]
+      "requirements.txt", "swagger-codegen-cli-2.3.1.jar", "/files/"]
 
 WORKDIR /files
   
