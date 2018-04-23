@@ -3,6 +3,7 @@ import csv
 import quandl as qd
 import pygal as pg
 import pandas as pd
+import os
 
 app = Flask(__name__)
 
@@ -24,4 +25,4 @@ def index():
         return str(e)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host = '0.0.0.0', debug = False, threaded = True, port=int(os.getenv('PORT', '5000')))
