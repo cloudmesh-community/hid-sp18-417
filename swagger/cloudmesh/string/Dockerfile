@@ -23,5 +23,3 @@ EXPOSE 8080
 # Install the flask service using make commands
 RUN make service
 
-# start the service
-CMD ["make", "start"]
