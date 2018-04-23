@@ -3,25 +3,27 @@ YAML=string_init.yaml
 DATA=data
 DESTDIR=server/
 FLASKDIR=server/string/flaskConnexion
+
 all: service start 
 	@echo "DONE"
 
-container: docker-build docker-start
+docker-all: docker-build docker-start
 	@echo "DONE"
 
 docker-build:
 	@echo "building the image from docker file..."
-	docker build -t cloudmesh-strings .
+	docker build -t rashray417/cloudmesh-strings .
 	@echo "image DONE"
 
 docker-pull:
 	@echo "pulling the image from dockerhub..."
-	docker pull cloudmesh-strings
+	docker pull rashray417/cloudmesh-strings
 	@echo "image DONE"
 
 docker-start:
 	@echo "starting the service in container..."
-	docker run -p 8080:8080 cloudmesh-strings
+	docker run -p 8080:8080 rashray417/cloudmesh-strings
+
 
 docker-stop:
 	@echo "stoping the service..."
