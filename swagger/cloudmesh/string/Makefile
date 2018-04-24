@@ -1,4 +1,4 @@
-SWAGGERCODEGEN=java -jar swagger-codegen-cli-2.3.1.jar
+SWAGGERCODEGEN=java -jar swagger-codegen-cli.jar
 YAML=string_init.yaml
 DATA=data
 DESTDIR=server/
