@@ -13,7 +13,6 @@ def index():
         qd.ApiConfig.api_key = "oysPL-gX3EsUsTSPzeib"
         mydata = qd.get_table('WIKI/PRICES', ticker = ['AAPL'])
         mydata = mydata[:2000]
-        mydata.to_csv('AAPL.csv')
         line_chart = pg.Line()
         line_chart.title = 'Stocks Analysis for AAPL'
         line_chart.add('high', mydata["high"])
