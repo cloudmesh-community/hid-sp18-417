@@ -10,7 +10,6 @@ container: docker-build docker-start
 	@echo "DONE"
 
 docker-build:
-	wget https://oss.sonatype.org/content/repositories/releases/io/swagger/swagger-codegen-cli/2.3.1/swagger-codegen-cli-2.3.1.jar
 
 	@echo "building the image from docker file..."
 	sudo docker build -t cloudmesh/strings .
@@ -42,9 +41,10 @@ dest:
 	mkdir -p $(DESTDIR)
 
 service:dest 
+	wget https://oss.sonatype.org/content/repositories/releases/io/swagger/swagger-codegen-cli/2.3.1/swagger-codegen-cli-2.3.1.jar
 	$(SWAGGERCODEGEN) generate  -i $(YAML)  -l python-flask  -o $(FLASKDIR)  -D supportPython2=true
 	rm *.jar
-	mkdir $(DATA)
+	mkdir -p $(DATA)
 	touch $(DATA)/data.csv
 	cp -r data $(FLASKDIR)
 	cp -r default_controller.py $(FLASKDIR)/swagger_server/controllers
