@@ -20,4 +20,4 @@ COPY app /app/
 
 EXPOSE 5000
 
-ENTRYPOINT ["python", "/web/main.py"]
+ENTRYPOINT ["python", "/app/main.py"]
