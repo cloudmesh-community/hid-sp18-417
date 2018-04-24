@@ -1,6 +1,7 @@
-web:
-  build: ./web
-  ports:
-   - "5000:5000"
-  volumes:
-   - .:/code
+
+services:
+  web-ui:
+    image: rray/flask-web-stocks:latest
+    ports:
+      - "5000:5000"
+  
