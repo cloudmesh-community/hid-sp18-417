@@ -29,4 +29,4 @@ RUN easy_install pygal
 
 EXPOSE 5000
 
-ENTRYPOINT ["python", "/app/main.py"]
+ENTRYPOINT ["python", "/app/app/main.py"]
