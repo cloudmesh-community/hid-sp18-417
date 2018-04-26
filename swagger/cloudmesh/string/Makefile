@@ -48,7 +48,7 @@ service:dest
 	python setup.py install	
 start:  
 	@echo "starting the service..."
-	cd $(FLASKDIR) && python -m swagger_server	
+	python -m swagger_server	
 
 test:
 	curl http://localhost:8080/cloudmesh/strings/addString/adding-a-new-string0
