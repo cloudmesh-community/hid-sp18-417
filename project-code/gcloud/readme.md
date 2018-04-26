@@ -66,3 +66,11 @@ Exposing a service to a posrt will enable external access:
 kubectl expose deployment [SERVICE_NAME] --type "LoadBalancer"
 ```
 ## Access:
+After exposing the service the following command will privide the external IP for the service
+```
+kubectl get service [SERVUCE_NAME]
+```
+Now access the app:
+```
+http://[EXTERNAL_IP]:[EXPORTED_PORT]
+```
