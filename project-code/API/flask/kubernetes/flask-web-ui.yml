@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
       - name: web-ui
-        image: slowe/flask-web-svc:latest
+        image: cloudmesh/stocks:latest
         ports:
         - containerPort: 5000
 
