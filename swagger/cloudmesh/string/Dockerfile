@@ -1,25 +1,21 @@
-FROM python:2.7
-
+FROM ubuntu:16.04
 MAINTAINER Rashmi Ray <rashray@iu.edu>
-
-# Setup java 
-RUN apt-get update
-RUN apt-get install -q -y default-jre
-
+RUN apt-get update -q && apt-get install -qy \
+     build-essential \
+     python-dev \
+     python-pip \
+     git-core \
+     wget \
+     curl \
+     default-jre \
+     libssl-dev -y
 # install net tools
-RUN apt-get install -q -y net-tools
-RUN wget http://central.maven.org/maven2/io/swagger/swagger-codegen-cli/2.3.1/swagger-codegen-cli-2.3.1.jar -O swagger-codegen-cli.jar
-COPY ["Makefile", "string_init.yaml", \
-      "default_controller.py",\
-      "requirements.txt", "swagger-codegen-cli.jar", "/files/"]
+RUN pip install --upgrade pip
 
-WORKDIR /files
-  
-RUN pip install -r requirements.txt
-
-# tell the port number the container should expose
+#RUN apt-get update -q && apt-get install -qy default-jre
+RUN git clone https://github.com/cloudmesh-community/hid-sp18-417.git
+WORKDIR /hid-sp18-417/swagger/cloudmesh/string
+#RUN wget http://central.maven.org/maven2/io/swagger/swagger-codegen-cli/2.3.1/swagger-codegen-cli-2.3.1.jar
 EXPOSE 8080
-
-# Install the flask service using make commands
-RUN make service
-
+#FROM openjdk:7 RUN make service
+CMD ["make", "start"]
