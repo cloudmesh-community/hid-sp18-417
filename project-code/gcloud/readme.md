@@ -46,3 +46,14 @@ gcloud config set compute/zone [COMPUTE_ZONE]
 ```
 Here is a list of available compute zones for gcloud. Deoending of the compute zone selected the instances will use default processor in that zone. Here is a list of compute zones for GKE:
 https://cloud.google.com/compute/docs/regions-zones/#available
+
+## Creating CLuster:
+A cluster consists of one master multiple worker machines. gcloud creates a cluster of three nodes by default.
+```
+gcloud container clusters create [CLUSTER_NAME]
+
+## get authentication to interact with the clusters
+gcloud container clusters get-credentials [CLUSTER_NAME]
+```
+
+## Deployment:
