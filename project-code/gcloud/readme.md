@@ -41,3 +41,8 @@ while initaiting gcloud you will go setup the following::
 gcloud config set project [PROJECT_ID]
 ```
 2. Compute Zone setup: 
+```
+gcloud config set compute/zone [COMPUTE_ZONE]
+```
+Here is a list of available compute zones for gcloud. Deoending of the compute zone selected the instances will use default processor in that zone. Here is a list of compute zones for GKE:
+https://cloud.google.com/compute/docs/regions-zones/#available
