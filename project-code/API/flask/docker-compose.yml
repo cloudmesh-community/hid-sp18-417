@@ -2,7 +2,7 @@
 version: "2"
 services:
   web-ui:
-    image: slowe/flask-web-svc:latest
+    image: cloudmesh/stocks:latest
     ports:
       - "5000:5000"
   
