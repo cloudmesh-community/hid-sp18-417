@@ -29,7 +29,7 @@ or
 gcloud components install kubectl
 ```
 
-# gcloud initiation:
+# gcloud Initiation & Configuration:
 
 Now we are ready to initiate the cloud:
 ```
