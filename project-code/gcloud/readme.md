@@ -24,3 +24,20 @@ sudo apt-get update && sudo apt-get install google-cloud-sdk
 ```
 sudo apt-get install kubectl
 ```
+or 
+```
+gcloud components install kubectl
+```
+
+# gcloud initaion:
+
+Now we are ready to initiate the cloud:
+```
+gcloud init
+```
+while initaiting gcloud you will go setup the following::
+1. Project ID setup:You may setup a new project or use existing projects. The options will be prompted. For changing the project this can be used later as well:
+```
+gcloud config set project [PROJECT_ID]
+```
+2. Compute Zone setup: 
