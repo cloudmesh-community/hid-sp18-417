@@ -41,6 +41,7 @@ dest:
 	mkdir -p $(DESTDIR)
 
 service:dest 
+	wget http://central.maven.org/maven2/io/swagger/swagger-codegen-cli/2.3.1/swagger-codegen-cli-2.3.1.jar
 	$(SWAGGERCODEGEN) generate  -i $(YAML)  -l python-flask  -o $(FLASKDIR)  -D supportPython2=true
 	rm *.jar
 	cp -r default_controller.py $(FLASKDIR)/swagger_server/controllers
@@ -48,7 +49,7 @@ service:dest
 	python setup.py install	
 start:  
 	@echo "starting the service..."
-	python -m swagger_server	
+	cd $(FLASKDIR) && python -m swagger_server	
 
 test:
 	curl http://localhost:8080/cloudmesh/strings/addString/adding-a-new-string0
