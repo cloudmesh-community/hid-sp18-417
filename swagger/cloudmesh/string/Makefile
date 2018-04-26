@@ -45,8 +45,10 @@ service:dest
 	rm *.jar
 	cp -r default_controller.py $(FLASKDIR)/swagger_server/controllers
 	cd $(FLASKDIR) && pip install --upgrade pip; pip install -r requirements.txt && \
-	python setup.py install && python -m swagger_server	
-	
+	python setup.py install	
+start:  
+	@echo "starting the service..."
+	cd $(DESTDIR) && python -m swagger_server	
 
 test:
 	curl http://localhost:8080/cloudmesh/strings/addString/adding-a-new-string0
