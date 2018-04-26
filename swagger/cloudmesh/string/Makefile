@@ -44,6 +44,9 @@ service:dest
 	wget http://central.maven.org/maven2/io/swagger/swagger-codegen-cli/2.3.1/swagger-codegen-cli-2.3.1.jar
 	$(SWAGGERCODEGEN) generate  -i $(YAML)  -l python-flask  -o $(FLASKDIR)  -D supportPython2=true
 	rm *.jar
+	mkdir $(DATA) 	
+	touch $(DATA)/data.csv 	
+	cp -r data $(FLASKDIR)
 	cp -r default_controller.py $(FLASKDIR)/swagger_server/controllers
 	cd $(FLASKDIR) && pip install --upgrade pip; pip install -r requirements.txt && \
 	python setup.py install	
