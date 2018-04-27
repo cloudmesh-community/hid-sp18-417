@@ -10,7 +10,7 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     try :
-        qd.ApiConfig.api_key = "oysPL-gX3EsUsTSPzeib"
+        qd.ApiConfig.api_key = "[access code]"
         mydata = qd.get_table('WIKI/PRICES', ticker = ['AAPL'])
         mydata = mydata[:2000]
         line_chart = pg.Line()
