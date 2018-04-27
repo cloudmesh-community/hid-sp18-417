@@ -29,3 +29,26 @@ Once the kubectl cluster is up and running. Us the following command to deploy t
 docker-compose up -d
 kubectl apply -f kubernetes/flask-web-ui.yml
 ```
+
+## yaml Configuration:
+The configuration of the service is controlled from the `kubernetes/flask-web-ui.yml`
+An extract of the file:
+```
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: web-ui
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        role: web-ui
+    spec:
+      containers:
+      - name: web-ui
+        image: cloudmesh/stocks:latest
+        ports:
+        - containerPort: 5000
+```
+The noteworthy specs are `replicas` and `port`
