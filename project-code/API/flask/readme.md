@@ -63,7 +63,7 @@ The noteworthy specs are `replicas` and `port`. Flask by default hits port 5000 
 
 ACKNOWLEDGEMENT:
 
-For this useful repo by Scott S Lowe. It helped me understand the delpoyment structure better. 
+Found this useful repo by Scott S Lowe on Flask-python api deployment to kubectl cluster. It helped me understand the delpoyment structure better. 
 ```
 https://github.com/scottslowe/flask-web-svc
 ```
