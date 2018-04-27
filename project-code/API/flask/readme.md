@@ -51,4 +51,10 @@ spec:
         ports:
         - containerPort: 5000
 ```
-The noteworthy specs are `replicas` and `port`
+The noteworthy specs are `replicas` and `port`. Flask by default hits port 5000 so the same is retained in the deploment as well
+
+ACKNOWLEDGEMENT:
+For this useful link by Scott s Lowe. It helped me understand the delpoyment structure better. 
+```
+https://github.com/scottslowe/flask-web-svc
+```
