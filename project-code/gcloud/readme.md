@@ -77,3 +77,13 @@ Now access the app:
 http://[EXTERNAL_IP]:[EXPORTED_PORT]
 ```
 
+## Cleanup :
+A resource can be deleted using:
+``
+kubectl delete pod [POD_NAME]
+kubectl delete service [SEVICE_NAME]
+kubectl delete deployment [DEPLOYMENT_NAME]
+gcloud container clusters delete [CLUSTER_NAME]
+``
+
+Its worth nnoting that if a webservice replicas are defined during depoyment then deleting a pod will automatically generate a new one.
