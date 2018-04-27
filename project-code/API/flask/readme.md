@@ -2,7 +2,6 @@
 This a python application that uses:
 
       - Flask server as rest service
-      
       - qyandl module for fetching real-time stocks data
       
       - pygal to render graph data
