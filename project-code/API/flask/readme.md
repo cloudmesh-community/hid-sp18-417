@@ -19,7 +19,7 @@ Please note that the quandl code in `main.py` needs to be restored for the API t
 Extract from main.py:
 ```
 if __name__ == '__main__':
-    app.run(host = '0.0.0.0', debug = True, port=int(os.getenv('PORT', '5000')))
+    app.run(host = '0.0.0.0', debug = False, port=int(os.getenv('PORT', '5000')))
 ```
 
 In order to expose the app to extrenal IP and enable app accessible through any machine, it is import to follow the above setup. There might be workaround, but I fould that only way its working during my project work. 
