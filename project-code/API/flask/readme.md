@@ -6,4 +6,5 @@ This a python application that uses:
       - boorstrap for modularization of web application
       - docker-compose for managing the container
       - yml for kubernetes configuration deployment
-     
+      - html for web development
+      
