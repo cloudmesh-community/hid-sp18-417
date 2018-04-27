@@ -14,7 +14,15 @@ This a python application that uses:
  The versions are : Python 2.7, flask: 0.10.1.
 The app fetches realitime WIKI stocks data using python quandl module and renders pygal graph for visual appeal. 
 
-Please note that the quandl code in `main.py` needs to be restored for the API to work.
+Please note that the quandl code in `main.py` needs to be restored for the API to work. 
+
+Extract from main.py:
+```
+if __name__ == '__main__':
+    app.run(host = '0.0.0.0', debug = True, port=int(os.getenv('PORT', '5000')))
+```
+
+In order to expose the app to extrenal IP and enable app accessible through any machine, it is import to follow the above setup. There might be workaround, but I fould that only way its working during my project work. 
 
 ## docker-compose
 Deploying the service to kubectl cluster will need docker-compose.
