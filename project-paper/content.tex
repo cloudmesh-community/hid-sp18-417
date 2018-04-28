@@ -34,8 +34,6 @@ be using python, pyGal, Quandl. The benchmarking process will be registered in t
 
 \section{Introduction}
 
-\TODO{A PAPER MUST HAVE CITATIONS \cite{hid-sp18-417-kubernetes}}
-
 The area of research for this project is Kubernetes. Looking at the high popularity of 
 the tool, it is becoming a buzz word in the world of cloud computing and containers. 
 The project compares and contrasts the ease of deployment, configuration and performance 
@@ -68,9 +66,42 @@ rules/configuration for effective deployment of a container. Various metadata su
 environment, track, port, can be defined in a service configuration. Kubectl is the command line 
 configuration tool provided by Kubernetes. 
 
+The figure Figure~\ref{fig:kube-archtecture} below explains the Kubernetes architecture. The
+master is responsible for managing the 
+deployments, scheduling, exposing containerized applications.
 
-\subsection{Google Kubernetes Engine [GKE]}
-\TODO{GoogleCLoud setup and configuration is discussed in the context of the project}
+\begin{figure}[htb]
+	\centering\includegraphics[width=\columnwidth]
+        {images/hid_417_Kubernetes-Architecture}
+	\caption{Kubernetes Architecture~\cite{hid-sp18-417-kubernetes}}\label{fig:kube-archtecture}
+\end{figure}
+
+\subsection{GKE}
+
+Google Kubernetes Engine is the tool developed by Google Inc to simplify the management and 
+orchestration of Kubernetes systems, in Google’s public cloud services. This will help an
+organization focus more into their ow product development than worrying about Kubernetes 
+networking, upgrades and maintenance. As the main focus of the project was Kubernetes, it
+was vital for the author to include GKE in the scope of the project.
+
+Here are some benefits: With use of GKE, user need not worry about Kubernetes master. 
+The system ensures that master is always up and running. User need not worry about underlying 
+networking on what to user e.g. weave, flannel etc. It makes access and identity management
+easier with Google’s Identity and Container Management System [IAM]. Auto scaling is easier
+with just simple commands. With Kubernetes’ frequent releases its important for the system 
+to stay updated always. The upgrade is easier with gcloud with just a single command rather 
+than the manual overhead of porting the system step by step.
+
+gcloud container clusters upgrade CLUSTER_NAME \  [ — cluster-version=X.Y.Z]
+
+The project availed the free tier offer from Google to bring in the setup and configuration 
+experience for GKE. As of Apr 2018, Google is offering a $300 credit to be used with in 12 months.
+The free trial has certain resource usage limitations applied. Please refer to Google’s documentation
+for details. But the bottom-line was that the limitation was well within the projects scope to explore
+the cluster’s performance so the author decided to go ahead with the research. 
+
+Here are the key steps involved to get you started with GKE:
+
 
 \subsection{Python API}
 \TODO{Python API control structure and available features are discussed}
