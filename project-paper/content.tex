@@ -33,20 +33,38 @@ be using python, pyGal, Quandl. The benchmarking process will be registered in t
 \maketitle
 
 \section{Introduction}
-The project targets on Kubernetes container management system. As the tool is popularly used
-for container management and deployment, this project looks into exploring the tool.
-The primary task involves comparing and contrasting the initial installation, 
-setup and rest service deployment in two separate systems.  
-\TODO{Complete introduction.}
-
-
+The area of research for this project is Kubernetes. Looking at the high popularity of 
+the tool, it is becoming a buzz word in the world of cloud computing and containers. 
+The project compares and contrasts the ease of deployment, configuration and performance 
+in different systems. Before going into the detail of the project outcome, it is important
+to introduce several key components of the project.
 
 \subsection{Kubernetes}
-Kubernetes is an open-source system used for automating deployment, 
-scaling and management of containerized applications. It was originally 
-designed by Google and now maintained by the Cloud Native Computing 
-Foundation.\cite{hid-sp18-417-kubernetes}
-\TODO{Kubernetes details}
+Kubernetes is an open-source system developed and maintained by Google Inc. The system 
+provides a container orchestration platform for ease of deployment, management and scaling 
+of services and resources. The system places containers automatically based on it resource 
+requirement not compromising availability. Similarly, it provides seamless management of 
+data volumes and storage system. It allows updating configurations of the deployment without 
+rebuilding the image. The system can facilitate public, private or hybrid container management 
+system based on an organization’s requirement.  Kubernetes resource monitoring system oversees 
+automatic rollout and rollback of the resources in case of fallbacks.
+
+
+Kubernetes is also known as K8 or kube. This is originally developed based on Google’s container 
+management system. A Kubernetes can be deployed in a single host, but it is designed to be
+benefitted efficiently when used for a cluster of connected hosts. Use of a cluster of 
+multiple hosts facilitates high availability.
+
+
+The primary components of the system are: 
+
+The master node controls the other nodes. Nodes are the hosts in the cluster. Pod is a group 
+of one or more containers deployed in a node.  The Replication Controller monitors and controls
+the replicas of the services. A Kubernetes service is a single unit that has a collection of 
+rules/configuration for effective deployment of a container. Various metadata such as replicas,
+environment, track, port, can be defined in a service configuration. Kubectl is the command line 
+configuration tool provided by Kubernetes. 
+
 
 \subsection{GoogleCloud}
 \TODO{Rasberry Pi setup and configuration is discussed in the context of the project}
