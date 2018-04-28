@@ -13,6 +13,7 @@ def index():
         qd.ApiConfig.api_key = "[access code]"
         mydata = qd.get_table('WIKI/PRICES', ticker = ['AAPL'])
         mydata = mydata[:2000]
+        ##data = quandl.Datatable('ZACKS/FC').data(params={'ticker': ['AAPL','MSFT'], 'per_end_date': {'gte': '2015-01-01'}, 'qopts': {'columns': ['ticker', 'comp_name'], 'cursor_id': cursor_id}})
         line_chart = pg.Line()
         line_chart.title = 'Stocks Analysis for AAPL'
         line_chart.add('high', mydata["high"])
