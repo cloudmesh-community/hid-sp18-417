@@ -44,19 +44,20 @@ The area of research for this project is Kubernetes. Looking at the high
 
 \section{Kubernetes}
 Kubernetes is an open-source system developed and maintained by Google Inc.
- The system provides a container orchestration platform for ease of deployment, 
- management and scaling of services and resources. The system places containers 
+ The system provides a container orchestration platform for ease of deployment,
+ management and scaling of services and resources. The system places containers
  automatically based on it resource requirement not compromising availability.
-  Similarly, it provides seamless management of data volumes and storage system. 
+  Similarly, it provides seamless management of data volumes and storage 
+  system.
   It allows updating configurations of the deployment without rebuilding the
    image. The system can facilitate public, private or hybrid container 
-   management system based on an organization’s requirement.  Kubernetes 
+   management system based on an organization's requirement.  Kubernetes 
    resource monitoring system oversees automatic rollout and rollback of the 
    resources in case of fallbacks.
 
 
 Kubernetes is also known as K8 or kube. This is originally developed based on 
-Google’s container management system. A Kubernetes can be deployed in a single 
+Google's container management system. A Kubernetes can be deployed in a single 
 host, but it is designed to be benefitted efficiently when used for a cluster 
 of connected hosts. Use of a cluster of multiple hosts facilitates high 
 availability.
@@ -79,13 +80,14 @@ scheduling, exposing containerized applications.
 \begin{figure}[htb]
 	\centering\includegraphics[width=\columnwidth]
         {images/hid_417_Kubernetes-Architecture.png}
-	\caption{Kubernetes Architecture~\cite{hid-sp18-417-kubernetes}}\label{fig:kube-archtecture}
+  \caption{Kubernetes Architecture~\cite{hid-sp18-417-kubernetes}}
+  \label{fig:kube-archtecture}
 \end{figure}
 
 \section{ Google Kubernetes Engine GKE}
 
 Google Kubernetes Engine is the tool developed by Google Inc to simplify the 
-management and orchestration of Kubernetes systems, in Google’s public cloud
+management and orchestration of Kubernetes systems, in Google's public cloud
  services. This will help an organization focus more into their ow product 
  development than worrying about Kubernetes networking, upgrades and 
  maintenance. As the main focus of the project was Kubernetes, it
@@ -95,31 +97,28 @@ was vital for the author to include GKE in the scope of the project.
 
 Here are some benefits: With use of GKE, user need not worry about Kubernetes
  master. The system ensures that master is always up and running. User need not
-  worry about underlying networking on what to user e.g. weave, flannel etc. It 
-  makes access and identity management easier with Google’s Identity and 
+  worry about underlying networking on what to user e.g. weave, flannel etc. 
+  It makes access and identity management easier with Google's Identity and 
   Container Management System [IAM]. Auto scaling is easier with just simple 
-  commands. With Kubernetes’ frequent releases it is important for the system 
+  commands. With Kubernetes' frequent releases it is important for the system 
 to stay updated always. The upgrade is easier with gcloud with just a single 
 command rather than the manual overhead of porting the system step by step.
 
-\begin{equation}
-gcloud container clusters upgrade CLUSTER_NAME \  [ — cluster-version=X.Y.Z]
-\end{equation}
 \subsection{Initial Setup}
 The project availed the free tier offer from Google to bring in the setup and 
 configuration experience for GKE. As of Apr 2018, Google is offering a 300 
-dollar credit to be used with in 12 months. The free trial has certain resource 
-usage limitations applied. Please refer to Google’s documentation for details.
+dollar credit to be used with in 12 months. The free trial has certain resource
+usage limitations applied. Please refer to Google's documentation for details.
  But the bottom-line was that the limitation was well within the projects scope
-  to explore the cluster’s performance so the author decided to go ahead with 
+  to explore the cluster's performance so the author decided to go ahead with 
   the research. 
 
 Here are the key steps involved to get you started with GKE:
 \begin{description}
 \item[Account Setup] Before you can use GKE, you need to register to google
- cloud. You can use an existing google account. It is required to provide credit 
- card information. 
-Google assures that the card won’t be charged without your permission.
+ cloud. You can use an existing google account. It is required to provide 
+ credit card information. 
+Google assures that the card won't be charged without your permission.
 
 https://cloud.google.com/signin
 
@@ -128,12 +127,12 @@ https://cloud.google.com/signin
 or local shell [gcloud installation]. The project kept the local setup in the 
 scope. So here is the command set:
 
-\begin{equation}
+\begin{lstlisting}
 # Create environment variable for correct distribution
- export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
+ export CLOUD_SDK_REPO='cloud-sdk-$(lsb_release -c -s)'
 
 # Add the Cloud SDK distribution URI as a package source
-echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | 
+echo 'deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main' | 
 sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
 
 # Import the Google Cloud Platform public key
@@ -141,7 +140,7 @@ curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 
 # Update the package list and install the Cloud SDK
 sudo apt-get update && sudo apt-get install google-cloud-sdk
-\end{equation}
+\end{lstlisting}
 \item[Install Kubernetes] Now install Kubernetes:
 \begin{equation}
 sudo apt-get install kubectl
@@ -159,10 +158,11 @@ Now ready to initiate gcloud:
   gcloud init
 \end{equation}
 
-\item[Create Cluster] A cluster consists of one master multiple worker machines.
- gcloud creates a cluster of three nodes by default. This takes couple of
-  seconds. Once done it is important to get the credential, so that containers 
-  can be deployed gcloud container clusters create [CLUSTER_NAME]in the cluster
+\item[Create Cluster] A cluster consists of one master multiple worker 
+machines.  gcloud creates a cluster of three nodes by default. This takes
+ couple of  seconds. Once done it is important to get the credential, so that
+  containers can be deployed gcloud container clusters create [CLUSTER_NAME]in
+   the cluster
   \begin{equation}
     gcloud container clusters create [CLUSTER_NAME]
   \end{equation}
@@ -175,7 +175,7 @@ using the following:
 access:
 [A loadbalancer exposes the service externally.]
 \begin{equation}
-  kubectl expose deployment [SERVICE_NAME] --type "LoadBalancer"
+  kubectl expose deployment [SERVICE_NAME] --type 'LoadBalancer'
 \end{equation}
 
 Once exposed it may take a moment for the service to get exposed. The external
@@ -199,15 +199,16 @@ accessed in any web browser.
 \end{equation}
 
 Please keep in mind that if a pod is generated through a deployment then to 
-remove it the deployment has to be deleted. Deleting the pod will regenerate the 
-pod because the replication manager is monitoring the failure and handling them. 
+remove it the deployment has to be deleted. Deleting the pod will regenerate 
+the pod because the replication manager is monitoring the failure and handling 
+them. 
 \end{description}
 
 This Figure~\ref{fig:gcloud-dashboard} shows the GKE dashboard in the current 
 state. Where the current 
 balance is shown in the top-left corner. In the left menu option will provide 
 the current state of the account. The first dox in the main content area is 
-showing the current project in use. Currently it’s a new project with no
+showing the current project in use. Currently it is a new project with no
  clusters so there is not much to report.
  
  \begin{figure}[htb]
