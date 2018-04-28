@@ -22,6 +22,7 @@ sudo apt-get update && sudo apt-get install google-cloud-sdk
 ```
 
 Alternatively, the cloud shell from the website can be used as well.
+
 3. Now install kubectl:
 ```
 sudo apt-get install kubectl
