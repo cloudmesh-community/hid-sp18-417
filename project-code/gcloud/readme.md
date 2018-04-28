@@ -71,7 +71,7 @@ kubectl expose deployment [SERVICE_NAME] --type "LoadBalancer"
 ## Access:
 After exposing the service the following command will provide the external IP for the service
 ```
-kubectl get service [SERVUCE_NAME]
+kubectl get service [SERVICE_NAME]
 ```
 Now access the app:
 ```
