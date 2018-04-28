@@ -24,7 +24,10 @@ script will be modified as needed. The project will also involve developing a
 stock API using flask that will provide real-time analysis of the stock market 
 data. The performance of the API will be compared in both Chameleon and 
 GoogleCloud. The stock API will be using python, pyGal, Quandl. The 
-benchmarking process will be registered in the project report.
+benchmarking process will be registered in the project report. 
+
+The main idea behind the project was to compare and contrast ease of 
+Kubernetes deployment in 
 
 \end{abstract}
 
@@ -125,9 +128,10 @@ https://cloud.google.com/signin
 \item[Shell Setup] GKE provides an option of using google cloud shell [from the
  browser - no installation needed] 
 or local shell [gcloud installation]. The project kept the local setup in the 
-scope. So here is the command set:
+scope. So here is the command set to create environment variable, import
+public key, and install Google SDK.
 
-\begin{lstlisting}
+\begin{verbatim}
 # Create environment variable for correct distribution
  export CLOUD_SDK_REPO='cloud-sdk-$(lsb_release -c -s)'
 
@@ -140,11 +144,11 @@ curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 
 # Update the package list and install the Cloud SDK
 sudo apt-get update && sudo apt-get install google-cloud-sdk
-\end{lstlisting}
+\end{verbatim}
 \item[Install Kubernetes] Now install Kubernetes:
-\begin{equation}
+\begin{verbatim}
 sudo apt-get install kubectl
-\end{equation}
+\end{verbatim}
 \item[Initiate GoogleCloud] Now GKE is ready to be initiated locally. Before 
 initiating it is 
 important to know that you will setup the project and compute zone during the 
@@ -154,49 +158,49 @@ nearest processing center. [Still to discover more about zones, but went ahead
 a selected central-zone-1] 
 
 Now ready to initiate gcloud:
-\begin{equation}
+\begin{verbatim}
   gcloud init
-\end{equation}
+\end{verbatim}
 
 \item[Create Cluster] A cluster consists of one master multiple worker 
 machines.  gcloud creates a cluster of three nodes by default. This takes
  couple of  seconds. Once done it is important to get the credential, so that
   containers can be deployed gcloud container clusters create [CLUSTER_NAME]in
    the cluster
-  \begin{equation}
+  \begin{verbatim}
     gcloud container clusters create [CLUSTER_NAME]
-  \end{equation}
+  \end{verbatim}
 \item[Deployment] A containerized docker image can be deployed to the cluster 
 using the following:
-\begin{equation}
+\begin{verbatim}
   kubectl run [SERVICE_NAME] --image [IMAGE_NAME] --port [port number]
-\end{equation}
+\end{verbatim}
 \item [Exposing Service] Exposing a service to a port will enable external 
 access:
 [A loadbalancer exposes the service externally.]
-\begin{equation}
+\begin{verbatim}
   kubectl expose deployment [SERVICE_NAME] --type 'LoadBalancer'
-\end{equation}
+\end{verbatim}
 
 Once exposed it may take a moment for the service to get exposed. The external
  IP can be fetched using the following:
-\begin{equation}
+\begin{verbatim}
   kubectl get service [SERVICE_NAME]
-\end{equation}
+\end{verbatim}
 
 \item [External Access] Once the IP is shown, the exposed contained can be 
 accessed in any web browser.
-\begin{equation}
+\begin{verbatim}
   http://[EXTERNAL_IP]:[EXPORTED_PORT]
-\end{equation}
+\end{verbatim}
 
 \item [Cleanup] Finally, here are some useful clean up commands:
-\begin{equation}
+\begin{verbatim}
   kubectl delete pod [POD_NAME]
   kubectl delete service [SEVICE_NAME]
   kubectl delete deployment [DEPLOYMENT_NAME]
   gcloud container clusters delete [CLUSTER_NAME]
-\end{equation}
+\end{verbatim}
 
 Please keep in mind that if a pod is generated through a deployment then to 
 remove it the deployment has to be deleted. Deleting the pod will regenerate 
