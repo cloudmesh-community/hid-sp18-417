@@ -1,12 +1,12 @@
 {% extends 'layout.html' %}
 
 {% block body %}
-    <h2>Generating Data for {{companycode}}</h2>
+    <h4>Generating Data for {{companycode}}</h4>
     <div align="right">Initial Time: {{initialTime}}
             <sub id="demo"></sub>
      </div>
      <div align="right">Data Load Time: {{loadTime}}
             <sub id="demo"></sub>
      </div>
-    <embed type="image/svg+xml" src={{graph_data | safe}} style="max-width: width 800px;">
+    <embed type="image/svg+xml" src={{graph_data | safe}} style="width: 800px;">
 {% endblock %}
