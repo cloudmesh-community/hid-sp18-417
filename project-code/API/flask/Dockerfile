@@ -24,6 +24,7 @@ RUN pip install -r requirements.txt
 RUN pip install pandas
 RUN easy_install quandl
 RUN easy_install pygal
+RUN easy_install-2.7 DateTime
 
 ##COPY app /app/
 

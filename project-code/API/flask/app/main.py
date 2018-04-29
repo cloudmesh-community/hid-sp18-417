@@ -4,23 +4,27 @@ import quandl as qd
 import pygal as pg
 import pandas as pd
 import os
+from flask import request
+import datetime
 
 app = Flask(__name__)
-
-@app.route("/")
+@app.route("/home")
 def index():
     try :
-        qd.ApiConfig.api_key = "[access code]"
-        mydata = qd.get_table('WIKI/PRICES', ticker = ['AAPL'])
-        mydata = mydata[:2000]
-        ##data = quandl.Datatable('ZACKS/FC').data(params={'ticker': ['AAPL','MSFT'], 'per_end_date': {'gte': '2015-01-01'}, 'qopts': {'columns': ['ticker', 'comp_name'], 'cursor_id': cursor_id}})
+        initialTime=datetime.datetime.now()
+        companycode = request.args.get('code')
+        qd.ApiConfig.api_key = "oysPL-gX3EsUsTSPzeib"
+        completeData = qd.get_table('WIKI/PRICES', ticker = [companycode])
+        ##completeData.to_csv(companycode+'.csv')
+        mydata = completeData[:2000]
         line_chart = pg.Line()
-        line_chart.title = 'Stocks Analysis for AAPL'
+        line_chart.title = 'Stocks Analysis for ' + companycode
         line_chart.add('high', mydata["high"])
         line_chart.add('low',   mydata["low"])
         line_chart.add('close', mydata["close"])
         chart = line_chart.render_data_uri()
-        return render_template('index.html', graph_data=chart)
+        loadTime=datetime.datetime.now()
+        return render_template('index.html', graph_data=chart, companycode=companycode, initialTime=initialTime,loadTime=loadTime)
     except Exception, e:
         return str(e)
 
