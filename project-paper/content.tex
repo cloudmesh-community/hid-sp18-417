@@ -38,51 +38,52 @@ Kubernetes deployment in
 
 \section{Introduction}
 
-The area of research for this project is Kubernetes. Looking at the high
- popularity of the tool, it is becoming a buzz word in the world of cloud 
- computing and containers. The project compares and contrasts the ease of
-  deployment, configuration and performance in different systems. Before going 
-  into the detail of the project outcome, it is important to introduce several
-   key components of the project.
+The area of research for this project is Kubernetes. Looking at the
+high popularity of the tool, it is becoming a buzz word in the world
+of cloud computing and containers. The project compares and contrasts
+the ease of deployment, configuration and performance in different
+systems. Before going into the detail of the project outcome, it is
+important to introduce several key components of the project.
 
 \section{Kubernetes}
-Kubernetes is an open-source system developed and maintained by Google Inc.
- The system provides a container orchestration platform for ease of deployment,
- management and scaling of services and resources. The system places containers
- automatically based on it resource requirement not compromising availability.
-  Similarly, it provides seamless management of data volumes and storage 
-  system.
-  It allows updating configurations of the deployment without rebuilding the
-   image. The system can facilitate public, private or hybrid container 
-   management system based on an organization's requirement.  Kubernetes 
-   resource monitoring system oversees automatic rollout and rollback of the 
-   resources in case of fallbacks.
+
+Kubernetes is an open-source system developed and maintained by Google
+Inc.  The system provides a container orchestration platform for ease
+of deployment, management and scaling of services and resources. The
+system places containers automatically based on it resource
+requirement not compromising availability.  Similarly, it provides
+seamless management of data volumes and storage system.  It allows
+updating configurations of the deployment without rebuilding the
+image. The system can facilitate public, private or hybrid container
+management system based on an organization's requirement.  Kubernetes
+resource monitoring system oversees automatic rollout and rollback of
+the resources in case of fallbacks.
 
 
-Kubernetes is also known as K8 or kube. This is originally developed based on 
-Google's container management system. A Kubernetes can be deployed in a single 
-host, but it is designed to be benefitted efficiently when used for a cluster 
-of connected hosts. Use of a cluster of multiple hosts facilitates high 
-availability.
+Kubernetes is also known as K8 or kube. This is originally developed
+based on Google's container management system. A Kubernetes can be
+deployed in a single host, but it is designed to be benefitted
+efficiently when used for a cluster of connected hosts. Use of a
+cluster of multiple hosts facilitates high availability.
 
 
 The primary components of the system are: 
 
-The master node controls the other nodes. Nodes are the hosts in the cluster. 
-Pod is a group of one or more containers deployed in a node.  The Replication
- Controller monitors and controls the replicas of the services. A Kubernetes 
- service is a single unit that has a collection of rules/configuration for 
- effective deployment of a container. Various metadata such as replicas, 
- environment, track, port, can be defined in a service configuration. 
- Kubectl is the command line configuration tool provided by Kubernetes. 
+The master node controls the other nodes. Nodes are the hosts in the
+cluster.  Pod is a group of one or more containers deployed in a node.
+The Replication Controller monitors and controls the replicas of the
+services. A Kubernetes service is a single unit that has a collection
+of rules/configuration for effective deployment of a
+container. Various metadata such as replicas, environment, track,
+port, can be defined in a service configuration.  Kubectl is the
+command line configuration tool provided by Kubernetes.
 
-The figure Figure~\ref{fig:kube-archtecture} below explains the Kubernetes 
-architecture. The master is responsible for managing the deployments, 
-scheduling, exposing containerized applications.
+The figure Figure~\ref{fig:kube-archtecture} below explains the
+Kubernetes architecture. The master is responsible for managing the
+deployments, scheduling, exposing containerized applications.
 
 \begin{figure}[htb]
-	\centering\includegraphics[width=\columnwidth]
-        {images/hid_417_Kubernetes-Architecture.png}
+	\centering\includegraphics[width=\columnwidth]{images/hid_417_Kubernetes-Architecture.png}
   \caption{Kubernetes Architecture~\cite{hid-sp18-417-kubernetes}}
   \label{fig:kube-archtecture}
 \end{figure}
