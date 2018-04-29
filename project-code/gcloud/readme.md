@@ -63,7 +63,7 @@ gcloud container clusters get-credentials [CLUSTER_NAME]
 ## Deployment:
 A containerized docker image can be deployed to the cluster using the following:
 ```
-kubectl run [SERVICE_NAME] --image [IMAGE_NAME] --port [posrt number]
+kubectl run [SERVICE_NAME] --image [IMAGE_NAME] --port [port number]
 ```
 Exposing a service to a port will enable external access:
 ```
