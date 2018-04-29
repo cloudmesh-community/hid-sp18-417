@@ -13,7 +13,7 @@ def index():
     try :
         initialTime=datetime.datetime.now()
         companycode = request.args.get('code')
-        qd.ApiConfig.api_key = "oysPL-gX3EsUsTSPzeib"
+        qd.ApiConfig.api_key = "[quandl-code]"
         completeData = qd.get_table('WIKI/PRICES', ticker = [companycode])
         ##completeData.to_csv(companycode+'.csv')
         mydata = completeData[:2000]
