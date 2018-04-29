@@ -90,47 +90,53 @@ deployments, scheduling, exposing containerized applications.
 
 \section{ Google Kubernetes Engine GKE}
 
-Google Kubernetes Engine is the tool developed by Google Inc to simplify the 
-management and orchestration of Kubernetes systems, in Google's public cloud
- services. This will help an organization focus more into their ow product 
- development than worrying about Kubernetes networking, upgrades and 
- maintenance. As the main focus of the project was Kubernetes, it
-was vital for the author to include GKE in the scope of the project.
+Google Kubernetes Engine is the tool developed by Google Inc to
+simplify the management and orchestration of Kubernetes systems, in
+Google's public cloud services. This will help an organization focus
+more into their ow product development than worrying about Kubernetes
+networking, upgrades and maintenance. As the main focus of the project
+was Kubernetes, it was vital for the author to include GKE in the
+scope of the project.
 
 \subsection{benefits}
 
-Here are some benefits: With use of GKE, user need not worry about Kubernetes
- master. The system ensures that master is always up and running. User need not
-  worry about underlying networking on what to user e.g. weave, flannel etc. 
-  It makes access and identity management easier with Google's Identity and 
-  Container Management System [IAM]. Auto scaling is easier with just simple 
-  commands. With Kubernetes' frequent releases it is important for the system 
-to stay updated always. The upgrade is easier with gcloud with just a single 
-command rather than the manual overhead of porting the system step by step.
+Here are some benefits: With use of GKE, user need not worry about
+Kubernetes master. The system ensures that master is always up and
+running. User need not worry about underlying networking on what to
+user e.g. weave, flannel etc.  It makes access and identity management
+easier with Google's Identity and Container Management System
+\TODO{[IAM]}. Auto scaling is easier with just simple commands. With
+Kubernetes' frequent releases it is important for the system to stay
+updated always. The upgrade is easier with gcloud with just a single
+command rather than the manual overhead of porting the system step by
+step.
 
 \subsection{Initial Setup}
-The project availed the free tier offer from Google to bring in the setup and 
-configuration experience for GKE. As of Apr 2018, Google is offering a 300 
-dollar credit to be used with in 12 months. The free trial has certain resource
-usage limitations applied. Please refer to Google's documentation for details.
- But the bottom-line was that the limitation was well within the projects scope
-  to explore the cluster's performance so the author decided to go ahead with 
-  the research. 
+
+The project availed the free tier offer from Google to bring in the
+setup and configuration experience for GKE. As of Apr 2018, Google is
+offering a 300 dollar credit to be used with in 12 months. The free
+trial has certain resource usage limitations applied. Please refer to
+Google's documentation for details.  But the bottom-line was that the
+limitation was well within the projects scope to explore the cluster's
+performance so the author decided to go ahead with the research.
 
 Here are the key steps involved to get you started with GKE:
+
 \begin{description}
-\item[Account Setup] Before you can use GKE, you need to register to google
- cloud. You can use an existing google account. It is required to provide 
- credit card information. 
-Google assures that the card won't be charged without your permission.
+
+\item[Account Setup] Before you can use GKE, you need to register to
+  google cloud. You can use an existing google account. It is required
+  to provide credit card information.  Google assures that the card
+  won't be charged without your permission.
 
 https://cloud.google.com/signin
 
-\item[Shell Setup] GKE provides an option of using google cloud shell [from the
- browser - no installation needed] 
-or local shell [gcloud installation]. The project kept the local setup in the 
-scope. So here is the command set to create environment variable, import
-public key, and install Google SDK.
+\item[Shell Setup] GKE provides an option of using google cloud shell
+  [from the browser - no installation needed] or local shell [gcloud
+  installation]. The project kept the local setup in the scope. So
+  here is the command set to create environment variable, import
+  public key, and install Google SDK.
 
 \begin{verbatim}
 # Create environment variable for correct distribution
@@ -146,10 +152,13 @@ curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 # Update the package list and install the Cloud SDK
 sudo apt-get update && sudo apt-get install google-cloud-sdk
 \end{verbatim}
+
 \item[Install Kubernetes] Now install Kubernetes:
+
 \begin{verbatim}
 sudo apt-get install kubectl
 \end{verbatim}
+
 \item[Initiate GoogleCloud] Now GKE is ready to be initiated locally. Before 
 initiating it is 
 important to know that you will setup the project and compute zone during the 
@@ -218,12 +227,14 @@ showing the current project in use. Currently it is a new project with no
  clusters so there is not much to report.
  
  \begin{figure}[htb]
-   \centering\includegraphics[width=\columnwidth]
-         {images/hid_417_gcloud_browser.png}
+   \centering\includegraphics[width=\columnwidth]{images/hid_417_gcloud_browser.png}
    \caption{gcloud Dashboard}\label{fig:gcloud-dashboard}
  \end{figure}
 
  \section{API in Use}
+
+\TODO{paragraph missing}
+
 \subsection{Python API}
 \TODO{Python API control structure and available features are discussed}
 
@@ -255,7 +266,7 @@ citations in the section.
 
 
 \begin{acks}
-The author would like to thank Dr. Gregor von Laszewski for his support and 
+The author would like to thank Dr.\ Gregor von Laszewski for his support and 
 suggestions in writing this paper.
 \end{acks}
 
