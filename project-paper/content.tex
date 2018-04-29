@@ -193,8 +193,9 @@ access:
   kubectl expose deployment [SERVICE_NAME] --type 'LoadBalancer'
 \end{verbatim}
 
-Once exposed it may take a moment for the service to get exposed. The external
- IP can be fetched using the following:
+Once exposed it may take a moment for the service to get exposed. The
+external IP can be fetched using the following:
+
 \begin{verbatim}
   kubectl get service [SERVICE_NAME]
 \end{verbatim}
@@ -213,10 +214,11 @@ accessed in any web browser.
   gcloud container clusters delete [CLUSTER_NAME]
 \end{verbatim}
 
-Please keep in mind that if a pod is generated through a deployment then to 
-remove it the deployment has to be deleted. Deleting the pod will regenerate 
-the pod because the replication manager is monitoring the failure and handling 
-them. 
+  Please keep in mind that if a pod is generated through a deployment
+  then to remove it the deployment has to be deleted. Deleting the pod
+  will regenerate the pod because the replication manager is
+  monitoring the failure and handling them.
+
 \end{description}
 
 This Figure~\ref{fig:gcloud-dashboard} shows the GKE dashboard in the current 
@@ -236,25 +238,32 @@ showing the current project in use. Currently it is a new project with no
 \TODO{paragraph missing}
 
 \subsection{Python API}
+
 \TODO{Python API control structure and available features are discussed}
 
 \subsection{Flask Service}
+
 \TODO{the details of the swagger service in use}
 
 \subsection{setup process}
+
 \TODO{Initial setup experience is discussed}
 
 \subsection{Chameleon}
+
 \TODO{JetStream setup is discussed.}
 
 \subsection{Stocks Analysis}
+
 \TODO{Practice use of the webservice and the current 
 market trend of tools and technologies in the context is discussed.}
 
 \subsection{Trouble shooting}
+
 \TODO{Troubleshooting experience during the project is logged}
 
 \section{BenchMarking}
+
 \TODO{Compare and contrast the installation, setup and performance of the 
 service in Pi and Jetstream cluster}
 
