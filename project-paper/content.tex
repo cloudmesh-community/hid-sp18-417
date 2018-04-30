@@ -16,17 +16,18 @@
 \renewcommand{\shortauthors}{Rashmi Ray}
 
 \begin{abstract}
-The project involves creating a Kubernete cluster in GoogleCloud and later
-automating the installation and setup process by including the shell script.
-The same process will be executed in a Kubernetes Chameleon cluster. The shell
-script will be modified as needed. The project will also involve developing a
-stock API using flask that will provide real-time analysis of the stock market
-data. The performance of the API will be compared in both Chameleon and
-GoogleCloud. The stock API will be using python, pyGal, Quandl. The
-benchmarking process will be registered in the project report. 
-
-The main idea behind the project was to compare and contrast ease of
-Kubernetes deployment in 
+  The project analyses how the Kubernetes deployment metdata affects
+  performance of a containerized application. The experiment platform will be
+  Google Kubernetes Engine. Kubernetes cluster will be setup in a Chameleon
+  node to ensure isolated setup. The project will also involve developing a
+  Flask REST API for processing stocks data in python that will provide
+  real-time analysis of the stock market data. The performance of the API will
+  be compared in both GoogleCloud and local. The stock API will be using
+  python, pyGal, Quandl. The benchmarking process will be registered in the
+  project report. 
+  
+  The project will alo discuss the setup process of Google Kubernetes Engine.
+   
 
 \end{abstract}
 
@@ -75,7 +76,7 @@ effective deployment of a container. Various metadata such as replicas,
 environment, track, port, can be defined in a service configuration.  Kubectl
 is the command line configuration tool provided by Kubernetes.
 
-The figure Figure~\ref{fig:kube-archtecture} below explains the Kubernetes
+The Figure~\ref{fig:kube-archtecture} below explains the Kubernetes
 architecture. The master is responsible for managing the deployments,
 scheduling, exposing containerized applications.
 
@@ -101,11 +102,11 @@ Here are some benefits: With use of GKE, user need not worry about Kubernetes
 master. The system ensures that master is always up and running. User need not
 worry about underlying networking on what to user e.g. weave, flannel etc.  It
 makes access and identity management easier with Google's Identity and
-Container Management System \TODO{[IAM]}. Auto scaling is easier with just
-simple commands. With Kubernetes' frequent releases it is important for the
-system to stay updated always. The upgrade is easier with gcloud with just a
-single command rather than the manual overhead of porting the system step by
-step.
+Container Management System[IAM]~\cite{hid-sp18-417-IAM}. Auto scaling is
+easier with just simple commands. With Kubernetes' frequent releases it is
+important for the system to stay updated always. The upgrade is easier with
+gcloud with just a single command rather than the manual overhead of porting
+the system step by step.
 
 \subsection{Initial Setup}
 
@@ -137,10 +138,12 @@ distribution
  export CLOUD_SDK_REPO=
       'cloud-sdk-$(lsb_release -c -s)'
 
-# Add the Cloud SDK distribution URI as a package source
+# Add the Cloud SDK distribution URI as a 
+package source
 echo 'deb http://packages.cloud.google.com/apt 
           $CLOUD_SDK_REPO main' | 
-sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+sudo tee -a 
+/etc/apt/sources.list.d/google-cloud-sdk.list
 
 # Import the Google Cloud Platform public key
 curl
@@ -173,8 +176,9 @@ Now ready to initiate gcloud:
 \item[Create Cluster] A cluster consists of one master multiple worker
 machines. gcloud creates a cluster of three nodes by default. This takes
 couple of seconds. Once done it is important to get the credential, so that
-containers can be deployed gcloud container clusters create
-[\verb|CLUSTER_NAME|] in the cluster
+containers can be deployed in the cluster. During the project this process
+consistently recorded to be more than two minutes~\cite{hid-sp18-417-cluster-creation-video}.
+
   \begin{verbatim}
     gcloud container clusters create [CLUSTER_NAME]
   \end{verbatim}
@@ -241,7 +245,10 @@ processes can be achieved through the dashboard left menu.
 \section{API in Use}
 
 Before the project is discussed, its important to discuss the following tools
-and technologies used in the project:
+and technologies used in the project. The following subsections also discuss
+the necessary installation and code pertaining to the project.
+
+
 \subsection{Python - API}
 Python is a high-level object-oriented programming language. The language is
 popular because of its simple readable syntax, minimal required setup and high
@@ -300,15 +307,21 @@ command was found inevitable.
 \end{verbatim}
 
 \subsection{Quandl - Realtime Data provider}
-Quandl~\cite{hid-sp18-417-Quandl} is a useful Python module that brings in millions of datasets
-pertaining economics and finance data. The data is available free, but Quandl
-requires you to register with them in order to avail critical data. There are
-still some data available in public that doesn’t need any registration code.
-The code can be formatted to receive data is one of the available formats i.e.
-json, excel, csv. To retrieve data from quandl two vital parameters are
-needed: source code and the ticker code.
+Quandl~\cite{hid-sp18-417-Quandl} is a useful Python module that brings in
+millions of datasets pertaining economics and finance data. 
 
-The project is using ‘WIKI/PRICES’ source and ticker is expected to be a
+Installation:
+
+\begin{verbatim}
+  easy_install quandl
+\end{verbatim}
+The data is available free, but Quandl requires you to register with them in
+order to avail critical data. There are still some data available in public
+that doesn’t need any registration code. The code can be formatted to receive
+data is one of the available formats i.e. json, excel, csv. To retrieve data
+from quandl two vital parameters are needed: source code and the ticker code.
+
+The project is using 'WIKI/PRICES' source and ticker is expected to be a
 trading code for a desired organization.
 \begin{verbatim}
   completeData = qd.get_table('WIKI/PRICES', ticker =
@@ -317,10 +330,33 @@ trading code for a desired organization.
 
 In the project ticker is set to be query param for the flask REST api.
 \begin{verbatim}
-  http://localhost:5000/home?code=TSLA
+  http://localhost:5000/home?code={code}
 \end{verbatim}
 \subsection{Pygal - Graph Module}
-Pygal~\cite{hid-sp18-417-Pygal}
+Pygal~\cite{hid-sp18-417-Pygal} is a python module for interactive plotting.
+There other python modules are available in Python, but Pygal specializes in
+SVG~\cite{hid-sp18-417-SVG} graphics.
+
+Installation:
+
+\begin{verbatim}
+  easy_install pygal
+\end{verbatim}
+
+These graphics being scalable and light weight, they are preferred for
+websites. The project chose Pygal for the very specific reason. It collects
+real-time data taking in the user entered code in the query prams and renders
+the specific a line chart using the respective data collected from Quadl.
+\begin{verbatim}
+   completeData = qd.get_table('WIKI/PRICES', ticker =
+   [companycode])line_chart = pg.Line()
+   line_chart.title = 'Stocks Analysis for ' + companycode
+   line_chart.add('high', mydata['high'])
+   line_chart.add('low',   mydata['low'])
+   line_chart.add('close', mydata['close'])
+   chart = line_chart.render_data_uri()
+\end{verbatim}
+
 \subsection{Docker - Container}
 \subsection{Docker-compose - Container Management}
 \subsection{YAML - Kubernetes Configuration}
