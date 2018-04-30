@@ -20,10 +20,10 @@
   performance of a containerized application. The experiment platform will be
   Google Kubernetes Engine. Kubernetes cluster will be setup in a Chameleon
   node to ensure isolated setup. The project will also involve developing a
-  Flask REST API for processing stocks data in python that will provide
+  Flask REST API for processing stocks data in Python that will provide
   real-time analysis of the stock market data. The performance of the API will
   be compared in both GoogleCloud and local. The stock API will be using
-  python, pyGal, Quandl. The benchmarking process will be registered in the
+  Python, pyGal, Quandl. The benchmarking process will be registered in the
   project report. 
   
   The project will also discuss the setup process of Google Kubernetes Engine.
@@ -220,7 +220,7 @@ accessed in any web browser.
   Please keep in mind that if a pod is generated through a deployment then to
   remove it the deployment has to be deleted. Deleting the pod will regenerate
   the pod because the replication manager is monitoring the failure and
-  handling them. A demonstartion of the replication manager and the cleanup
+  handling them. A demonstration of the replication manager and the cleanup
   process is recorded~\cite{hid-sp18-417-google_cleanup} during the project.
 
 \end{description}
@@ -335,8 +335,8 @@ In the project ticker is set to be query param for the flask REST api.
   http://localhost:5000/home?code={code}
 \end{verbatim}
 \subsection{Pygal - Graph Module}
-Pygal~\cite{hid-sp18-417-Pygal} is a python module for interactive plotting.
-There other python modules are available in Python, but Pygal specializes in
+Pygal~\cite{hid-sp18-417-Pygal} is a Python module for interactive plotting.
+There other Python modules are available in Python, but Pygal specializes in
 SVG~\cite{hid-sp18-417-SVG} graphics.
 
 Installation:
@@ -365,7 +365,8 @@ the specific a line chart using the respective data collected from Quadl.
 \end{figure}
 \subsection{Datetime}
 
-The project uses the Python datetime module to record the data download time and processing time.
+The project uses the Python datetime module to record the data download time
+and processing time.
 \begin{figure}[htb]
 	\centering\includegraphics[width=\columnwidth]{images/hid_417_project_datetime.png}
   \caption{Project datetime}
@@ -414,6 +415,8 @@ https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname
 
 sudo chmod +x /usr/local/bin/docker-compose
 \end{verbatim}
+\subsection{Makefile}
+
 \subsection{YAML - Kubernetes Configuration}
 It is a good practice to manage Kubernetes deployment through yml files. The
 step is not mandatory but desirable for ease of maintenance and Convenience.
@@ -442,23 +445,68 @@ spec:
   
 \end{verbatim}
 \subsection{Chameleon}
-\subsection{setup process}
-\TODO{Initial setup experience is discussed}
+Once the required knowledgebase is ready, project was set up in Chameleon
+cloud node to ensure that all the required installation and configurations are
+registered appropriately for the report.
+\subsection{Setup and BenchMarking}
 
+Once the Python API was developed it was tested to retrieve the times
+recorded. Apple Inc was used for this project. This is because, it has a good
+number of records. The Flask server was run locally to check the download and
+processing time. The Figure~\ref{fig:project_localhost} depicts the final
+webpage.
 
-\subsection{Stocks Analysis}
+\begin{figure}[htb]
+	\centering\includegraphics[width=\columnwidth]{images/hid_417_localhost_benchmark.png}
+  \caption{Localhost - REST service}
+  \label{fig:project_localhost}
+\end{figure}
 
-\TODO{Practice use of the webservice and the current market trend of tools and
-technologies in the context is discussed.}
+Now, a Chameleon node was spawn to setup Google Kubernetes Engine. The google
+SDK and CLI was installed and configured. 
 
-\subsection{Trouble shooting}
+The Docker image was created using the Makefile:
+\begin{verbatim}
+ make docker-build
+\end{verbatim}
+A kubectl cluster was created and it was ensured that the nodes are up and
+running.
 
+kubectl get nodes
 
-\section{BenchMarking}
+The web service was deployed.
 
-\TODO{Compare and contrast the installation, setup and performance of the
-service in Pi and Jetstream cluster}
+\begin{verbatim}
+  docker-compose up -d
 
+  ##Apply the configuration
+  kubectl apply -f kubernetes/flask-web-ui.yml
+\end{verbatim}
+Once deployed, it takes few seconds for the external IP to be available. With
+the available external IP, it was possible to access the web service locally.
+The default kubernetes/flask-web-ui.yml in the git repo defines 3 replicas.
+
+Later the replicas in the yml was changed to benchmark the different in
+download and performance.
+
+The Figure~\ref{fig:project_deployment} depicts the confiuration change to
+reploy only two replicas of the python microservice.
+
+\begin{figure}[htb]
+	\centering\includegraphics[width=\columnwidth]{images/hid_417_gcloud_2replicas_console_benchmark.png}
+  \caption{gcloud Deployment}
+  \label{fig:project_deployment}
+\end{figure}
+
+Here is the outcome of the excercise in Figure~\ref{fig:project_benchmark}:
+
+\begin{figure}[htb]
+  \centering\includegraphics[width=\columnwidth]{images/hid_417_benchmark.png}
+  \caption{Benchmark}\label{fig:project_benchmark}
+ \end{figure}
+
+ A short video was recorded provisidng the overview of the
+ project~\cite{hid-sp18-417-project_overview}.
 
 \section{Conclusion}
 
