@@ -220,8 +220,7 @@ accessed in any web browser.
   Please keep in mind that if a pod is generated through a deployment then to
   remove it the deployment has to be deleted. Deleting the pod will regenerate
   the pod because the replication manager is monitoring the failure and
-  handling them. A demonstration of the replication manager and the cleanup
-  process is recorded~\cite{hid-sp18-417-google_cleanup} during the project.
+  handling them.
 
 \end{description}
 
@@ -416,7 +415,24 @@ https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname
 sudo chmod +x /usr/local/bin/docker-compose
 \end{verbatim}
 \subsection{Makefile}
+Makefile is a fine that contains instructions to get certain task done. The
+project has provided a Makefile that takes care of building a cleaning up the
+Docker container.
 
+\begin{verbatim}
+  docker-build:
+	docker build -t cloudmesh/stocks .
+	
+docker-start:
+	docker run -p 5000:5000 cloudmesh/stocks
+	
+docker-start-detach-mode:
+	docker run -d -p 5000:5000 cloudmesh/stocks
+
+docker-stop:
+  docker stop $$(docker ps -a -q -f status=running)
+  
+\end{verbatim}
 \subsection{YAML - Kubernetes Configuration}
 It is a good practice to manage Kubernetes deployment through yml files. The
 step is not mandatory but desirable for ease of maintenance and Convenience.
@@ -511,11 +527,26 @@ Here is the outcome of the excercise in Figure~\ref{fig:project_benchmark}:
 A short video was recorded to present the overview of the
 project~\cite{hid-sp18-417-project_overview}.
 
+Finally once all the required data was collected the deployment and cluster
+was cleaned up.
 
+A demonstration of the replication manager and the cleanup process is
+  recorded~\cite{hid-sp18-417-google_cleanup} during the project.
 \section{Conclusion}
 
-\TODO{Put here an conclusion.} Conclusion and abstracts must not have any
-citations in the section.
+
+In this project the developed Flask-Python microservice was successfully
+deployed in a GKE cluster. The setup and configuration process for Google
+Kubernetes cluster was explained. It was felt that the time duration for
+creating the cluster can be improvised.
+
+It was demonstrated how a replication manager automatically assure that the
+deployment configurations are managed in case of fallback. From the
+benchmarking process it was observed that the number of replicas for a
+deployment does affect the performance. The interesting fact is that 2
+replicas web-service is delivering better performance. This would be an
+interesting aspect to lead to the continuation of this project in to the next
+cycle. 
 
 
 \begin{acks}
