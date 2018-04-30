@@ -450,6 +450,8 @@ cloud node to ensure that all the required installation and configurations are
 registered appropriately for the report.
 \subsection{Setup and BenchMarking}
 
+\subsection{Setup and BenchMarking}
+
 Once the Python API was developed it was tested to retrieve the times
 recorded. Apple Inc was used for this project. This is because, it has a good
 number of records. The Flask server was run locally to check the download and
@@ -457,7 +459,7 @@ processing time. The Figure~\ref{fig:project_localhost} depicts the final
 webpage.
 
 \begin{figure}[htb]
-	\centering\includegraphics[width=\columnwidth]{images/hid_417_localhost_benchmark.png}
+	\centering\includegraphics[width=\columnwidth]{images/hid_417_localhost.png}
   \caption{Localhost - REST service}
   \label{fig:project_localhost}
 \end{figure}
@@ -479,34 +481,36 @@ The web service was deployed.
 \begin{verbatim}
   docker-compose up -d
 
-  ##Apply the configuration
   kubectl apply -f kubernetes/flask-web-ui.yml
 \end{verbatim}
+
 Once deployed, it takes few seconds for the external IP to be available. With
 the available external IP, it was possible to access the web service locally.
-The default kubernetes/flask-web-ui.yml in the git repo defines 3 replicas.
+The default flask-web-ui.yml in the git repo defines 3 replicas.
 
 Later the replicas in the yml was changed to benchmark the different in
 download and performance.
 
 The Figure~\ref{fig:project_deployment} depicts the confiuration change to
-reploy only two replicas of the python microservice.
+deploy only two replicas of the python microservice.
 
 \begin{figure}[htb]
 	\centering\includegraphics[width=\columnwidth]{images/hid_417_gcloud_2replicas_console_benchmark.png}
-  \caption{gcloud Deployment}
+  \caption{gcloud Deployment - 2 replicas}
   \label{fig:project_deployment}
 \end{figure}
 
 Here is the outcome of the excercise in Figure~\ref{fig:project_benchmark}:
 
 \begin{figure}[htb]
-  \centering\includegraphics[width=\columnwidth]{images/hid_417_benchmark.png}
-  \caption{Benchmark}\label{fig:project_benchmark}
- \end{figure}
+	\centering\includegraphics[width=\columnwidth]{images/hid_417_benchmark.png}
+  \caption{Analysis Log}
+  \label{fig:project_benchmark}
+\end{figure}
 
- A short video was recorded provisidng the overview of the
- project~\cite{hid-sp18-417-project_overview}.
+A short video was recorded to present the overview of the
+project~\cite{hid-sp18-417-project_overview}.
+
 
 \section{Conclusion}
 
