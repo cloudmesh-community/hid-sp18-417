@@ -26,7 +26,7 @@
   python, pyGal, Quandl. The benchmarking process will be registered in the
   project report. 
   
-  The project will alo discuss the setup process of Google Kubernetes Engine.
+  The project will also discuss the setup process of Google Kubernetes Engine.
    
 
 \end{abstract}
@@ -177,7 +177,8 @@ Now ready to initiate gcloud:
 machines. gcloud creates a cluster of three nodes by default. This takes
 couple of seconds. Once done it is important to get the credential, so that
 containers can be deployed in the cluster. During the project this process
-consistently recorded to be more than two minutes~\cite{hid-sp18-417-cluster-creation-video}.
+consistently recorded to be more than two
+minutes~\cite{hid-sp18-417-cluster-creation-video}.
 
   \begin{verbatim}
     gcloud container clusters create [CLUSTER_NAME]
@@ -219,7 +220,8 @@ accessed in any web browser.
   Please keep in mind that if a pod is generated through a deployment then to
   remove it the deployment has to be deleted. Deleting the pod will regenerate
   the pod because the replication manager is monitoring the failure and
-  handling them.
+  handling them. A demonstartion of the replication manager and the cleanup
+  process is recorded~\cite{hid-sp18-417-google_cleanup} during the project.
 
 \end{description}
 
@@ -258,7 +260,7 @@ availability of large collection of free libraries. The project uses Python
 \subsection{Flask - Rest Service}
 Flask is a micro framework developed for web development. The framework is
 widely popular because its light weight and has minimal dependencies. Flask
-was originally written in python. Some of the key features of Flask are
+was originally written in Python. Some of the key features of Flask are
 integrated rest service, secure cookies and unit testing support. The
 framework is also compatible with Google App
 Engine~\cite{hid-sp18-417-google_appengine}
@@ -356,13 +358,89 @@ the specific a line chart using the respective data collected from Quadl.
    line_chart.add('close', mydata['close'])
    chart = line_chart.render_data_uri()
 \end{verbatim}
+\begin{figure}[htb]
+	\centering\includegraphics[width=\columnwidth]{images/hid_417_project_graph.png}
+  \caption{Project Graph}
+  \label{fig:project_graph}
+\end{figure}
+\subsection{Datetime}
+
+The project uses the Python datetime module to record the data download time and processing time.
+\begin{figure}[htb]
+	\centering\includegraphics[width=\columnwidth]{images/hid_417_project_datetime.png}
+  \caption{Project datetime}
+  \label{fig:kube-datetime}
+\end{figure}
 
 \subsection{Docker - Container}
+Docker is an opensource tool that enables virtualization at the Operating
+System level. The process is also known as containerization. Docker was
+primarily developed for Linux system to containerize an application and its
+dependencies so that the application can run in any Linux system.
+
+Installation:
+\begin{verbatim}
+  sudo apt-get update
+  sudo apt-get install 
+  apt-transport-https ca-certificates curl software-properties-common
+
+  curl -fsSL 
+  https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+  sudo apt-key fingerprint 0EBFCD88
+  sudo add-apt-repository 
+  'deb [arch=amd64] https://download.docker.com/linux/ubuntu 
+  $(lsb_release -cs)  stable'
+
+  sudo apt-get update
+  sudo apt-get install docker-ce
+  sudo apt-get update
+\end{verbatim}
+For the project the stocks microservice is containerized to be deployed in
+Kubectl using a Dockerfile~\cite{hid-sp18-417-Dockerfile}.
+
 \subsection{Docker-compose - Container Management}
+Docker Compose is a tool used for managing metadata for multi-container
+applications. Docker-compose.yml~\cite{hid-sp18-417-docker-compose} was not
+mandatory for this project, but was incorporated keeping future improvisations
+in mind. 
+
+Installation:
+
+\begin{verbatim}
+sudo curl -L 
+https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname 
+-s`-`uname -m` -o /usr/local/bin/docker-compose
+
+sudo chmod +x /usr/local/bin/docker-compose
+\end{verbatim}
 \subsection{YAML - Kubernetes Configuration}
+It is a good practice to manage Kubernetes deployment through yml files. The
+step is not mandatory but desirable for ease of maintenance and Convenience.
+Yaml is a markup language that is popularly used for specifying
+configurations. If multiple structure are defined in one single file then its
+separated by --- . Here is an extract of the yml file used for the project.
+Few metadata worth noting is apiversion, kind, replicas, containerPort.
 
-
-
+\begin{verbatim}
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: web-ui
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        role: web-ui
+    spec:
+      containers:
+      - name: web-ui
+        image: rashray/stocks
+        ports:
+        - containerPort: 5000
+  
+\end{verbatim}
 \subsection{Chameleon}
 \subsection{setup process}
 \TODO{Initial setup experience is discussed}
