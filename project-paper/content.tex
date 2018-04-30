@@ -127,11 +127,15 @@ Here are the key steps involved to get you started with GKE:
   credit card information.  Google assures that the card won't be charged
   without your permission.
 
-\item[Shell Setup] GKE provides an option of using google cloud shell [from
-  the browser - no installation needed] or local shell [gcloud installation].
-  The project kept the local setup in the scope. So here is the command set to
-  create environment variable, import public key, and install Google SDK.
+\item[Shell Setup] GKE provides an option of using google cloud shell
+  [from the browser - no installation needed] or local shell [gcloud
+  installation].  The project kept the local setup in the scope. To
+  set up the enfironment a user must follow the steps listed in
+  Figure~\ref{F:setup}. It includes the import of the public key, and
+  installing Google SDK.
 
+\begin{figure}
+\begin{footnotesize}
 \begin{verbatim}
 # Create environment variable for correct 
 distribution
@@ -154,6 +158,11 @@ sudo apt-key add -
 sudo apt-get update && sudo apt-get install 
     google-cloud-sdk
 \end{verbatim}
+
+\end{footnotesize}
+\caption{Setup of ...}\label{F:setup}
+\end{figure}
+
 
 \item[Install Kubernetes] Now install Kubernetes:
 
@@ -407,13 +416,17 @@ in mind.
 
 Installation:
 
+\begin{figure*}[htb]
 \begin{verbatim}
-sudo curl -L 
-https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname 
--s`-`uname -m` -o /usr/local/bin/docker-compose
+sudo curl -L \
+  https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname \
+  -s`-`uname -m` -o /usr/local/bin/docker-compose
 
 sudo chmod +x /usr/local/bin/docker-compose
 \end{verbatim}
+\caption{bla}
+\end{figure*}
+
 \subsection{Makefile}
 Makefile is a fine that contains instructions to get certain task done. The
 project has provided a Makefile that takes care of building a cleaning up the
