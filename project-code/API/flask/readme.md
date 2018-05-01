@@ -24,6 +24,15 @@ if __name__ == '__main__':
 
 In order to expose the app to extrenal IP and enable app accessible through any machine, it is import to follow the above setup. There might be workaround, but I fould that only way its working during my project work. 
 
+## Automation:
+  A Makefile is provided for the automation of the task:
+
+  - Build the image and deploy to kubernetes cluster already up and running:
+        ``build-deploy-all``
+  
+  - Clean the Docker image and processes:
+        ```docker-clean```
+
 ## docker-compose
 Deploying the service to kubectl cluster will need docker-compose.
 Here is the installation instruction for docker-compose:
@@ -59,16 +68,7 @@ spec:
         ports:
         - containerPort: 5000
 ```
-The noteworthy specs are `replicas` and `port`. Flask by default hits port 5000 so the same is retained in the deploment as well
-
-## Automation:
-  A Makefile is provided for the automation of the task:
-
-  - Build the image and deploy to kubernetes cluster already up and running:
-        ``build-deploy-all``
-  
-  - Clean the Docker image and processes:
-        ```docker-clean```
+The noteworthy specs are `replicas` and `port`. Flask by default hits port 5000 so the same is retained in the deploment as well.
 
 VIDEO DEMONSTARTION: 
 
