@@ -3,7 +3,25 @@
 Google Kubernetes Engine[GKE] is a solution provided by Google Inc for seamless management and deployment for containerized applications.
 While leaning about Kubernetes, it was important to explore this google tool for Kubernetes deployment. As both GKE and Kubernetes are developed and maintained by Google, the collaboration is expected to bring is powerful vital usage for the cloud community. 
 
-# Installation:
+## Automation:
+A Makefile is provided for the automation task:
+
+    Install gcloud SDK in the local shell:
+    ```make gcloud-install```
+
+    Initiate gcloud in the local shell:
+    ```make gcloud-init```
+
+    Create a cluster:
+    ```make cluster-create```
+
+    Deploy a service to a specific port[placeholder for the service name and port is indicated in the Makefile]:
+    ```make kubectl-deploy```
+
+    To cleanup the deployment and cluster[service name, cluster placeholder in the Makefile]:
+    ```make gcloud-remove-cluster```
+
+## Installation:
 Here are the steps involved:
 1. Google currently provides a free trial of 12 months with $ 300 credit to use the account. An account was created for this purpose.
 2. Set up gcloud console locally:
@@ -33,13 +51,13 @@ or
 gcloud components install kubectl
 ```
 
-# gcloud Initiation & Configuration:
+## gcloud Initiation & Configuration:
 
 Now we are ready to initiate the cloud:
 ```
 gcloud init
 ```
-while initiating gcloud you will go setup the following::
+Initiating gcloud:
 1. Project ID setup: You may setup a new project or use existing projects. The options will be prompted. For changing the project this can be used later as well:
 ```
 gcloud config set project [PROJECT_ID]
@@ -88,7 +106,7 @@ kubectl delete deployment [DEPLOYMENT_NAME]
 gcloud container clusters delete [CLUSTER_NAME]
 ```
 
-It is worth noting that if a webservice replicas are defined during depoyment then deleting a pod will automatically generate a new one.
+It is worth noting that if a webservice replicas are defined during deployment then deleting a pod will automatically generate a new one.
 
 VIDEO DEMONSTRATIONS:
 

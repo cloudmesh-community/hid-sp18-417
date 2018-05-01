@@ -19,7 +19,7 @@ gcloud-init:
 	gcloud init
 	
 cluster-create:
-	 gcloud container clusters create [CLUSTER_NAME]
+	 gcloud container clusters create cluster01
 	
 kubectl-deploy:
 	kubectl run [SERVICE_NAME] --image [IMAGE_NAME] --port [port number]
@@ -29,7 +29,3 @@ gcloud-remove-cluster:
   	kubectl delete service [SEVICE_NAME]
   	kubectl delete deployment [DEPLOYMENT_NAME]
   	gcloud container clusters delete [CLUSTER_NAME]
-
-start:
-	#creates the swagger service from the yaml file and places the controllers in the appropriate directory
-	sudo python app/main.py
