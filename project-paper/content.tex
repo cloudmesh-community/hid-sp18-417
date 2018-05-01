@@ -477,7 +477,6 @@ spec:
 Once the required knowledgebase is ready, project was set up in Chameleon
 cloud node to ensure that all the required installation and configurations are
 registered appropriately for the report.
-\subsection{Setup and BenchMarking}
 
 \subsection{Setup and BenchMarking}
 
@@ -536,6 +535,24 @@ Here is the outcome of the excercise in Figure~\ref{fig:project_benchmark}:
   \caption{Analysis Log}
   \label{fig:project_benchmark}
 \end{figure}
+\begin{table}[htb]
+	\centering
+	\caption{Total data downaload and processing time in different computing platforms}\label{tab:performance}
+	\begin{tabular}{*{3}{c}}
+		\toprule
+		Environment & Loading Time  &  Processing time \\
+		\midrule
+		NA & sec: MS & sec: MS \\
+		\midrule
+		Local hosting & 4:351  & 1:523 \\
+		GKE deployment: 3 replicas & 4:834 & 1:636 \\
+    GKE deployment: 2 replicas & 4:090 & 0:942 \\
+    GKE deployment: 1 replicas & 4:358 & 1:157 \\
+
+
+		\bottomrule
+	\end{tabular}
+\end{table}
 
 A short video was recorded to present the overview of the
 project~\cite{hid-sp18-417-project_overview}.
