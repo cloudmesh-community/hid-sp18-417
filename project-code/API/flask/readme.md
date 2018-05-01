@@ -61,6 +61,19 @@ spec:
 ```
 The noteworthy specs are `replicas` and `port`. Flask by default hits port 5000 so the same is retained in the deploment as well
 
+## Automation:
+  A Makefile is provided for the automation of the task:
+
+  - Build the image and deploy to kubernetes cluster already up and running:
+        ``build-deploy-all``
+  
+  - Clean the Docker image and processes:
+        ```docker-clean```
+
+VIDEO DEMONSTARTION: 
+
+A video demonstartion of the project is provided [video](https://www.youtube.com/watch?v=ilQ54AXBCEM).
+
 ACKNOWLEDGEMENT:
 
 Found this useful repo by Scott S Lowe on Flask-python api deployment to kubectl cluster. It helped me understand the delpoyment structure better. 

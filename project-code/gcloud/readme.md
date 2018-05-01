@@ -88,4 +88,9 @@ kubectl delete deployment [DEPLOYMENT_NAME]
 gcloud container clusters delete [CLUSTER_NAME]
 ```
 
-Its worth noting that if a webservice replicas are defined during depoyment then deleting a pod will automatically generate a new one.
+It is worth noting that if a webservice replicas are defined during depoyment then deleting a pod will automatically generate a new one.
+
+VIDEO DEMONSTRATIONS:
+
+    - [cluster Creation](https://youtu.be/FBGw3F2sjjI)
+    - [cluster Cleanup](https://youtu.be/fiuwjaxBqLc )
