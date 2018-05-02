@@ -21,6 +21,8 @@ A Makefile is provided for the automation task:
     To cleanup the deployment and cluster[service name, cluster placeholder in the Makefile]:
     ```make gcloud-remove-cluster```
 
+    To install Docker [if needed]:
+    ``make docker-install``
 ## Installation:
 Here are the steps involved:
 1. Google currently provides a free trial of 12 months with $ 300 credit to use the account. An account was created for this purpose.

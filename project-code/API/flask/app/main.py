@@ -11,20 +11,23 @@ app = Flask(__name__)
 @app.route("/home")
 def index():
     try :
-        initialTime=datetime.datetime.now()
+        initialTimeStamp=datetime.datetime.now()
         companycode = request.args.get('code')
-        qd.ApiConfig.api_key = "[quandl-code]"
+        qd.ApiConfig.api_key = "oysPL-gX3EsUsTSPzeib"
         completeData = qd.get_table('WIKI/PRICES', ticker = [companycode])
         ##completeData.to_csv(companycode+'.csv')
-        mydata = completeData[:2000]
+        loadTimeStamp=datetime.datetime.now()
+        loadTime = loadTimeStamp - initialTimeStamp
+        mydata = completeData.tail(2000)
+        mydata.to_csv(companycode+'.csv')
         line_chart = pg.Line()
         line_chart.title = 'Stocks Analysis for ' + companycode
         line_chart.add('high', mydata["high"])
         line_chart.add('low',   mydata["low"])
         line_chart.add('close', mydata["close"])
         chart = line_chart.render_data_uri()
-        loadTime=datetime.datetime.now()
-        return render_template('index.html', graph_data=chart, companycode=companycode, initialTime=initialTime,loadTime=loadTime)
+        processingTime=datetime.datetime.now() - loadTimeStamp
+        return render_template('index.html', graph_data=chart, companycode=companycode, loadTime=loadTime,processingTime=processingTime)
     except Exception, e:
         return str(e)
 
