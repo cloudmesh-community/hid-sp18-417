@@ -87,12 +87,12 @@ scheduling, exposing containerized applications.
 \end{figure}
 
 
-\section{ Google Kubernetes Engine [GKE]}
+\section{ Google Kubernetes Engine}
 
-Google Kubernetes Engine is the tool developed by Google Inc to simplify the
-management and orchestration of Kubernetes systems, in Google's public cloud
-services. This will help an organization focus more into their ow product
-development than worrying about Kubernetes networking, upgrades and
+Google Kubernetes Engine[GKE] is the tool developed by Google Inc to simplify
+the management and orchestration of Kubernetes systems, in Google's public
+cloud services. This will help an organization focus more into their ow
+product development than worrying about Kubernetes networking, upgrades and
 maintenance. As the main focus of the project was Kubernetes, it was vital for
 the author to include GKE in the scope of the project.
 
@@ -127,12 +127,12 @@ Here are the key steps involved to get you started with GKE:
   credit card information.  Google assures that the card won't be charged
   without your permission.
 
-\item[Shell Setup] GKE provides an option of using google cloud shell
-  [from the browser - no installation needed] or local shell [gcloud
-  installation].  The project kept the local setup in the scope. To
-  set up the enfironment a user must follow the steps listed in
-  Figure~\ref{F:setup}. It includes the import of the public key, and
-  installing Google SDK.
+\item[Shell Setup] GKE provides an option of using google cloud shell [from
+  the browser - no installation needed] or local shell [gcloud installation].
+  The project kept the local setup in the scope. To set up the environment a
+  user must follow the steps listed in Figure~\ref{F:setup}. It includes the
+  import of the public key, and installing Google SDK. Aletrnatively, one can
+  use the Makefile provided in the project repo to execute the same.
 
 \begin{figure}
 \begin{footnotesize}
@@ -160,7 +160,7 @@ sudo apt-get update && sudo apt-get install
 \end{verbatim}
 
 \end{footnotesize}
-\caption{Setup of ...}\label{F:setup}
+\caption{Setup of gcloud SDK}\label{F:setup}
 \end{figure}
 
 
@@ -388,6 +388,8 @@ primarily developed for Linux system to containerize an application and its
 dependencies so that the application can run in any Linux system.
 
 Installation:
+\begin{figure}
+\begin{footnotesize}
 \begin{verbatim}
   sudo apt-get update
   sudo apt-get install 
@@ -405,6 +407,9 @@ Installation:
   sudo apt-get install docker-ce
   sudo apt-get update
 \end{verbatim}
+\end{footnotesize}
+\caption{Docker Installation}\label{F:setup}
+\end{figure}
 For the project the stocks microservice is containerized to be deployed in
 Kubectl using a Dockerfile~\cite{hid-sp18-417-Dockerfile}.
 
@@ -418,34 +423,21 @@ Installation:
 
 \begin{figure*}[htb]
 \begin{verbatim}
-sudo curl -L \
-  https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname \
-  -s`-`uname -m` -o /usr/local/bin/docker-compose
-
-sudo chmod +x /usr/local/bin/docker-compose
+  sudo curl -L https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+  sudo chmod +x /usr/local/bin/docker-compose
 \end{verbatim}
-\caption{bla}
+\caption{Docker-compose Installation}
 \end{figure*}
 
 \subsection{Makefile}
-Makefile is a fine that contains instructions to get certain task done. The
+Makefile is a file that contains instructions to get certain task done. The
 project has provided a Makefile that takes care of building a cleaning up the
-Docker container.
+Docker container. To use this file ensure build-essentials is installed.
 
-\begin{verbatim}
-  docker-build:
-	docker build -t cloudmesh/stocks .
-	
-docker-start:
-	docker run -p 5000:5000 cloudmesh/stocks
-	
-docker-start-detach-mode:
-	docker run -d -p 5000:5000 cloudmesh/stocks
-
-docker-stop:
-  docker stop $$(docker ps -a -q -f status=running)
+Provisioning of Makefile makes the automation process simpler. The project
+repo provides two Makefiles. One for gcloud installation and setup, the other
+one is for the deployment of the python-flask microservice.
   
-\end{verbatim}
 \subsection{YAML - Kubernetes Configuration}
 It is a good practice to manage Kubernetes deployment through yml files. The
 step is not mandatory but desirable for ease of maintenance and Convenience.
@@ -453,7 +445,11 @@ Yaml is a markup language that is popularly used for specifying
 configurations. If multiple structure are defined in one single file then its
 separated by --- . Here is an extract of the yml file used for the project.
 Few metadata worth noting is apiversion, kind, replicas, containerPort.
+Figure~\ref{F:svc-setup} provides a sample configuration file used for the
+project.
 
+\begin{figure}
+\begin{footnotesize}  
 \begin{verbatim}
 apiVersion: extensions/v1beta1
 kind: Deployment
@@ -473,6 +469,9 @@ spec:
         - containerPort: 5000
   
 \end{verbatim}
+\end{footnotesize}
+\caption{Deployment Configuration}\label{F:svc-setup}
+\end{figure}
 \subsection{Chameleon}
 Once the required knowledgebase is ready, project was set up in Chameleon
 cloud node to ensure that all the required installation and configurations are
@@ -544,8 +543,6 @@ Here is the outcome of the excercise in Figure~\ref{tab:performance}:
 		GKE deployment: 3 replicas & 4:834 & 1:636 \\
     GKE deployment: 2 replicas & 4:090 & 0:942 \\
     GKE deployment: 1 replicas & 4:358 & 1:157 \\
-
-
 		\bottomrule
 	\end{tabular}
 \end{table}
