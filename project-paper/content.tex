@@ -522,7 +522,62 @@ The Figure~\ref{fig:project_deployment} depicts the confiuration change to
 deploy only two replicas of the python microservice.
 
 \begin{figure}[htb]
-	\centering\includegraphics[width=\columnwidth]{images/hid_417_gcloud_2replicas_console_benchmark.png}
+  \begin{footnotesize}  
+  \begin{verbatim}
+  cc@kubenode:~/hid-sp18-417/project-code/API/flask$ cat kubernetes/flask-web-ui.yml
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: web-ui
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        role: web-ui
+    spec:
+      containers:
+      - name: web-ui
+        image: rashray/stocks
+        ports:
+        - containerPort: 5000
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-ui
+  labels:
+    role: web-ui-svc
+spec:
+  ports:
+  - port: 5000
+    targetPort: 5000
+  selector:
+    role: web-ui
+  type: LoadBalancer
+---
+cc@kubenode:~/hid-sp18-417/project-code/API/flask$ docker-compose up -d
+Creating flask_web-ui_1 ... done
+cc@kubenode:~/hid-sp18-417/project-code/API/flask$ kubectl apply -f kubernetes/flask-web-ui.yml
+deployment.extensions "web-ui" created
+service "web-ui" created
+cc@kubenode:~/hid-sp18-417/project-code/API/flask$ kubectl get services
+NAME         TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+kubernetes   ClusterIP      10.35.240.1     <none>        443/TCP          26m
+web-ui       LoadBalancer   10.35.247.125   <pending>     5000:32594/TCP   44s
+cc@kubenode:~/hid-sp18-417/project-code/API/flask$ kubectl get services
+NAME         TYPE           CLUSTER-IP      EXTERNAL-IP     PORT(S)          AGE
+kubernetes   ClusterIP      10.35.240.1     <none>          443/TCP          26m
+web-ui       LoadBalancer   10.35.247.125   35.232.229.66   5000:32594/TCP   50s
+cc@kubenode:~/hid-sp18-417/project-code/API/flask$ kubectl get pods
+NAME                      READY     STATUS    RESTARTS   AGE
+web-ui-78496b97dc-mgh2w   1/1       Running   0          13m
+cc@kubenode:~/hid-sp18-417/project-code/API/flask$
+  \end{verbatim}
+\end{footnotesize}  
+
   \caption{gcloud Deployment - 2 replicas}
   \label{fig:project_deployment}
 \end{figure}
