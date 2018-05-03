@@ -76,9 +76,9 @@ effective deployment of a container. Various metadata such as replicas,
 environment, track, port, can be defined in a service configuration.  Kubectl
 is the command line configuration tool provided by Kubernetes.
 
-The Figure~\ref{fig:kube-archtecture} below explains the Kubernetes
-architecture. The master is responsible for managing the deployments,
-scheduling, exposing containerized applications.
+The Figure~\ref{fig:kube-archtecture} explains the Kubernetes architecture.
+The master is responsible for managing the deployments, scheduling, exposing
+containerized applications.
 
 \begin{figure}[htb]
 	\centering\includegraphics[width=\columnwidth]{images/hid_417_Kubernetes-Architecture.png}
@@ -134,29 +134,20 @@ Here are the key steps involved to get you started with GKE:
   import of the public key, and installing Google SDK. Aletrnatively, one can
   use the Makefile provided in the project repo to execute the same.
 
-\begin{figure}
+\begin{figure*}[htb]
 \begin{footnotesize}
 \begin{verbatim}
-# Create environment variable for correct 
-distribution
- export CLOUD_SDK_REPO=
-      'cloud-sdk-$(lsb_release -c -s)'
+# Create environment variable for correct distribution
+export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
 
-# Add the Cloud SDK distribution URI as a 
-package source
-echo 'deb http://packages.cloud.google.com/apt 
-          $CLOUD_SDK_REPO main' | 
-sudo tee -a 
-/etc/apt/sources.list.d/google-cloud-sdk.list
+# Add the Cloud SDK distribution URI as a package source
+echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
 
 # Import the Google Cloud Platform public key
-curl
- https://packages.cloud.google.com/apt/doc/apt-key.gpg | 
-sudo apt-key add -
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 
 # Update the package list and install the Cloud SDK
-sudo apt-get update && sudo apt-get install 
-    google-cloud-sdk
+sudo apt-get update && sudo apt-get install google-cloud-sdk
 \end{verbatim}
 
 \end{footnotesize}
@@ -241,8 +232,8 @@ option will provide the current state of the account.Identify the active
 projects through the project name and ID in the top left block in the content
 area. The resources block displays the details of the resources used in the
 project. The middle column displays current state of the compute engine and
-request/response flow for the containerized APIs.  The above-mentioned
-processes can be achieved through the dashboard left menu.
+request/response flow for the containerized APIs. The Google Browser Shell can
+be used as an alternative to the local shell.
 
 
 
@@ -263,7 +254,7 @@ the necessary installation and code pertaining to the project.
 Python is a high-level object-oriented programming language. The language is
 popular because of its simple readable syntax, minimal required setup and high
 availability of large collection of free libraries. The project uses Python
-2.7 that is available in the native version of Ubuntu 16.07.
+2.7 that is available in the native version of Ubuntu 16.04.
 
 \subsection{Flask - Rest Service}
 Flask is a micro framework developed for web development. The framework is
@@ -388,21 +379,14 @@ primarily developed for Linux system to containerize an application and its
 dependencies so that the application can run in any Linux system.
 
 Installation:
-\begin{figure}
+\begin{figure*}[htb]
 \begin{footnotesize}
 \begin{verbatim}
   sudo apt-get update
-  sudo apt-get install 
-  apt-transport-https ca-certificates curl software-properties-common
-
-  curl -fsSL 
-  https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-
+  sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
+  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
   sudo apt-key fingerprint 0EBFCD88
-  sudo add-apt-repository 
-  'deb [arch=amd64] https://download.docker.com/linux/ubuntu 
-  $(lsb_release -cs)  stable'
-
+  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs)  stable"
   sudo apt-get update
   sudo apt-get install docker-ce
   sudo apt-get update
@@ -477,7 +461,7 @@ Once the required knowledgebase is ready, project was set up in Chameleon
 cloud node to ensure that all the required installation and configurations are
 registered appropriately for the report.
 
-\subsection{Setup and BenchMarking}
+\subsection{Setup}
 
 Once the Python API was developed it was tested to retrieve the times
 recorded. Apple Inc was used for this project. This is because, it has a good
@@ -511,17 +495,56 @@ The web service was deployed.
   kubectl apply -f kubernetes/flask-web-ui.yml
 \end{verbatim}
 
-Once deployed, it takes few seconds for the external IP to be available. With
-the available external IP, it was possible to access the web service locally.
-The default flask-web-ui.yml in the git repo defines 3 replicas.
+Once deployed, it takes around a minute for the external IP to be available.
+With the available external IP, User can access the deployed microservice from
+anywhere. The default flask-web-ui.yml in the git repo defines 3 replicas.
 
-Later the replicas in the yml was changed to benchmark the different in
-download and performance.
+A short video was recorded to present the overview of the
+project~\cite{hid-sp18-417-project_overview}.
+
+Finally once all the required data was collected the deployment and cluster
+was cleaned up.
+
+A demonstration of the replication manager and the cleanup process is
+  recorded~\cite{hid-sp18-417-google_cleanup} during the project.
+
+\subsection{Performance Analysis}
+
+Now that Good Kubernetes Engine is explored for ease of deployment and
+management, it was important to log an analysis. Timestamp was added in the
+Makefile to check on the cluster creation time. It was found that both cluster
+creation and deletion take on an average 2 minutes. Similar approach was taken
+on checking the time taken to expose a web-service to a specific port. It was
+concluded that it takes on an average one minute to avail the external IP. 
+
+Depending of the web traffic estimated the number of replication of webservice
+is defined so that the fall backs can appropriately addressed. Though
+Kubernetes replication manager monitors the resources and pods to ensure that
+replications mentioned for a deployment is maintained, it take few seconds for
+the restoration to take place in case of fallbacks. The presence of
+replications balances the loads and manages fall-backs. Behind the scenes all
+the user requests are directed to the master, which in turn directs traffic
+appropriately to ensure even distribution. As a part of the benchmarking
+process, it was analyzed if the number of service replicas affect performance.
+
+
+The Python-Flask microservice developed for the stock analysis has two
+components one is fetching the stocks data from WIKI and the other is to
+process the data in order to render the pygal graph. Python script was added
+to log both the download and processing time. Now this timing was compared to
+check if a gcloud deployment replicas affect the processing time. The times
+were logged initially by running the service locally and then later in the
+gcloud cluster. The replicas were changed by changing the respective metdata
+in kubectl yml file in API codebase. This is how processing time was logged
+for: local-flask server run, containerized microservice with 3, 2 and 1
+replica in a gcloud kubernetes cluster. Time in case was recorded five times
+and the mean of each set was taken in consideration.
+
 
 The Figure~\ref{fig:project_deployment} depicts the confiuration change to
-deploy only two replicas of the python microservice.
+deploy the microservice with single replica.
 
-\begin{figure}[htb]
+\begin{figure*}[htb]
   \begin{footnotesize}  
   \begin{verbatim}
   cc@kubenode:~/hid-sp18-417/project-code/API/flask$ cat kubernetes/flask-web-ui.yml
@@ -586,7 +609,7 @@ Here is the outcome of the excercise in Figure~\ref{tab:performance}:
 
 \begin{table}[htb]
 	\centering
-  \caption{Total data downaload and processing time in different computing platforms}\label{tab:performance}
+  \caption{Downaload and Processing time in different platforms}\label{tab:performance}
 
 	\begin{tabular}{*{3}{c}}
 		\toprule
@@ -594,26 +617,24 @@ Here is the outcome of the excercise in Figure~\ref{tab:performance}:
 		\midrule
 		NA & sec: MS & sec: MS \\
 		\midrule
-		Local hosting & 4:351  & 1:523 \\
-		GKE deployment: 3 replicas & 4:834 & 1:636 \\
-    GKE deployment: 2 replicas & 4:090 & 0:942 \\
-    GKE deployment: 1 replicas & 4:358 & 1:157 \\
+		Local hosting & 4:365  & 2.173 \\
+		GKE deployment: 3 replicas & 3:834 & 1:525 \\
+    GKE deployment: 2 replicas & 3:246 & 1:671 \\
+    GKE deployment: 1 replicas & 3:315 & 1:730 \\
 		\bottomrule
 	\end{tabular}
 \end{table}
-
-A short video was recorded to present the overview of the
-project~\cite{hid-sp18-417-project_overview}.
-
-Finally once all the required data was collected the deployment and cluster
-was cleaned up.
-
-A demonstration of the replication manager and the cleanup process is
-  recorded~\cite{hid-sp18-417-google_cleanup} during the project.
+A visual reprsentation is also provided in Figure~\ref{fig:benchmark_graph}
+\begin{figure}[htb]
+	\centering\includegraphics[width=\columnwidth]{images/hid_417_benchmark_graph.png}
+  \caption{Graph - Benchmarking Performance Data}
+  \label{fig:benchmark_graph}
+\end{figure}
+With above data the improvement in performance is considerable in the containerized Kubernetes cluster.
 \section{Conclusion}
 
 
-In this project the developed Flask-Python microservice was successfully
+In this project, the developed Flask-Python microservice was successfully
 deployed in a GKE cluster. The setup and configuration process for Google
 Kubernetes cluster was explained. It was felt that the time duration for
 creating the cluster can be improvised.
