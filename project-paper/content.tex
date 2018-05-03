@@ -16,7 +16,7 @@
 \renewcommand{\shortauthors}{Rashmi Ray}
 
 \begin{abstract}
-  The project analyses how the Kubernetes deployment metdata affects
+  The project analyses how the Kubernetes deployment metadata affects
   performance of a containerized application. The experiment platform will be
   Google Kubernetes Engine. Kubernetes cluster will be setup in a Chameleon
   node to ensure isolated setup. The project will also involve developing a
@@ -31,7 +31,7 @@
 
 \end{abstract}
 
-\keywords{hid-sp18-417, Kubernetes, deloyment, performance, GKE, containers}
+\keywords{hid-sp18-417, Kubernetes, deployment, performance, GKE, containers, replication manager}
 
 
 \maketitle
@@ -64,25 +64,30 @@ case of fallbacks.
 
 
 Kubernetes is also known as K8 or kube. This is originally developed based on
-Google's container management system. A Kubernetes can be deployed in a single
+Google's container management system. Kubernetes can be deployed in a single
 host, but it is designed to be benefitted efficiently when used for a cluster
 of connected hosts. Use of a cluster of multiple hosts facilitates high
 availability.
 
-
 The primary components of the system are: 
 
-The master node controls the other nodes. Nodes are the hosts in the cluster.
-Pod is a group of one or more containers deployed in a node. The Replication
-Controller monitors and controls the replicas of the services. A Kubernetes
-service is a single unit that has a collection of rules/configuration for
-effective deployment of a container. Various metadata such as replicas,
-environment, track, port, can be defined in a service configuration.  Kubectl
-is the command line configuration tool provided by Kubernetes.
+A master node controls the other nodes. The master monitors all the events in
+the clusters and execute appropriate  rules for the flawless execution of a
+cluster.  Nodes are the other hosts in the cluster. The containerized
+applications are run in the nodes. Pod is a group of one or more containers
+deployed in a node. The Replication Controller monitors and controls the
+replicas of the services. A Kubernetes cluster serves as a single unit that
+has a collection of rules/configuration for effective deployment of
+containerized applications. Various metadata such as replicas, environment,
+track, port, can be defined in a service configuration.  Kubectl is the
+command line configuration tool provided by Kubernetes.
 
 The Figure~\ref{fig:kube-archtecture} explains the Kubernetes architecture.
 The master is responsible for managing the deployments, scheduling, exposing
-containerized applications.
+containerized applications. In order to maintain high availability a
+microservice deployment can define number replicas. Each of the replicas run
+in a separate pod. The set of a replicas for a deployment is called a replica-
+set. The replication manager monitors the replicas for fall-back handling.
 
 \begin{figure}[htb]
 	\centering\includegraphics[width=\columnwidth]{images/hid_417_Kubernetes-Architecture.png}
@@ -94,11 +99,13 @@ containerized applications.
 \section{ Google Kubernetes Engine}
 
 Google Kubernetes Engine[GKE] is the tool developed by Google Inc to simplify
-the management and orchestration of Kubernetes systems, in Google's public
-cloud services. This will help an organization focus more into their ow
-product development than worrying about Kubernetes networking, upgrades and
-maintenance. As the main focus of the project was Kubernetes, it was vital for
-the author to include GKE in the scope of the project.
+the management and orchestration of Kubernetes systems, in Google's cloud
+services. This will help an organization focus more into their own product
+development than worrying about Kubernetes networking, upgrades and
+maintenance. As the main focus of the paper was Kubernetes, it was vital for
+the author to choose GKE as the primary focus of the project.
+
+
 
 \subsection{Benefits}
 
@@ -114,12 +121,12 @@ the system step by step.
 
 \subsection{Initial Setup}
 
-The project availed the free tier offer from Google to bring in the setup and
-configuration experience for GKE. As of Apr 2018, Google is offering a 300
+The project leveraged the free tier offer from Google to bring in the setup
+and configuration experience for GKE. As of Apr 2018, Google is offering a 300
 dollar credit to be used with in 12 months. The free trial has certain
 resource usage limitations applied. Please refer to Google's documentation for
-details. But the bottom-line was that the limitation was well within the
-projects scope to explore the cluster's performance so the author decided to
+details. But the bottom-line was that the limitation was well within the scope
+of the project to explore a cluster's performance. So the author decided to
 go ahead with the research.
 
 Here are the key steps involved to get you started with GKE:
@@ -645,8 +652,9 @@ for Google Kubernetes cluster was explained. It was felt that the time
 duration for creating and deleting the cluster can be improvised.
 
 It was demonstrated how a replication manager automatically assure that the
-deployment configurations are managed in case of fallback. In one of the video
-demonstrated how the replication manager monitors and handles fallbacks.
+deployment configurations are managed in case of fallback. In one of the
+videos demonstrated how the replication manager monitors and handles
+fallbacks.
 
 It was also analyzed if the number of replications does affect the performance
 of a containerized application. It was found that there is considerable
