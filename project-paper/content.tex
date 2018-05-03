@@ -138,10 +138,10 @@ Here are the key steps involved to get you started with GKE:
 \begin{footnotesize}
 \begin{verbatim}
 # Create environment variable for correct distribution
-export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
+export CLOUD_SDK_REPO='cloud-sdk-$(lsb_release -c -s)'
 
 # Add the Cloud SDK distribution URI as a package source
-echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+echo 'deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main' | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
 
 # Import the Google Cloud Platform public key
 curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
@@ -152,7 +152,7 @@ sudo apt-get update && sudo apt-get install google-cloud-sdk
 
 \end{footnotesize}
 \caption{Setup of gcloud SDK}\label{F:setup}
-\end{figure}
+\end{figure*}
 
 
 \item[Install Kubernetes] Now install Kubernetes:
@@ -366,11 +366,11 @@ the specific a line chart using the respective data collected from Quadl.
 
 The project uses the Python datetime module to record the data download time
 and processing time.
-\begin{figure}[htb]
-	\centering\includegraphics[width=\columnwidth]{images/hid_417_project_datetime.png}
-  \caption{Project datetime}
-  \label{fig:kube-datetime}
-\end{figure}
+\begin{verbatim}
+  Data Load Time: 0:00:03.251368
+
+  Data Processing Time: 0:00:01.612638
+\end{verbatim}
 
 \subsection{Docker - Container}
 Docker is an opensource tool that enables virtualization at the Operating
@@ -386,14 +386,14 @@ Installation:
   sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
   sudo apt-key fingerprint 0EBFCD88
-  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs)  stable"
+  sudo add-apt-repository 'deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs)  stable'
   sudo apt-get update
   sudo apt-get install docker-ce
   sudo apt-get update
 \end{verbatim}
 \end{footnotesize}
 \caption{Docker Installation}\label{F:setup}
-\end{figure}
+\end{figure*}
 For the project the stocks microservice is containerized to be deployed in
 Kubectl using a Dockerfile~\cite{hid-sp18-417-Dockerfile}.
 
@@ -603,7 +603,7 @@ cc@kubenode:~/hid-sp18-417/project-code/API/flask$
 
   \caption{gcloud Deployment - 2 replicas}
   \label{fig:project_deployment}
-\end{figure}
+\end{figure*}
 
 Here is the outcome of the excercise in Figure~\ref{tab:performance}:
 
@@ -655,6 +655,5 @@ suggestions in writing this paper.
 
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{report}
-
 
 
