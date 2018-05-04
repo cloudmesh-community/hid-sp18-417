@@ -16,7 +16,7 @@
 \renewcommand{\shortauthors}{Rashmi Ray}
 
 \begin{abstract}
-  The project analyses how the Kubernetes deployment metdata affects
+  The project analyses how the Kubernetes deployment metadata affects
   performance of a containerized application. The experiment platform will be
   Google Kubernetes Engine. Kubernetes cluster will be setup in a Chameleon
   node to ensure isolated setup. The project will also involve developing a
@@ -31,7 +31,7 @@
 
 \end{abstract}
 
-\keywords{hid-sp18-417, Kubernetes, deloyment, performance, GKE, containers}
+\keywords{hid-sp18-417, Kubernetes, deployment, performance, GKE, containers, replication manager}
 
 
 \maketitle
@@ -64,25 +64,30 @@ case of fallbacks.
 
 
 Kubernetes is also known as K8 or kube. This is originally developed based on
-Google's container management system. A Kubernetes can be deployed in a single
+Google's container management system. Kubernetes can be deployed in a single
 host, but it is designed to be benefitted efficiently when used for a cluster
 of connected hosts. Use of a cluster of multiple hosts facilitates high
 availability.
 
-
 The primary components of the system are: 
 
-The master node controls the other nodes. Nodes are the hosts in the cluster.
-Pod is a group of one or more containers deployed in a node. The Replication
-Controller monitors and controls the replicas of the services. A Kubernetes
-service is a single unit that has a collection of rules/configuration for
-effective deployment of a container. Various metadata such as replicas,
-environment, track, port, can be defined in a service configuration.  Kubectl
-is the command line configuration tool provided by Kubernetes.
+A master node controls the other nodes. The master monitors all the events in
+the clusters and execute appropriate  rules for the flawless execution of a
+cluster.  Nodes are the other hosts in the cluster. The containerized
+applications are run in the nodes. Pod is a group of one or more containers
+deployed in a node. The Replication Controller monitors and controls the
+replicas of the services. A Kubernetes cluster serves as a single unit that
+has a collection of rules/configuration for effective deployment of
+containerized applications. Various metadata such as replicas, environment,
+track, port, can be defined in a service configuration.  Kubectl is the
+command line configuration tool provided by Kubernetes.
 
 The Figure~\ref{fig:kube-archtecture} explains the Kubernetes architecture.
 The master is responsible for managing the deployments, scheduling, exposing
-containerized applications.
+containerized applications. In order to maintain high availability a
+microservice deployment can define number replicas. Each of the replicas run
+in a separate pod. The set of a replicas for a deployment is called a replica-
+set. The replication manager monitors the replicas for fall-back handling.
 
 \begin{figure}[htb]
 	\centering\includegraphics[width=\columnwidth]{images/hid_417_Kubernetes-Architecture.png}
@@ -94,11 +99,13 @@ containerized applications.
 \section{ Google Kubernetes Engine}
 
 Google Kubernetes Engine[GKE] is the tool developed by Google Inc to simplify
-the management and orchestration of Kubernetes systems, in Google's public
-cloud services. This will help an organization focus more into their ow
-product development than worrying about Kubernetes networking, upgrades and
-maintenance. As the main focus of the project was Kubernetes, it was vital for
-the author to include GKE in the scope of the project.
+the management and orchestration of Kubernetes systems, in Google's cloud
+services. This will help an organization focus more into their own product
+development than worrying about Kubernetes networking, upgrades and
+maintenance. As the main focus of the paper was Kubernetes, it was vital for
+the author to choose GKE as the primary focus of the project.
+
+
 
 \subsection{Benefits}
 
@@ -114,13 +121,13 @@ the system step by step.
 
 \subsection{Initial Setup}
 
-The project availed the free tier offer from Google to bring in the setup and
-configuration experience for GKE. As of Apr 2018, Google is offering a 300
+The project leveraged the free tier offer from Google to bring in the setup
+and configuration experience for GKE. As of Apr 2018, Google is offering a 300
 dollar credit to be used with in 12 months. The free trial has certain
 resource usage limitations applied. Please refer to Google's documentation for
-details. But the bottom-line was that the limitation was well within the
-projects scope to explore the cluster's performance so the author decided to
-go ahead with the research.
+details. But the bottom-line was that the limitation was well within the scope
+of the project to explore a cluster's performance. So the author decided to go
+ahead with the research.
 
 Here are the key steps involved to get you started with GKE:
 
@@ -141,7 +148,7 @@ Here are the key steps involved to get you started with GKE:
 \begin{figure*}[htb]
 \begin{footnotesize}
 \begin{verbatim}
-# Create environment variable for correct distribution
+# Environment variable setup
 export CLOUD_SDK_REPO='cloud-sdk-$(lsb_release -c -s)'
 
 # Add the Cloud SDK distribution URI as a package source
@@ -169,17 +176,16 @@ sudo apt-get install kubectl
 initiating it is important to know that you will setup the project and compute
 zone during the setup. You can setup the compute zone later but it is advised
 to set your preference at the beginning to ensure that your requests are
-directed in the nearest processing center. [Still to discover more about
-zones, but went ahead a selected central-zone-1] 
+processed in the nearest processing center. [e.g. central-zone-1] 
 
 Now ready to initiate gcloud:
 \begin{verbatim}
   gcloud init
 \end{verbatim}
 
-\item[Create Cluster] A cluster consists of one master multiple worker
+\item[Create Cluster] A cluster consists of atleast one master multiple worker
 machines. gcloud creates a cluster of three nodes by default. This takes
-couple of seconds. Once done it is important to get the credential, so that
+arounf two minutes. Once done it is important to get the credential, so that
 containers can be deployed in the cluster. During the project this process
 consistently recorded to be more than two
 minutes~\cite{hid-sp18-417-cluster-creation-video}.
@@ -200,8 +206,9 @@ access: [A loadbalancer exposes the service externally.]
         --type 'LoadBalancer'
 \end{verbatim}
 
-Once exposed it may take a moment for the service to get exposed. The external
-IP can be fetched using the following:
+Once the command is run it may take around a minute for the service to get
+exposed and to avail the external IP. The external IP can be fetched using the
+following:
 
 \begin{verbatim}
   kubectl get service [SERVICE_NAME]
@@ -224,7 +231,8 @@ accessed in any web browser.
   Please keep in mind that if a pod is generated through a deployment then to
   remove it the deployment has to be deleted. Deleting the pod will regenerate
   the pod because the replication manager is monitoring the failure and
-  handling them.
+  handling them. A Makefile is provided in the project-code repo for the
+  gcloud setup.
 
 \end{description}
 
@@ -261,9 +269,9 @@ availability of large collection of free libraries. The project uses Python
 2.7 that is available in the native version of Ubuntu 16.04.
 
 \subsection{Flask - Rest Service}
-Flask is a micro framework developed for web development. The framework is
-widely popular because its light weight and has minimal dependencies. Flask
-was originally written in Python. Some of the key features of Flask are
+Flask is a micro framework developed for web-based applicatios. The framework
+is widely popular because of its light weight and has minimal dependencies.
+Flask was originally written in Python. Some of the key features of Flask are
 integrated rest service, secure cookies and unit testing support. The
 framework is also compatible with Google App
 Engine~\cite{hid-sp18-417-google_appengine}
@@ -296,14 +304,14 @@ Here is how to execute the code:
   python main.py
 \end{verbatim}
 
-Here is the sample console output when the Flask server spins up
-
+Here is the sample console output when the Flask server spins up The
+DockerFile is provided in the prihectrepo to containerize the application. 
 \begin{verbatim}
   * Running on http://localhost:5000/
 \end{verbatim}
-A point worth noting here is that Flask server spins up in 5000 port by
-default. While exploring exposing the web service on gcloud, the following
-command was found inevitable.
+A point worth noting here is that Flask server spins up at 5000 port by
+default. While exploring deploying the web service on gcloud, the following
+command was found crucial.
 
 \begin{verbatim}
   if __name__ == '__main__':
@@ -340,7 +348,9 @@ In the project ticker is set to be query param for the flask REST api.
 \subsection{Pygal - Graph Module}
 Pygal~\cite{hid-sp18-417-Pygal} is a Python module for interactive plotting.
 There other Python modules are available in Python, but Pygal specializes in
-SVG~\cite{hid-sp18-417-SVG} graphics.
+SVG~\cite{hid-sp18-417-SVG} graphics. The graph considers the last 2000 days
+record fpr the selected company to analyse its stocks high, low and close
+value.
 
 Installation:
 
@@ -645,15 +655,16 @@ for Google Kubernetes cluster was explained. It was felt that the time
 duration for creating and deleting the cluster can be improvised.
 
 It was demonstrated how a replication manager automatically assure that the
-deployment configurations are managed in case of fallback. In one of the video
-demonstrated how the replication manager monitors and handles fallbacks.
+deployment configurations are managed in case of fallback. In one of the
+videos demonstrated how the replication manager monitors and handles
+fallbacks.
 
 It was also analyzed if the number of replications does affect the performance
 of a containerized application. It was found that there is considerable
 improvement when locally run service is containerized and deployed in
 Kubernetes cluster, but the number of replicas does not affect the performance
 much. The automatic monitoring and management of the Kubernetes master makes
-the system so efficient.
+the system very efficient.
 \begin{acks}
 The author would like to thank Dr.\ Gregor von Laszewski for his support and
 suggestions in writing this paper.
