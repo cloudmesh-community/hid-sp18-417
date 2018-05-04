@@ -126,8 +126,8 @@ and configuration experience for GKE. As of Apr 2018, Google is offering a 300
 dollar credit to be used with in 12 months. The free trial has certain
 resource usage limitations applied. Please refer to Google's documentation for
 details. But the bottom-line was that the limitation was well within the scope
-of the project to explore a cluster's performance. So the author decided to
-go ahead with the research.
+of the project to explore a cluster's performance. So the author decided to go
+ahead with the research.
 
 Here are the key steps involved to get you started with GKE:
 
@@ -148,7 +148,7 @@ Here are the key steps involved to get you started with GKE:
 \begin{figure*}[htb]
 \begin{footnotesize}
 \begin{verbatim}
-# Create environment variable for correct distribution
+# Environment variable setup
 export CLOUD_SDK_REPO='cloud-sdk-$(lsb_release -c -s)'
 
 # Add the Cloud SDK distribution URI as a package source
@@ -176,17 +176,16 @@ sudo apt-get install kubectl
 initiating it is important to know that you will setup the project and compute
 zone during the setup. You can setup the compute zone later but it is advised
 to set your preference at the beginning to ensure that your requests are
-directed in the nearest processing center. [Still to discover more about
-zones, but went ahead a selected central-zone-1] 
+processed in the nearest processing center. [e.g. central-zone-1] 
 
 Now ready to initiate gcloud:
 \begin{verbatim}
   gcloud init
 \end{verbatim}
 
-\item[Create Cluster] A cluster consists of one master multiple worker
+\item[Create Cluster] A cluster consists of atleast one master multiple worker
 machines. gcloud creates a cluster of three nodes by default. This takes
-couple of seconds. Once done it is important to get the credential, so that
+arounf two minutes. Once done it is important to get the credential, so that
 containers can be deployed in the cluster. During the project this process
 consistently recorded to be more than two
 minutes~\cite{hid-sp18-417-cluster-creation-video}.
@@ -207,8 +206,9 @@ access: [A loadbalancer exposes the service externally.]
         --type 'LoadBalancer'
 \end{verbatim}
 
-Once exposed it may take a moment for the service to get exposed. The external
-IP can be fetched using the following:
+Once the command is run it may take around a minute for the service to get
+exposed and to avail the external IP. The external IP can be fetched using the
+following:
 
 \begin{verbatim}
   kubectl get service [SERVICE_NAME]
@@ -231,7 +231,8 @@ accessed in any web browser.
   Please keep in mind that if a pod is generated through a deployment then to
   remove it the deployment has to be deleted. Deleting the pod will regenerate
   the pod because the replication manager is monitoring the failure and
-  handling them.
+  handling them. A Makefile is provided in the project-code repo for the
+  gcloud setup.
 
 \end{description}
 
@@ -268,9 +269,9 @@ availability of large collection of free libraries. The project uses Python
 2.7 that is available in the native version of Ubuntu 16.04.
 
 \subsection{Flask - Rest Service}
-Flask is a micro framework developed for web development. The framework is
-widely popular because its light weight and has minimal dependencies. Flask
-was originally written in Python. Some of the key features of Flask are
+Flask is a micro framework developed for web-based applicatios. The framework
+is widely popular because of its light weight and has minimal dependencies.
+Flask was originally written in Python. Some of the key features of Flask are
 integrated rest service, secure cookies and unit testing support. The
 framework is also compatible with Google App
 Engine~\cite{hid-sp18-417-google_appengine}
@@ -303,14 +304,14 @@ Here is how to execute the code:
   python main.py
 \end{verbatim}
 
-Here is the sample console output when the Flask server spins up
-
+Here is the sample console output when the Flask server spins up The
+DockerFile is provided in the prihectrepo to containerize the application. 
 \begin{verbatim}
   * Running on http://localhost:5000/
 \end{verbatim}
-A point worth noting here is that Flask server spins up in 5000 port by
-default. While exploring exposing the web service on gcloud, the following
-command was found inevitable.
+A point worth noting here is that Flask server spins up at 5000 port by
+default. While exploring deploying the web service on gcloud, the following
+command was found crucial.
 
 \begin{verbatim}
   if __name__ == '__main__':
@@ -347,7 +348,9 @@ In the project ticker is set to be query param for the flask REST api.
 \subsection{Pygal - Graph Module}
 Pygal~\cite{hid-sp18-417-Pygal} is a Python module for interactive plotting.
 There other Python modules are available in Python, but Pygal specializes in
-SVG~\cite{hid-sp18-417-SVG} graphics.
+SVG~\cite{hid-sp18-417-SVG} graphics. The graph considers the last 2000 days
+record fpr the selected company to analyse its stocks high, low and close
+value.
 
 Installation:
 
@@ -661,7 +664,7 @@ of a containerized application. It was found that there is considerable
 improvement when locally run service is containerized and deployed in
 Kubernetes cluster, but the number of replicas does not affect the performance
 much. The automatic monitoring and management of the Kubernetes master makes
-the system so efficient.
+the system very efficient.
 \begin{acks}
 The author would like to thank Dr.\ Gregor von Laszewski for his support and
 suggestions in writing this paper.
